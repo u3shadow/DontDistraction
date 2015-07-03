@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">勿扰phone</string>
+
+    <string name="welcome">请输入时间（分钟）</string>
+    <string name="action_settings">Settings</string>
+    <string name="useagain">继续使用</string>
+    <string name="sendmsg">发送微博</string>
+    <string name="about">本软件主要为了帮助大家戒掉学习或者工作过程中不自觉玩手机的坏习惯,:)</string>
+    <string name="settime">设置时间</string>
+    <string name="about_button">关于</string>
+    <string name="logoff">注销</string>
+    <string name="notlog">未登录</string>
+    <string name="about_title">关于</string>
+    <string name="settime_title">开始</string>
+    <string name="login">微博登陆</string>
+    <string name="logoff_success">注销成功</string>
+    <string name="endlock">结束学习</string>
+    <string name="time_remain">时间还剩：</string>
+    <string name="minute">分</string>
+    <string name="second">秒</string>
+    <string name="time_end">治疗成功！</string>
+    <string name="wrong_time">请输入正确的时间</string>
+    <string name="enter_answer">答题！</string>
+    <string name="send_success">心灵鸡汤微博发送成功！</string>
+    <string name="badresult">发！</string>
+    <string name="istimed">已经开始计时，请熄灭再点亮屏幕</string>
+    <string name="begain">开始！</string>
+    <string name="complete">完成！</string>
+    <string name="not_send">怂了，不发</string>
+    <string name="bad_result_msg">不太顺利啊，发条微博鼓励下自己吧！</string>
+    <string name="good_result_msg">治疗成功！恭喜你！再来一次吧</string>
+    <string name="input_answer">答对即可完成本次治疗</string>
+    <string name="wrong_answer">额，好像答错了哦</string>
+</resources>
