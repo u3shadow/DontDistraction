@@ -12,8 +12,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.u3.dontdistraction.R;
+import com.u3.dontdistraction.databasedal.RecordDal;
+import com.u3.dontdistraction.model.Record;
 import com.u3.dontdistraction.util.MsgSender;
 import com.u3.dontdistraction.util.Recoder;
+
+import java.sql.SQLException;
+import java.util.Date;
 
 /**
  * Created by U3 on 2015/5/29.
@@ -24,12 +29,15 @@ public class ResultActivity extends Activity {
     private MsgSender sender;
     private TextView text;
     private ImageView image;
+    private RecordDal recordDal;
+    private Record record;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         initData();
+        addRecord();
         initView();
         initListener();
         setView();
@@ -39,6 +47,16 @@ public class ResultActivity extends Activity {
     private void initData() {
         sender = new MsgSender(this);
         Recoder.isTimed = false;
+        recordDal = new RecordDal(this);
+        record = new Record(Recoder.isTimeEnd, new Date());
+    }
+
+    private void addRecord() {
+        try {
+            recordDal.addRecord(record);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private void initView() {

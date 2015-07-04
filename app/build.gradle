@@ -26,10 +26,9 @@ dependencies {
     compile(project(':exlib:slidingmenulibrary')) {
         exclude group: 'com.google.android', module: 'support-v4'
     }
-    compile (project(':exlib:WeiboSDK:app')){
+    compile(project(':exlib:WeiboSDK:app')) {
         exclude group: 'com.google.android', module: 'support-v4'
     }
-
-
-
+    compile files('libs/ormlite-core-4.48.jar')
+    compile files('libs/ormlite-android-4.48.jar')
 }

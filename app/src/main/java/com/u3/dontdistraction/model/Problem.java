@@ -3,11 +3,11 @@ package com.u3.dontdistraction.model;
 /**
  * Created by U3 on 2015/5/29.
  */
-public class ProblemEntity {
+public class Problem {
     private String problem;
     private String answer;
 
-    public ProblemEntity(String problem, String answer) {
+    public Problem(String problem, String answer) {
         this.problem = problem;
         this.answer = answer;
     }

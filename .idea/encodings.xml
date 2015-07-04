@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/libs/ormlite-android-4.48.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/libs/ormlite-core-4.48.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/test/com/u3/dontdistraction/database/ApplicationTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/buttonback.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/inputback.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/lockbuttonback.xml" charset="GBK" />
