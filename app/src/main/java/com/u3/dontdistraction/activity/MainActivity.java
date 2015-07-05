@@ -17,6 +17,7 @@ import android.widget.Toast;
 /*import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;*/
+import com.j256.ormlite.stmt.query.NeedsFutureClause;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
@@ -24,6 +25,7 @@ import com.sina.weibo.sdk.openapi.LogoutAPI;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.u3.dontdistraction.fragments.AboutFragment;
+import com.u3.dontdistraction.fragments.RecordFragment;
 import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Constants;
 import com.u3.dontdistraction.R;
@@ -38,6 +40,7 @@ public class MainActivity extends SlidingFragmentActivity {
     SlidingMenu menu;
     Fragment aboutFragment;
     Fragment setTimeFragment;
+    Fragment recordFragment;
     private LogOutRequestListener mLogoutListener = new LogOutRequestListener();
     private Oauth2AccessToken token;
     @Override
@@ -64,6 +67,7 @@ public class MainActivity extends SlidingFragmentActivity {
     private void initFragment() {
         aboutFragment = new AboutFragment();
         setTimeFragment = new SetTimeFragment();
+        recordFragment = new RecordFragment();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.layout_main, setTimeFragment);
         fragmentTransaction.commit();
@@ -101,6 +105,16 @@ public class MainActivity extends SlidingFragmentActivity {
                 menu.toggle();
             }
         });
+        Button recordButton = (Button) findViewById(R.id.bt_record);
+        recordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.layout_main, recordFragment);
+                fragmentTransaction.commit();
+                menu.toggle();
+            }
+        });
         Button logoffButton = (Button) findViewById(R.id.bt_logoff);
         logoffButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,6 +129,7 @@ public class MainActivity extends SlidingFragmentActivity {
                 }
             }
         });
+
     }
 
     private class LogOutRequestListener implements RequestListener {

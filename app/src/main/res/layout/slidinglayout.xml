@@ -34,6 +34,14 @@
     android:text="@string/settime"
     />
     <Button
+        android:id="@+id/bt_record"
+        android:background="@drawable/slidingmenu"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/record_button"
+        />
+    <Button
         android:id="@+id/bt_about"
         android:background="@drawable/slidingmenu"
         android:layout_marginTop="10dp"
@@ -41,6 +49,7 @@
         android:layout_height="wrap_content"
         android:text="@string/about_button"
         />
+
     <Button
         android:id="@+id/bt_logoff"
         android:background="@drawable/slidingmenu"
