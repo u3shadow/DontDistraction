@@ -71,11 +71,13 @@ public class RecordAdapter extends BaseAdapter {
             holder.unlockData.setVisibility(View.GONE);
         }
         if (currentRecord.isSuccess()) {
-            //  holder.itemLayout.setBackground(R.drawable.success_record_pic);
+             holder.itemLayout.setBackgroundResource(R.drawable.success_record_pic);
              holder.isSuccessText.setText(R.string.unlock_success);
+            holder.isSuccessText.setTextColor(mContext.getResources().getColor(R.color.success_record));
         } else {
-            // holder.itemLayout.setBackground(R.drawable.fail_record_pic);
+            holder.itemLayout.setBackgroundResource(R.drawable.fail_record_pic);
             holder.isSuccessText.setText(R.string.unlock_fail);
+            holder.isSuccessText.setTextColor(mContext.getResources().getColor(R.color.fail_record));
         }
         holder.unlockDataText.setText(DataTools.getDay(currentRecord.getDate()));
         holder.unlockTimeText.setText(DataTools.getTime(currentRecord.getDate()));

@@ -31,7 +31,10 @@
     <string name="good_result_msg">治疗成功！恭喜你！再来一次吧</string>
     <string name="input_answer">答对即可完成本次治疗</string>
     <string name="wrong_answer">额，好像答错了哦</string>
-    <string name="unlock_success">成功</string>
-    <string name="unlock_fail">失败</string>
+    <string name="unlock_success">学习成功</string>
+    <string name="unlock_fail">学习失败</string>
     <string name="record_button">历史记录</string>
+    <string name="norecord_title">没有记录</string>
+    <string name="norecord">还没有记录，请先学习</string>
+    <string name="okbutton">确定</string>
 </resources>
