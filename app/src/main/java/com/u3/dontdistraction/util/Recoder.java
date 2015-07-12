@@ -10,4 +10,5 @@ public class Recoder {
     public static boolean isTimeEnd = false;
     public static boolean isTimed = false;
     public static Context mainContext = null;
+    public static Boolean isFront = false;
 }

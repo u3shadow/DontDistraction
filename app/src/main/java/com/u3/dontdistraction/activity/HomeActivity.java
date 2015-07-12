@@ -12,6 +12,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 
+import com.u3.dontdistraction.util.Recoder;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class HomeActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
-        isLock = sharedPreferences.getBoolean("IsLocked",false);
+        isLock = Recoder.isFront;
         //判断锁屏Activity是否在前台
         if (isLock) {
             Intent mIntent = new Intent(this, ScreenLockActivity.class);

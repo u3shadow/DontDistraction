@@ -32,9 +32,7 @@ public class ScreenLockActivity extends Activity {
     TextView problem;
     Problems problems;
     EditText answer;
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
-    private boolean isFront;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +41,6 @@ public class ScreenLockActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
                         WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_screenlock);
-        sharedPreferences = getSharedPreferences("homeChoice", MODE_PRIVATE);
 
         initView();
         initProblem();
@@ -95,7 +92,7 @@ public class ScreenLockActivity extends Activity {
             public void onClick(View v) {
                 if (answer.getText().toString() != null && problems.isAnswerRight(answer.getText().toString())) {
                     Recoder.isTimeEnd = true;
-
+                    Recoder.isFront = false;
                     Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
                     startActivity(mIntent);
                     finish();
@@ -108,6 +105,7 @@ public class ScreenLockActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Recoder.isTimeEnd = false;
+                Recoder.isFront = false;
                 Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
                 startActivity(mIntent);
                 finish();
@@ -153,19 +151,7 @@ public class ScreenLockActivity extends Activity {
     }
     @Override
     protected void onStart() {
-        isFront = true;
-        editor = sharedPreferences.edit();
-        editor.putBoolean("IsLocked",isFront);
-        editor.commit();
+       Recoder.isFront = true;
         super.onStart();
-    }
-
-    @Override
-    protected void onStop() {
-        isFront = false;
-        editor = sharedPreferences.edit();
-        editor.putBoolean("IsLocked",isFront);
-        editor.commit();
-        super.onStop();
     }
 }

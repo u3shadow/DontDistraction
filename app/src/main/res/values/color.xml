@@ -4,4 +4,6 @@
     <color name="sliding_button">#FFF</color>
     <color name="success_record">#FFF</color>
     <color name="fail_record">#FFF</color>
+    <color name="sameday">#FFDDD3</color>
+    <color name="notsameday">#5DBCD2</color>
 </resources>

@@ -40,7 +40,7 @@ public class RecordAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
@@ -68,7 +68,11 @@ public class RecordAdapter extends BaseAdapter {
              isSameDay = currentDay.equals(lastDay);
         }
         if (isSameDay) {
-            holder.unlockData.setVisibility(View.GONE);
+           holder.unlockData.setBackgroundResource(R.color.sameday);
+        }
+        else
+        {
+            holder.unlockData.setBackgroundResource(R.color.notsameday);
         }
         if (currentRecord.isSuccess()) {
              holder.itemLayout.setBackgroundResource(R.drawable.success_record_pic);

@@ -6,6 +6,7 @@ import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +17,13 @@ import com.u3.dontdistraction.adapter.RecordAdapter;
 import com.u3.dontdistraction.databasedal.RecordDal;
 import com.u3.dontdistraction.model.Record;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by U3 on 2015/7/5.
  */
-public class RecordFragment extends ListFragment {
+public class RecordFragment extends Fragment {
     private RecordAdapter adapter;
     private RecordDal recordDal;
     @Override
@@ -45,7 +47,22 @@ public class RecordFragment extends ListFragment {
                     })
                     .create().show();
         }
-        adapter = new RecordAdapter(recordDal.getList(),getActivity());
-        setListAdapter(adapter);
+        List<Record> mList = recordDal.getList();
+        List<Record> list1 = new ArrayList<>();
+        for(int i = mList.size() - 1;i >=  0;i--)
+        {
+            list1.add(mList.get(i));
+        }
+        mList = list1;
+        adapter = new RecordAdapter(mList,getActivity());
+
+    }
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_record,null);
+        ListView listView = (ListView)view.findViewById(R.id.lv_record);
+         listView.setAdapter(adapter);
+        return view;
     }
 }
