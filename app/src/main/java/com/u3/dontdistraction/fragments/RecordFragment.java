@@ -10,12 +10,15 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 
 import com.u3.dontdistraction.R;
+import com.u3.dontdistraction.adapter.ExpandRecordAdapter;
 import com.u3.dontdistraction.adapter.RecordAdapter;
 import com.u3.dontdistraction.databasedal.RecordDal;
 import com.u3.dontdistraction.model.Record;
+import com.u3.dontdistraction.util.DataTools;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +27,11 @@ import java.util.List;
  * Created by U3 on 2015/7/5.
  */
 public class RecordFragment extends Fragment {
-    private RecordAdapter adapter;
+    private ExpandRecordAdapter adapter;
     private RecordDal recordDal;
+   private List<String> group;
+   private List<List<Record>> child;
+    private List<Record> mList;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,22 +53,56 @@ public class RecordFragment extends Fragment {
                     })
                     .create().show();
         }
-        List<Record> mList = recordDal.getList();
+        mList = recordDal.getList();
         List<Record> list1 = new ArrayList<>();
         for(int i = mList.size() - 1;i >=  0;i--)
         {
             list1.add(mList.get(i));
         }
         mList = list1;
-        adapter = new RecordAdapter(mList,getActivity());
+        genGroup();
+        genChild();
+        adapter = new ExpandRecordAdapter(mList,getActivity(),group,child);
 
     }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_record,null);
-        ListView listView = (ListView)view.findViewById(R.id.lv_record);
+        View view = inflater.inflate(R.layout.fragment_record_expand,null);
+        ExpandableListView listView = (ExpandableListView)view.findViewById(R.id.elv_record);
          listView.setAdapter(adapter);
         return view;
+    }
+    public void genGroup()
+    {
+        group = new ArrayList<String>();
+        for(int i = 0;i < mList.size();i++) {
+            String currentDay = DataTools.getDay(mList.get(i).getDate());
+            if( group.indexOf(currentDay) < 0)
+            {
+                group.add(currentDay);
+            }
+        }
+    }
+    public void genChild()
+    {
+        child = new ArrayList<List<Record>>();
+        for(int i = 0;i < group.size();i++)
+        {
+            List<Record> item = new ArrayList<Record>();
+            child.add(item);
+        }
+        for(int i = 0;i < group.size();i++)
+        {
+            String groupDay = group.get(i);
+            for(int j = 0;j < mList.size();j++)
+            {
+                String childDay = DataTools.getDay(mList.get(j).getDate());
+                if(childDay.equals(groupDay))
+                {
+                    child.get(i).add(mList.get(j));
+                }
+            }
+        }
     }
 }
