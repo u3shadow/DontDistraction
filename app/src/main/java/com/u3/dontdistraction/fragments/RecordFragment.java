@@ -3,7 +3,6 @@ package com.u3.dontdistraction.fragments;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.app.ListFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,10 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.adapter.ExpandRecordAdapter;
 import com.u3.dontdistraction.adapter.RecordAdapter;
 import com.u3.dontdistraction.databasedal.RecordDal;
 import com.u3.dontdistraction.model.Record;
@@ -27,7 +24,7 @@ import java.util.List;
  * Created by U3 on 2015/7/5.
  */
 public class RecordFragment extends Fragment {
-    private ExpandRecordAdapter adapter;
+    private RecordAdapter adapter;
     private RecordDal recordDal;
    private List<String> group;
    private List<List<Record>> child;
@@ -62,7 +59,7 @@ public class RecordFragment extends Fragment {
         mList = list1;
         genGroup();
         genChild();
-        adapter = new ExpandRecordAdapter(mList,getActivity(),group,child);
+        adapter = new RecordAdapter(mList,getActivity(),group,child);
 
     }
     @Nullable
