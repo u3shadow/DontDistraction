@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.KeyEvent;
@@ -31,7 +32,9 @@ public class ScreenLockActivity extends Activity {
     TextView problem;
     Problems problems;
     EditText answer;
-
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+    private boolean isFront;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,8 @@ public class ScreenLockActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
                         WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_screenlock);
+        sharedPreferences = getSharedPreferences("homeChoice", MODE_PRIVATE);
+
         initView();
         initProblem();
         timeCountDown();
@@ -90,6 +95,7 @@ public class ScreenLockActivity extends Activity {
             public void onClick(View v) {
                 if (answer.getText().toString() != null && problems.isAnswerRight(answer.getText().toString())) {
                     Recoder.isTimeEnd = true;
+
                     Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
                     startActivity(mIntent);
                     finish();
@@ -136,5 +142,30 @@ public class ScreenLockActivity extends Activity {
             return true;
         }
         return true;
+    }
+    //屏蔽menu
+    @Override
+    public void onWindowFocusChanged(boolean pHasWindowFocus) {
+        super.onWindowFocusChanged(pHasWindowFocus);
+        if (!pHasWindowFocus) {
+            sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+        }
+    }
+    @Override
+    protected void onStart() {
+        isFront = true;
+        editor = sharedPreferences.edit();
+        editor.putBoolean("IsLocked",isFront);
+        editor.commit();
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        isFront = false;
+        editor = sharedPreferences.edit();
+        editor.putBoolean("IsLocked",isFront);
+        editor.commit();
+        super.onStop();
     }
 }

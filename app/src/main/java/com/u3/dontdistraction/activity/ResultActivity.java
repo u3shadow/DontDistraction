@@ -122,6 +122,12 @@ public class ResultActivity extends Activity {
         registerReceiver(endReciver, filter);
     }
 
+    @Override
+    protected void onStop() {
+
+        super.onStop();
+    }
+
     final BroadcastReceiver endReciver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
