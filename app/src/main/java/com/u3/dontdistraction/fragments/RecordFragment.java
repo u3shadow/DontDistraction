@@ -15,7 +15,7 @@ import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.adapter.RecordAdapter;
 import com.u3.dontdistraction.databasedal.RecordDal;
 import com.u3.dontdistraction.model.Record;
-import com.u3.dontdistraction.util.DataTools;
+import com.u3.dontdistraction.util.DateTools;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +74,7 @@ public class RecordFragment extends Fragment {
     {
         group = new ArrayList<String>();
         for(int i = 0;i < mList.size();i++) {
-            String currentDay = DataTools.getDay(mList.get(i).getDate());
+            String currentDay = DateTools.getDay(mList.get(i).getDate());
             if( group.indexOf(currentDay) < 0)
             {
                 group.add(currentDay);
@@ -94,7 +94,7 @@ public class RecordFragment extends Fragment {
             String groupDay = group.get(i);
             for(int j = 0;j < mList.size();j++)
             {
-                String childDay = DataTools.getDay(mList.get(j).getDate());
+                String childDay = DateTools.getDay(mList.get(j).getDate());
                 if(childDay.equals(groupDay))
                 {
                     child.get(i).add(mList.get(j));

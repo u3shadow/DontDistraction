@@ -10,10 +10,8 @@ import android.widget.TextView;
 
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.model.Record;
-import com.u3.dontdistraction.util.DataTools;
-import com.u3.dontdistraction.util.Recoder;
+import com.u3.dontdistraction.util.DateTools;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -103,8 +101,8 @@ public class RecordAdapter extends BaseExpandableListAdapter {
             holder.isSuccessText.setText(R.string.unlock_fail);
             holder.isSuccessText.setTextColor(context.getResources().getColor(R.color.fail_record));
         }
-        holder.unlockDataText.setText(DataTools.getDay(currentRecord.getDate()));
-        holder.unlockTimeText.setText(DataTools.getTime(currentRecord.getDate()));
+        holder.unlockDataText.setText(DateTools.getDay(currentRecord.getDate()));
+        holder.unlockTimeText.setText(DateTools.getTime(currentRecord.getDate()));
         return view;
     }
     class Holder {

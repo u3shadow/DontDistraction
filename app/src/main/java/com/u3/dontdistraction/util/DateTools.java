@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Created by U3 on 2015/7/5.
  */
-public class DataTools {
+public class DateTools {
     public static String getDay(Date date) {
         return getFormatDateTime(date, "yyyy-MM-dd");
     }
