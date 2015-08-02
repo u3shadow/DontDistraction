@@ -134,4 +134,9 @@ public class ResultActivity extends Activity {
             finish();
         }
     };
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(endReciver);
+    }
 }

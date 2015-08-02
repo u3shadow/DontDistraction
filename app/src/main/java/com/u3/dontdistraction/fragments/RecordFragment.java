@@ -33,7 +33,7 @@ public class RecordFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         recordDal = new RecordDal(getActivity());
-        List list = recordDal.getList();
+       List list = recordDal.getList();
         if(list.size() == 0)
         {
             AlertDialog.Builder dialogBuilder =  new AlertDialog.Builder(getActivity());
@@ -102,4 +102,5 @@ public class RecordFragment extends Fragment {
             }
         }
     }
+   //class GetTask
 }

@@ -130,4 +130,9 @@ public class LoginActivity extends Activity {
                     "Auth exception : " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(endReciver);
+    }
 }

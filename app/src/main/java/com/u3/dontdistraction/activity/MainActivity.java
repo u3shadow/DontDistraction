@@ -35,6 +35,9 @@ import com.u3.dontdistraction.util.Recoder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends SlidingFragmentActivity {
     SlidingMenu menu;
@@ -43,6 +46,7 @@ public class MainActivity extends SlidingFragmentActivity {
     Fragment recordFragment;
     private LogOutRequestListener mLogoutListener = new LogOutRequestListener();
     private Oauth2AccessToken token;
+    List<Button> buttonList;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,41 +81,42 @@ public class MainActivity extends SlidingFragmentActivity {
         menu = getSlidingMenu();
         menu.setMode(SlidingMenu.LEFT);
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        menu.setShadowWidth(R.dimen.shadow_width);
-        menu.setShadowDrawable(R.drawable.shadow_slidingmenu);
         menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
         menu.setFadeDegree(0.35f);
         setBehindContentView(R.layout.slidinglayout);
     }
 
     private void setListener() {
-        Button setButton = (Button) findViewById(R.id.bt_time_set);
+        final Button setButton = (Button) findViewById(R.id.bt_time_set);
         setButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.layout_main, setTimeFragment);
                 fragmentTransaction.commit();
+                reSetButton(setButton.getId());
                 menu.toggle();
             }
         });
-        Button aboutButton = (Button) findViewById(R.id.bt_about);
+        final  Button aboutButton = (Button) findViewById(R.id.bt_about);
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.layout_main, aboutFragment);
                 fragmentTransaction.commit();
+                reSetButton(aboutButton.getId());
                 menu.toggle();
             }
         });
-        Button recordButton = (Button) findViewById(R.id.bt_record);
+        final   Button recordButton = (Button) findViewById(R.id.bt_record);
         recordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.layout_main, recordFragment);
                 fragmentTransaction.commit();
+                reSetButton(recordButton.getId());
                 menu.toggle();
             }
         });
@@ -129,9 +134,28 @@ public class MainActivity extends SlidingFragmentActivity {
                 }
             }
         });
-
+       buttonList = new ArrayList<Button>(){
+            {
+                add(setButton);
+                add(aboutButton);
+                add(recordButton);
+            }
+        };
+        reSetButton(setButton.getId());
     }
-
+    private void reSetButton(int id)
+    {
+        for(int i = 0;i < buttonList.size();i++)
+        {
+            if(buttonList.get(i).getId() != id){
+            buttonList.get(i).setBackgroundColor(getResources().getColor(R.color.sliding_button));
+            }
+            else
+            {
+                buttonList.get(i).setBackgroundColor(getResources().getColor(R.color.sliding_button_press));
+            }
+        }
+    }
     private class LogOutRequestListener implements RequestListener {
         @Override
         public void onComplete(String response) {
@@ -190,4 +214,9 @@ public class MainActivity extends SlidingFragmentActivity {
             finish();
         }
     };
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(endReciver);
+    }
 }

@@ -154,4 +154,9 @@ public class ScreenLockActivity extends Activity {
        Recoder.isFront = true;
         super.onStart();
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(endReciver);
+    }
 }

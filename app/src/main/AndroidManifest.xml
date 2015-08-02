@@ -11,6 +11,9 @@
         android:logo="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <activity android:name=".activity.WelComeActivity">
+
+        </activity>
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
