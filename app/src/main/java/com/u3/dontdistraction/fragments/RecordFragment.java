@@ -4,12 +4,14 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.ProgressBar;
 
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.adapter.RecordAdapter;
@@ -29,45 +31,32 @@ public class RecordFragment extends Fragment {
    private List<String> group;
    private List<List<Record>> child;
     private List<Record> mList;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        recordDal = new RecordDal(getActivity());
-       List list = recordDal.getList();
-        if(list.size() == 0)
-        {
-            AlertDialog.Builder dialogBuilder =  new AlertDialog.Builder(getActivity());
-            dialogBuilder.setTitle(getActivity().getResources().getString(R.string.norecord_title))
-                    .setMessage(getActivity().getResources().getString(R.string.norecord))
-                    .setPositiveButton(getActivity().getResources().getString(R.string.okbutton), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                         Fragment setTimeFragment = new SetTimeFragment();
-                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.layout_main, setTimeFragment);
-                            fragmentTransaction.commit();
-                        }
-                    })
-                    .create().show();
-        }
-        mList = recordDal.getList();
-        List<Record> list1 = new ArrayList<>();
-        for(int i = mList.size() - 1;i >=  0;i--)
-        {
-            list1.add(mList.get(i));
-        }
-        mList = list1;
-        genGroup();
-        genChild();
-        adapter = new RecordAdapter(mList,getActivity(),group,child);
-
+    ExpandableListView listView;
+    ProgressBar progressBar;
+    public void showNoDialog()
+    {
+        AlertDialog.Builder dialogBuilder =  new AlertDialog.Builder(getActivity());
+        dialogBuilder.setTitle(getActivity().getResources().getString(R.string.norecord_title))
+                .setMessage(getActivity().getResources().getString(R.string.norecord))
+                .setPositiveButton(getActivity().getResources().getString(R.string.okbutton), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Fragment setTimeFragment = new SetTimeFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.layout_main, setTimeFragment);
+                        fragmentTransaction.commit();
+                    }
+                })
+                .create().show();
     }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_record_expand,null);
-        ExpandableListView listView = (ExpandableListView)view.findViewById(R.id.elv_record);
-         listView.setAdapter(adapter);
+        listView = (ExpandableListView)view.findViewById(R.id.elv_record);
+        progressBar = (ProgressBar)view.findViewById(R.id.progress);
+        GetListTask task = new GetListTask();
+        task.execute();
         return view;
     }
     public void genGroup()
@@ -102,5 +91,40 @@ public class RecordFragment extends Fragment {
             }
         }
     }
-   //class GetTask
+   class GetListTask extends AsyncTask<Void,Void,Void>{
+       @Override
+       protected Void doInBackground(Void... params) {
+
+               recordDal = new RecordDal(getActivity());
+               mList = recordDal.getList();
+
+           return null;
+       }
+
+       @Override
+       protected void onPostExecute(Void aVoid) {
+           super.onPostExecute(aVoid);
+           if(mList.size() == 0)
+           {
+               showNoDialog();
+           }
+           List<Record> list1 = new ArrayList<>();
+           int j = 0;
+           for(int i = mList.size() - 1;i >=  0;i--)
+           {
+               if(j < 200){
+               list1.add(mList.get(i));
+               j++;}
+               else{
+                   break;}
+           }
+           mList = list1;
+           genGroup();
+           genChild();
+           adapter = new RecordAdapter(mList,getActivity(),group,child);
+           listView.setAdapter(adapter);
+           progressBar.setVisibility(View.GONE);
+       }
+   }
+
 }

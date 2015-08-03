@@ -22,13 +22,13 @@ public class RecordOpenHelperTest extends AndroidTestCase{
             try {
                 List<Record> recordsOld = helper.getRecordDao().queryForAll();
                 int size = recordsOld.size();
-                for(int i = 0;i < 3 ;i++)
+                for(int i = 0;i < 2000 ;i++)
                 {
                     Record  p1 = new Record(true,new Date());
                     helper.getRecordDao().create(p1);
                 }
                 List<Record> records = helper.getRecordDao().queryForAll();
-                Assert.assertEquals("Not right number record",3,records.size() - size);
+                Assert.assertEquals("Not right number record",2000,records.size() - size);
             } catch (SQLException e) {
                 e.printStackTrace();
             }

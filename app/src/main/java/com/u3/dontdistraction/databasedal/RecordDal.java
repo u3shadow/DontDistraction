@@ -34,4 +34,14 @@ public class RecordDal {
         }
         return list;
     }
+    public List<Record> getUpdate(List<Record> list)
+    {
+      /*  List<Record> list1 = new ArrayList<Record>();
+        try {
+            list1 = openHelper.getRecordDao().is();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }*/
+        return list;
+    }
 }
