@@ -10,6 +10,8 @@ android {
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -17,12 +19,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
 
 }
 
 dependencies {
+/*    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test:runner:0.2'
+    androidTestCompile 'com.android.support.test:rules:0.2'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.1'*/
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:22.1.1'
+  /*  compile 'com.android.support:appcompat-v7:22.1.1'*/
     compile(project(':exlib:slidingmenulibrary')) {
         exclude group: 'com.google.android', module: 'support-v4'
     }

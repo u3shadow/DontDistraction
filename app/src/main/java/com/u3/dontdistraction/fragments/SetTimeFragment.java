@@ -40,11 +40,11 @@ public class SetTimeFragment extends Fragment {
         setTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!AccessTokenKeeper.readAccessToken(getActivity()).isSessionValid()) {
+             /*   if (!AccessTokenKeeper.readAccessToken(getActivity()).isSessionValid()) {
                     checkIsLogin();
                     Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.notlog), Toast.LENGTH_LONG).show();
                     return;
-                }
+                }*/
                 if (!time.getText().toString().equals("") && !time.getText().toString().equals("0")) {
                     if (!Recoder.isTimed) {
                         reopenScreenLock();

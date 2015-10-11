@@ -26,7 +26,7 @@ import java.util.Date;
 public class ResultActivity extends Activity {
     private Button okButton;
     private Button noSendButton;
-    private MsgSender sender;
+    //private MsgSender sender;
     private TextView text;
     private ImageView image;
     private RecordDal recordDal;
@@ -45,7 +45,7 @@ public class ResultActivity extends Activity {
     }
 
     private void initData() {
-        sender = new MsgSender(this);
+       // sender = new MsgSender(this);
         Recoder.isTimed = false;
         recordDal = new RecordDal(this);
         record = new Record(Recoder.isTimeEnd, new Date());
@@ -93,7 +93,7 @@ public class ResultActivity extends Activity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sender.sendMsg();
+               // sender.sendMsg();
                 Intent mIntent = new Intent(ResultActivity.this, MainActivity.class);
                 startActivity(mIntent);
                 finish();
