@@ -107,7 +107,7 @@ public class HomeActivity extends Activity {
             Intent intent = new Intent();
             intent.setComponent(componentName);
             context.startActivity(intent);
-            ((Activity) context).finish();
+           // ((Activity) context).finish();
         }
     }
 

@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="useagain">继续使用</string>
     <string name="sendmsg">发送微博</string>
-    <string name="about">本软件主要为了帮助大家戒掉学习或者工作过程中不自觉玩手机的坏习惯,:)</string>
+    <string name="about">【提醒】请在使用本软件前在系统设置中将主屏幕设置为本软件。</string>
     <string name="settime">设置时间</string>
     <string name="about_button">关于</string>
     <string name="logoff">注销</string>
@@ -37,4 +37,6 @@
     <string name="norecord_title">没有记录</string>
     <string name="norecord">还没有记录，请先学习</string>
     <string name="okbutton">确定</string>
+    <string name="firstHintHead">首次使用提示</string>
+    <string name="firstHintText">【提醒】请在使用本软件前在系统设置中将主屏幕设置为本软件,并按下一次HOME键选择当前主屏程序</string>
 </resources>

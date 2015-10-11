@@ -1,11 +1,14 @@
 package com.u3.dontdistraction.activity;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -52,17 +55,39 @@ public class MainActivity extends SlidingFragmentActivity {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+        showLint();
         isLogin();
         setEndReciver();
         initFragment();
         setmenu();
         setListener();
     }
+
+    private void showLint() {
+        SharedPreferences preferences  = getSharedPreferences("App",0);
+        Boolean isFirstTime = preferences.getBoolean("isFirstOpen", true);
+        if(isFirstTime)
+        {
+            AlertDialog.Builder dialogBuilder =  new AlertDialog.Builder(this);
+            dialogBuilder.setTitle(getResources().getString(R.string.firstHintHead))
+                    .setMessage(getResources().getString(R.string.firstHintText))
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        })
+                    .create().show();
+            isFirstTime = !isFirstTime;
+            preferences.edit().putBoolean("isFirstOpen",isFirstTime).commit();
+        }
+    }
+
     private void isLogin() {
-        token = AccessTokenKeeper.readAccessToken(this);
+      /*  token = AccessTokenKeeper.readAccessToken(this);
         if (token == null || !token.isSessionValid()) {
             jumpToLogin();
-        }
+        }*/
     }
     private void jumpToLogin(){
         Intent mIntent = new Intent(this, LoginActivity.class);
@@ -121,7 +146,7 @@ public class MainActivity extends SlidingFragmentActivity {
             }
         });
         Button logoffButton = (Button) findViewById(R.id.bt_logoff);
-        logoffButton.setOnClickListener(new View.OnClickListener() {
+      /*  logoffButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(AccessTokenKeeper.readAccessToken(MainActivity.this).isSessionValid()) {
@@ -133,7 +158,7 @@ public class MainActivity extends SlidingFragmentActivity {
                     startActivity(mIntent);
                 }
             }
-        });
+        });*/
        buttonList = new ArrayList<Button>(){
             {
                 add(setButton);
