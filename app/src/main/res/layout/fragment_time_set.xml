@@ -21,9 +21,9 @@
     <Button
         android:id="@+id/bt_time_set"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="@string/begain"
-        android:layout_below="@id/et_inputtime"
+        android:layout_alignParentTop="true"
         android:background="@drawable/buttonback"
         android:layout_width="240dp"
         android:layout_height="wrap_content" />
