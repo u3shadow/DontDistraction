@@ -14,6 +14,7 @@ import android.widget.ExpandableListView;
 import android.widget.ProgressBar;
 
 import com.u3.dontdistraction.R;
+import com.u3.dontdistraction.activity.MainActivity;
 import com.u3.dontdistraction.adapter.RecordAdapter;
 import com.u3.dontdistraction.databasedal.RecordDal;
 import com.u3.dontdistraction.model.Record;
@@ -33,6 +34,10 @@ public class RecordFragment extends Fragment {
     private List<Record> mList;
     ExpandableListView listView;
     ProgressBar progressBar;
+    public interface callback{
+        public void resetButton();
+        public void restLis();
+    }
     public void showNoDialog()
     {
         AlertDialog.Builder dialogBuilder =  new AlertDialog.Builder(getActivity());
@@ -41,10 +46,14 @@ public class RecordFragment extends Fragment {
                 .setPositiveButton(getActivity().getResources().getString(R.string.okbutton), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        MainActivity activity = (MainActivity)getActivity();
+                        activity.resetButton();
+                        activity.restLis();
                         Fragment setTimeFragment = new SetTimeFragment();
                         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.layout_main, setTimeFragment);
                         fragmentTransaction.commit();
+
                     }
                 })
                 .create().show();
