@@ -12,7 +12,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
-import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -22,33 +21,26 @@ import android.widget.Toast;
 
 /*import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.auth.sso.SsoHandler;*/
+import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.j256.ormlite.stmt.query.NeedsFutureClause;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
-import com.sina.weibo.sdk.openapi.LogoutAPI;
+import com.sina.weibo.sdk.openapi.LogoutAPI;*/
 import com.u3.dontdistraction.fragments.AboutFragment;
 import com.u3.dontdistraction.fragments.RecordFragment;
-import com.u3.dontdistraction.util.AccessTokenKeeper;
-import com.u3.dontdistraction.util.Constants;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.fragments.SetTimeFragment;
-import com.u3.dontdistraction.util.Recoder;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class MainActivity extends FragmentActivity implements RecordFragment.callback{
     Fragment aboutFragment;
     Fragment setTimeFragment;
     Fragment recordFragment;
-    private LogOutRequestListener mLogoutListener = new LogOutRequestListener();
-    private Oauth2AccessToken token;
+   // private LogOutRequestListener mLogoutListener = new LogOutRequestListener();
+   // private Oauth2AccessToken token;
     List<Button> buttonList;
     DrawerLayout drawerLayout;
     private Button recordButton;
@@ -195,7 +187,7 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
         setListener();
     }
 
-    private class LogOutRequestListener implements RequestListener {
+   /* private class LogOutRequestListener implements RequestListener {
         @Override
         public void onComplete(String response) {
             if (!TextUtils.isEmpty(response)) {
@@ -218,7 +210,7 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
         @Override
         public void onWeiboException(WeiboException e) {
         }
-    }
+    }*/
     private long exitTime;
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {// back退出应用程序

@@ -52,7 +52,6 @@ public class RecordFragment extends Fragment {
                 })
                 .create().show();
     }
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_record_expand,null);
