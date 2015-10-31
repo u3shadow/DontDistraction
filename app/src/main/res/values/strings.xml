@@ -38,5 +38,5 @@
     <string name="norecord">还没有记录，请先学习</string>
     <string name="okbutton">确定</string>
     <string name="firstHintHead">首次使用提示</string>
-    <string name="firstHintText">【提醒】请在使用本软件前在系统设置中将主屏幕设置为本软件,并按下一次HOME键选择当前主屏程序</string>
+    <string name="firstHintText">【提醒】请在使用本软件前在系统设置中将主屏幕设置为本软件</string>
 </resources>

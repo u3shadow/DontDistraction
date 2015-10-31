@@ -75,6 +75,7 @@ public class ScreenLockActivity extends Activity {
                         "com.u3.dontdistraction.activity.HomeActivity"),
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
+
     }
 
     public void timeCountDown() {
