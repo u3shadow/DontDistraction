@@ -11,10 +11,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/exlib" />
-            <option value="$PROJECT_DIR$/exlib/WeiboSDK" />
-            <option value="$PROJECT_DIR$/exlib/WeiboSDK/app" />
-            <option value="$PROJECT_DIR$/exlib/slidingmenulibrary" />
           </set>
         </option>
       </GradleProjectSettings>

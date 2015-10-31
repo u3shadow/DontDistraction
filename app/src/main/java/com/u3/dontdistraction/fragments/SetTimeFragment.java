@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.u3.dontdistraction.activity.LoginActivity;
 import com.u3.dontdistraction.activity.ScreenLockActivity;
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Recoder;
 
 public class SetTimeFragment extends Fragment {

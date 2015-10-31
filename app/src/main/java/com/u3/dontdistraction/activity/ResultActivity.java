@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.databasedal.RecordDal;
 import com.u3.dontdistraction.model.Record;
-import com.u3.dontdistraction.util.MsgSender;
 import com.u3.dontdistraction.util.Recoder;
 
 import java.sql.SQLException;

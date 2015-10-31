@@ -1,1 +1,1 @@
-include ':app',':exlib:slidingmenulibrary',':exlib:WeiboSDK:app'
+include ':app'
