@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.activity.MainActivity;
@@ -34,11 +35,12 @@ public class RecordFragment extends Fragment {
     private List<Record> mList;
     ExpandableListView listView;
     ProgressBar progressBar;
+    private TextView norecord;
     public interface callback{
         public void resetButton();
         public void restLis();
     }
-    public void showNoDialog()
+    public void noRecord()
     {
         AlertDialog.Builder dialogBuilder =  new AlertDialog.Builder(getActivity());
         dialogBuilder.setTitle(getActivity().getResources().getString(R.string.norecord_title))
@@ -46,14 +48,7 @@ public class RecordFragment extends Fragment {
                 .setPositiveButton(getActivity().getResources().getString(R.string.okbutton), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        MainActivity activity = (MainActivity)getActivity();
-                        activity.resetButton();
-                        activity.restLis();
-                        Fragment setTimeFragment = new SetTimeFragment();
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.layout_main, setTimeFragment);
-                        fragmentTransaction.commit();
-
+                        norecord.setVisibility(View.VISIBLE);
                     }
                 })
                 .create().show();
@@ -64,6 +59,7 @@ public class RecordFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_record_expand,null);
         listView = (ExpandableListView)view.findViewById(R.id.elv_record);
         progressBar = (ProgressBar)view.findViewById(R.id.progress);
+        norecord = (TextView)view.findViewById(R.id.Tv_norecord);
         GetListTask task = new GetListTask();
         task.execute();
         return view;
@@ -115,7 +111,11 @@ public class RecordFragment extends Fragment {
            super.onPostExecute(aVoid);
            if(mList.size() == 0)
            {
-               showNoDialog();
+               noRecord();
+           }
+           else
+           {
+               norecord.setVisibility(View.GONE);
            }
            List<Record> list1 = new ArrayList<>();
            int j = 0;

@@ -15,5 +15,15 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/Tv_norecord"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:textColor="#808069"
+            android:visibility="gone"
+            android:text=":( 没什么可以显示的"
+            />
     </FrameLayout>
 </RelativeLayout>
