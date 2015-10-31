@@ -2,10 +2,12 @@ package com.u3.dontdistraction.activity;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.KeyEvent;
@@ -32,7 +34,7 @@ public class ScreenLockActivity extends Activity {
     TextView problem;
     Problems problems;
     EditText answer;
-
+    PackageManager mPackageManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,32 @@ public class ScreenLockActivity extends Activity {
         timeCountDown();
         initListener();
         setEndReciver();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPackageManager = getApplicationContext().getPackageManager();
+        mPackageManager.setComponentEnabledSetting(new
+
+                        ComponentName("com.u3.dontdistraction",
+
+                        "com.u3.dontdistraction.activity.HomeActivity"),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mPackageManager = getApplicationContext().getPackageManager();
+        mPackageManager.setComponentEnabledSetting(new
+
+                        ComponentName("com.u3.dontdistraction",
+
+                        "com.u3.dontdistraction.activity.HomeActivity"),
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
     }
 
     public void timeCountDown() {

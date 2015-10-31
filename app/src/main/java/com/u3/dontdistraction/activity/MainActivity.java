@@ -4,11 +4,13 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -239,6 +241,7 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
         filter.addAction("com.u3.end");
         registerReceiver(endReciver, filter);
     }
+
     final BroadcastReceiver endReciver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
