@@ -38,13 +38,17 @@ public class HomeActivity extends Activity {
             startActivity(mIntent);
             finish();
         }
-        //不在前台则启动预设的主屏
-        else {
-            try {
-                homeChoice.originalHome();//启动预设主屏
-            } catch (Exception e) {
-                homeChoice.chooseBackHome();//还没有预设，让用户预设
-            }
+        else
+        {
+            PackageManager  mPackageManager;
+            mPackageManager = getApplicationContext().getPackageManager();
+            mPackageManager.setComponentEnabledSetting(new
+
+                            ComponentName("com.u3.dontdistraction",
+
+                            "com.u3.dontdistraction.activity.HomeActivity"),
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                    PackageManager.DONT_KILL_APP);
         }
     }
     public class HomeChoice {

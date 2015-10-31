@@ -57,6 +57,12 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
         setButton = (Button) findViewById(R.id.bt_time_set);
         aboutButton = (Button) findViewById(R.id.bt_about);
         recordButton = (Button) findViewById(R.id.bt_record);
+        mPackageManager = getApplicationContext().getPackageManager();
+        mPackageManager.setComponentEnabledSetting(new
+                        ComponentName("com.u3.dontdistraction",
+                        "com.u3.dontdistraction.activity.HomeActivity"),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
         showLint();
         isLogin();
         setEndReciver();
@@ -64,25 +70,10 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
         setmenu();
         setListener();
     }
-
+    PackageManager mPackageManager;
     private void showLint() {
         SharedPreferences preferences  = getSharedPreferences("App",0);
         Boolean isFirstTime = preferences.getBoolean("isFirstOpen", true);
-        if(isFirstTime)
-        {
-            AlertDialog.Builder dialogBuilder =  new AlertDialog.Builder(this);
-            dialogBuilder.setTitle(getResources().getString(R.string.firstHintHead))
-                    .setMessage(getResources().getString(R.string.firstHintText))
-                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        })
-                    .create().show();
-            isFirstTime = !isFirstTime;
-            preferences.edit().putBoolean("isFirstOpen",isFirstTime).commit();
-        }
     }
 
     private void isLogin() {

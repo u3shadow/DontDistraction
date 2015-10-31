@@ -1,13 +1,19 @@
 package com.u3.dontdistraction.fragments;
 
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +26,14 @@ import com.u3.dontdistraction.activity.ScreenLockActivity;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.util.Recoder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SetTimeFragment extends Fragment {
 
     Button setTime;
     EditText time;
-
+    PackageManager mPackageManager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getActivity().setTitle(getResources().getString(R.string.settime_title));
@@ -39,24 +48,52 @@ public class SetTimeFragment extends Fragment {
         setTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             /*   if (!AccessTokenKeeper.readAccessToken(getActivity()).isSessionValid()) {
-                    checkIsLogin();
-                    Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.notlog), Toast.LENGTH_LONG).show();
-                    return;
-                }*/
-                if (!time.getText().toString().equals("") && !time.getText().toString().equals("0")) {
-                    if (!Recoder.isTimed) {
-                        reopenScreenLock();
-                    } else {
-                        Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.istimed), Toast.LENGTH_LONG).show();
-                    }
+                PackageManager  mPackageManager;
+                mPackageManager = getActivity().getApplicationContext().getPackageManager();
+                mPackageManager.setComponentEnabledSetting(new
+
+                                ComponentName("com.u3.dontdistraction",
+
+                                "com.u3.dontdistraction.activity.HomeActivity"),
+                        PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                        PackageManager.DONT_KILL_APP);
+                if (!isHome()) {
+                    AlertDialog.Builder dialogBuilder =  new AlertDialog.Builder(getActivity());
+                    dialogBuilder.setTitle("设置主屏幕")
+                            .setMessage("请先在手机的设置中将勿扰phone\n" +
+                                    "设置为默认主屏幕（桌面）\n以获得更好的使用体验")
+                            .setPositiveButton(getActivity().getResources().getString(R.string.okbutton), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .create().show();
+
                 } else {
-                    Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.wrong_time), Toast.LENGTH_LONG).show();
+                    if (!time.getText().toString().equals("") && !time.getText().toString().equals("0")) {
+                        if (!Recoder.isTimed) {
+                            reopenScreenLock();
+                        } else {
+                            Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.istimed), Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.wrong_time), Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
     }
-
+    private boolean isHome()
+    {
+       Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        ResolveInfo resolveInfos = getActivity().getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        if(!resolveInfos.activityInfo.name.toString().equals("com.u3.dontdistraction.activity.HomeActivity"))
+        return false;
+        else
+        return true;
+    }
     private void reopenScreenLock() {
         Intent mIntent = new Intent(getActivity(), ScreenLockActivity.class);
         Recoder.lockTime = new Integer(time.getText().toString());
