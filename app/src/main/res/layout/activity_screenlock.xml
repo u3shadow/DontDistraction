@@ -12,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
         android:textSize="30sp"
+        android:textColor="#FFF"
         android:id="@+id/tv_msg"
         android:layout_height="wrap_content" />
 
@@ -32,6 +33,7 @@
         android:textSize="25dp"
         android:layout_margin="15dp"
         android:layout_centerHorizontal="true"
+        android:textColor="#FFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <Button
