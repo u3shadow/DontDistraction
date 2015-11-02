@@ -2,10 +2,12 @@ package com.u3.dontdistraction.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
@@ -32,6 +34,7 @@ public class HomeActivity extends Activity {
     protected void onStart() {
         super.onStart();
         isLock = Recoder.isFront;
+        setEndReciver();
         //判断锁屏Activity是否在前台
         if (isLock) {
             Intent mIntent = new Intent(this, ScreenLockActivity.class);
@@ -113,6 +116,24 @@ public class HomeActivity extends Activity {
             context.startActivity(intent);
            // ((Activity) context).finish();
         }
+    }
+    private void setEndReciver()
+    {
+        final IntentFilter filter = new IntentFilter();
+        filter.addAction("com.u3.end");
+        registerReceiver(endReciver, filter);
+    }
+
+    final BroadcastReceiver endReciver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            finish();
+        }
+    };
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(endReciver);
     }
 
 
