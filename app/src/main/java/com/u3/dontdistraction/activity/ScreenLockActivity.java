@@ -1,6 +1,7 @@
 package com.u3.dontdistraction.activity;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -67,15 +68,6 @@ public class ScreenLockActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        mPackageManager = getApplicationContext().getPackageManager();
-        mPackageManager.setComponentEnabledSetting(new
-
-                        ComponentName("com.u3.dontdistraction",
-
-                        "com.u3.dontdistraction.activity.HomeActivity"),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                PackageManager.DONT_KILL_APP);
-
     }
 
     public void timeCountDown() {
@@ -98,6 +90,8 @@ public class ScreenLockActivity extends Activity {
                 endLock.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Recoder.isTimeEnd = false;
+                        Recoder.isFront = false;
                         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
                         startActivity(mIntent);
                         finish();
@@ -120,6 +114,7 @@ public class ScreenLockActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (answer.getText().toString() != null && problems.isAnswerRight(answer.getText().toString())) {
+                    closeLock();
                     Recoder.isTimeEnd = true;
                     Recoder.isFront = false;
                     Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
@@ -133,6 +128,7 @@ public class ScreenLockActivity extends Activity {
         endLock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                closeLock();
                 Recoder.isTimeEnd = false;
                 Recoder.isFront = false;
                 Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
@@ -141,7 +137,17 @@ public class ScreenLockActivity extends Activity {
             }
         });
     }
+    private void closeLock()
+    {
+        mPackageManager = getApplicationContext().getPackageManager();
+        mPackageManager.setComponentEnabledSetting(new
 
+                        ComponentName("com.u3.dontdistraction",
+
+                        "com.u3.dontdistraction.activity.HomeActivity"),
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
+    }
     private void initProblem() {
         problems = new Problems();
         problem.setText(problems.getProblem());
@@ -165,7 +171,7 @@ public class ScreenLockActivity extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             return true;
-        } else if (keyCode == KeyEvent.KEYCODE_MENU) {
+        } else if (keyCode == KeyEvent.KEYCODE_MENU || keyCode == KeyEvent.KEYCODE_APP_SWITCH) {
             return true;
         }
         return true;
@@ -177,6 +183,15 @@ public class ScreenLockActivity extends Activity {
         if (!pHasWindowFocus) {
             sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         }
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        ActivityManager activityManager = (ActivityManager) getApplicationContext()
+                .getSystemService(Context.ACTIVITY_SERVICE);
+
+        activityManager.moveTaskToFront(getTaskId(), 0);
     }
     @Override
     protected void onStart() {

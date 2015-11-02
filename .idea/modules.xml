@@ -4,8 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DontDistraction.iml" filepath="$PROJECT_DIR$/DontDistraction.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exlib/exlib.iml" filepath="$PROJECT_DIR$/exlib/exlib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exlib/slidingmenulibrary/slidingmenulibrary.iml" filepath="$PROJECT_DIR$/exlib/slidingmenulibrary/slidingmenulibrary.iml" />
     </modules>
   </component>
 </project>
