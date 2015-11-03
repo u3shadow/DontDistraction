@@ -243,6 +243,7 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(endReciver);
+
     }
     private void toggle()
     {

@@ -127,7 +127,7 @@ public class HomeActivity extends Activity {
     final BroadcastReceiver endReciver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            finish();
+            HomeActivity.this.finish();
         }
     };
     @Override
