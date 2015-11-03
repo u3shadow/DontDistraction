@@ -90,7 +90,8 @@ public class ScreenLockActivity extends Activity {
                 endLock.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Recoder.isTimeEnd = false;
+                        closeLock();
+                        Recoder.isTimeEnd = true;
                         Recoder.isFront = false;
                         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
                         startActivity(mIntent);
