@@ -99,7 +99,6 @@ public class SetTimeFragment extends Fragment {
         Recoder.lockTime = new Integer(time.getText().toString());
         Recoder.isTimed = true;
         setRecevier();
-        mIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         getActivity().startActivity(mIntent);
     }
 
@@ -116,7 +115,6 @@ public class SetTimeFragment extends Fragment {
                 KeyguardManager km = (KeyguardManager) getActivity().getSystemService(Context.KEYGUARD_SERVICE);
                 if (km.inKeyguardRestrictedInputMode()) {
                     Intent alarmIntent = new Intent(context, ScreenLockActivity.class);
-                    alarmIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(alarmIntent);
                 }
             }
