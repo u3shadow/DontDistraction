@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.REORDER_TASKS" />
 
 <application
+      android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:logo="@drawable/icon"
