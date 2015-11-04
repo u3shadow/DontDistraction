@@ -95,7 +95,7 @@ public class ScreenLockActivity extends Activity {
                         Recoder.isFront = false;
                         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
                         startActivity(mIntent);
-                        finish();
+                        ScreenLockActivity.this.finish();
                     }
                 });
             }
@@ -120,7 +120,7 @@ public class ScreenLockActivity extends Activity {
                     Recoder.isFront = false;
                     Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
                     startActivity(mIntent);
-                    finish();
+                    ScreenLockActivity.this.finish();
                 } else {
                     Toast.makeText(ScreenLockActivity.this, getResources().getString(R.string.wrong_answer), Toast.LENGTH_LONG).show();
                 }
@@ -134,7 +134,7 @@ public class ScreenLockActivity extends Activity {
                 Recoder.isFront = false;
                 Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
                 startActivity(mIntent);
-                finish();
+                ScreenLockActivity.this.finish();
             }
         });
     }
