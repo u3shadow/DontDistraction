@@ -30,10 +30,11 @@
     <TextView
         android:id="@+id/tv_problem"
         android:layout_above="@id/et_answer"
-        android:textSize="25dp"
+        android:textSize="19sp"
         android:layout_margin="15dp"
         android:layout_centerHorizontal="true"
         android:textColor="#FFF"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <Button
