@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "22.0.1"
+    buildToolsVersion '23.0.1'
 
     defaultConfig {
         applicationId "com.u3.dontdistraction"
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 22
         versionCode 1
         versionName "1.1"
 
@@ -26,7 +26,6 @@ android {
 }
 
 dependencies {
-    
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:support-v4:21.+'
     compile files('libs/ormlite-core-4.48.jar')
