@@ -1,6 +1,5 @@
 package com.u3.dontdistraction.activity;
 
-import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
@@ -8,7 +7,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -16,8 +14,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,8 +24,6 @@ import android.widget.Toast;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.other.Problems;
 import com.u3.dontdistraction.util.Recoder;
-
-import java.security.cert.X509Certificate;
 
 /**
  * Created by U3 on 2015/5/29.
@@ -147,19 +142,8 @@ public class ScreenLockActivity extends Activity {
     }
     private void animation()
     {
-        float x  = answer.getPivotX();
-        TranslateAnimation animation1 = new TranslateAnimation(x,x + 10,answer.getPivotY(),answer.getPivotY());
-        animation1.setRepeatMode(Animation.RESTART);
-        animation1.setDuration(100);
-        TranslateAnimation animation2 = new TranslateAnimation(x,x - 10,answer.getPivotY(),answer.getPivotY());
-        animation2.setRepeatMode(Animation.RESTART);
-        animation2.setDuration(100);
-        animation2.setStartOffset(200);
-        AnimationSet set = new AnimationSet(true);
-        set.addAnimation(animation1);
-        set.addAnimation(animation2);
-        set.setRepeatCount(2);
-        answer.startAnimation(set);
+        TranslateAnimation animation1  = (TranslateAnimation)AnimationUtils.loadAnimation(this,R.anim.edittextshake);
+        answer.startAnimation(animation1);
     }
     private void closeLock()
     {
