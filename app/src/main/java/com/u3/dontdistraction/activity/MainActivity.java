@@ -33,6 +33,7 @@ import com.u3.dontdistraction.fragments.AboutFragment;
 import com.u3.dontdistraction.fragments.RecordFragment;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.fragments.SetTimeFragment;
+import com.u3.dontdistraction.util.RefreshProblem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,7 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
     private Button recordButton;
     private Button setButton;
     private Button aboutButton;
+    private Button refreshButton;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +59,7 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
         setButton = (Button) findViewById(R.id.bt_time_set);
         aboutButton = (Button) findViewById(R.id.bt_about);
         recordButton = (Button) findViewById(R.id.bt_record);
+        refreshButton = (Button)findViewById(R.id.bt_refresh);
         mPackageManager = getApplicationContext().getPackageManager();
         mPackageManager.setComponentEnabledSetting(new
                         ComponentName("com.u3.dontdistraction",
@@ -131,6 +134,13 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
                 fragmentTransaction.commit();
                 reSetButton(recordButton.getId());
                toggle();
+            }
+        });
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RefreshProblem refreshProblem = new RefreshProblem(MainActivity.this);
+                refreshProblem.refresh();
             }
         });
         Button logoffButton = (Button) findViewById(R.id.bt_logoff);

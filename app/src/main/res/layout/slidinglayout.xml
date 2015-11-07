@@ -42,6 +42,14 @@
         android:text="@string/record_button"
         />
     <Button
+        android:id="@+id/bt_refresh"
+        android:background="@drawable/slidingmenu"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="更新题目"
+        />
+    <Button
         android:id="@+id/bt_about"
         android:background="@drawable/slidingmenu"
         android:layout_marginTop="10dp"

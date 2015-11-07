@@ -151,13 +151,12 @@ public class ScreenLockActivity extends Activity {
         mPackageManager.setComponentEnabledSetting(new
 
                         ComponentName("com.u3.dontdistraction",
-
                         "com.u3.dontdistraction.activity.HomeActivity"),
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
     }
     private void initProblem() {
-        problems = new Problems();
+        problems = new Problems(ScreenLockActivity.this);
         problem.setText(problems.getProblem());
     }
 

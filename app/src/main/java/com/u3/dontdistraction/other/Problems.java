@@ -2,7 +2,15 @@ package com.u3.dontdistraction.other;
 
 
 
+import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.google.gson.Gson;
 import com.u3.dontdistraction.model.Problem;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +20,12 @@ import java.util.Random;
  * Created by U3 on 2015/5/29.
  */
 public class Problems {
-    private int promNumMax = 12;
+    public static String PROBLEM = "problem";
+    private int promNumMax;
     private int promNumMin = 0;
     private int promNumber = 0;
-    private static List<Problem> problemList = new ArrayList<Problem>() {
+    private Context mContext;
+    private  List<Problem> problemList = new ArrayList<Problem>() {
         {
             add(new Problem("牛虻的父亲是什么职业？", "神父"));
             add(new Problem("雅典王子忒修斯勇闯克里特岛斩杀米诺牛的时候采用了以下哪种算法？\n（A: 动态规划；B: 穷举；C: 记忆化搜索；D: Dijkstra算法。）", "A"));
@@ -30,15 +40,44 @@ public class Problems {
             add(new Problem("以下谁是二进制思想的最早提出者？\na，伏羲； b，姬昌； c，莱布尼茨；d，柏拉图。", "a"));
             add(new Problem("提出引力的科学家叫什么名字？", "牛顿"));
             add(new Problem("相对论是谁提出的？", "爱因斯坦"));
-
         }
     };
-public Problems()
+    private void setProblemList(List<Problem> problemList)
+    {
+        this.problemList = problemList;
+    }
+public Problems(Context context)
 {
+    mContext = context;
+    try {
+        getList();
+    } catch (JSONException e) {
+        e.printStackTrace();
+    }
     Random random = new Random();
-    int proNum = random.nextInt(promNumMax + 1);
+    promNumber = problemList.size();
+    int proNum = random.nextInt()%(promNumber);
+    if(proNum < 0)
+    {
+     proNum *= -1;
+    }
     promNumber = proNum;
 }
+    private void getList() throws JSONException {
+        SharedPreferences preferences  = mContext.getSharedPreferences(Problems.PROBLEM, Context.MODE_PRIVATE);
+        String json = preferences.getString(Problems.PROBLEM,"");
+        if(!json.equals(""))
+        {
+            JSONArray arr = new JSONArray(json);
+            Gson gson = new Gson();
+            List<Problem> list = new ArrayList<Problem>();
+            for(int i = 0;i < arr.length();i++)
+            {
+                list.add(gson.fromJson(arr.get(i).toString(),Problem.class));
+            }
+            setProblemList(list);
+        }
+    }
     public String getProblem() {
 
         return problemList.get(promNumber).getProblem();

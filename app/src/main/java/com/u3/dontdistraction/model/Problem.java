@@ -6,7 +6,8 @@ package com.u3.dontdistraction.model;
 public class Problem {
     private String problem;
     private String answer;
-
+    public Problem()
+    {}
     public Problem(String problem, String answer) {
         this.problem = problem;
         this.answer = answer;
