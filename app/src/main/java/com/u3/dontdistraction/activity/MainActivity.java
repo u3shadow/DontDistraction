@@ -38,7 +38,7 @@ import com.u3.dontdistraction.util.RefreshProblem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends FragmentActivity implements RecordFragment.callback{
+public class MainActivity extends FragmentActivity{
     Fragment aboutFragment;
     Fragment setTimeFragment;
     Fragment recordFragment;
@@ -50,30 +50,37 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
     private Button setButton;
     private Button aboutButton;
     private Button refreshButton;
+    private PackageManager mPackageManager;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-         drawerLayout = (DrawerLayout)findViewById(R.id.layout_main);
+        initView();
+        enableLauncher();
+        showLint();
+        isLogin();
+        setEndReciver();
+        initFragment();
+        setListener();
+    }
+    private void initView()
+    {
+        drawerLayout = (DrawerLayout)findViewById(R.id.layout_main);
         setButton = (Button) findViewById(R.id.bt_time_set);
         aboutButton = (Button) findViewById(R.id.bt_about);
         recordButton = (Button) findViewById(R.id.bt_record);
         refreshButton = (Button)findViewById(R.id.bt_refresh);
+    }
+    private void enableLauncher()
+    {
         mPackageManager = getApplicationContext().getPackageManager();
         mPackageManager.setComponentEnabledSetting(new
                         ComponentName("com.u3.dontdistraction",
                         "com.u3.dontdistraction.activity.HomeActivity"),
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                 PackageManager.DONT_KILL_APP);
-        showLint();
-        isLogin();
-        setEndReciver();
-        initFragment();
-        setmenu();
-        setListener();
     }
-    PackageManager mPackageManager;
     private void showLint() {
         SharedPreferences preferences  = getSharedPreferences("App",0);
         Boolean isFirstTime = preferences.getBoolean("isFirstOpen", true);
@@ -97,11 +104,6 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
         fragmentTransaction.add(R.id.Fl_content, setTimeFragment);
         fragmentTransaction.commit();
     }
-
-    private void setmenu() {
-
-    }
-
     private void setListener() {
 
         setButton.setOnClickListener(new View.OnClickListener() {
@@ -180,15 +182,7 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
         }
     }
 
-    @Override
-    public void resetButton() {
-        reSetButton(setButton.getId());
-    }
 
-    @Override
-    public void restLis() {
-        setListener();
-    }
 
    /* private class LogOutRequestListener implements RequestListener {
         @Override
@@ -216,11 +210,9 @@ public class MainActivity extends FragmentActivity implements RecordFragment.cal
     }*/
     private long exitTime;
     @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {// back退出应用程序
+    public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
                 && event.getAction() == KeyEvent.ACTION_DOWN) {
-            // 处理连按退出
-            // System.currentTimeMillis()无论何时调用，肯定大于2000
             if ((System.currentTimeMillis() - exitTime) > 2000)
             {
                 Toast.makeText(getApplicationContext(), "再按一次,退出",

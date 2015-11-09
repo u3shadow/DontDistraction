@@ -56,21 +56,17 @@ public class ScreenLockActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        enableLauncher();
+    }
+    private void enableLauncher()
+    {
         mPackageManager = getApplicationContext().getPackageManager();
         mPackageManager.setComponentEnabledSetting(new
-
                         ComponentName("com.u3.dontdistraction",
-
                         "com.u3.dontdistraction.activity.HomeActivity"),
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                 PackageManager.DONT_KILL_APP);
     }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
     public void timeCountDown() {
         lockTime = Recoder.lockTime;
         lockTime = lockTime * 60 * 1000;
@@ -91,7 +87,7 @@ public class ScreenLockActivity extends Activity {
                 endLock.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        closeLock();
+                        disableLauncher();
                         Recoder.isTimeEnd = true;
                         Recoder.isFront = false;
                         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
@@ -116,12 +112,10 @@ public class ScreenLockActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (answer.getText().toString() != null && problems.isAnswerRight(answer.getText().toString())) {
-                    closeLock();
+                    disableLauncher();
                     Recoder.isTimeEnd = true;
                     Recoder.isFront = false;
-                    Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
-                    startActivity(mIntent);
-                    ScreenLockActivity.this.finish();
+                    startResultActivity();
                 } else {
                     animation();
                     Toast.makeText(ScreenLockActivity.this, getResources().getString(R.string.wrong_answer), Toast.LENGTH_LONG).show();
@@ -131,21 +125,24 @@ public class ScreenLockActivity extends Activity {
         endLock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                closeLock();
+                disableLauncher();
                 Recoder.isTimeEnd = false;
                 Recoder.isFront = false;
-                Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
-                startActivity(mIntent);
-                ScreenLockActivity.this.finish();
+                startResultActivity();
             }
         });
+    }
+    private void startResultActivity(){
+        Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
+        startActivity(mIntent);
+        ScreenLockActivity.this.finish();
     }
     private void animation()
     {
         TranslateAnimation animation1  = (TranslateAnimation)AnimationUtils.loadAnimation(this,R.anim.edittextshake);
         answer.startAnimation(animation1);
     }
-    private void closeLock()
+    private void disableLauncher()
     {
         mPackageManager = getApplicationContext().getPackageManager();
         mPackageManager.setComponentEnabledSetting(new

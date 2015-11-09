@@ -43,33 +43,13 @@ public class SetTimeFragment extends Fragment {
         initListener();
         return view;
     }
-
     private void initListener() {
         setTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PackageManager  mPackageManager;
-                mPackageManager = getActivity().getApplicationContext().getPackageManager();
-                mPackageManager.setComponentEnabledSetting(new
-
-                                ComponentName("com.u3.dontdistraction",
-
-                                "com.u3.dontdistraction.activity.HomeActivity"),
-                        PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                        PackageManager.DONT_KILL_APP);
+                enableLauncher();
                 if (!isHome()) {
-                    AlertDialog.Builder dialogBuilder =  new AlertDialog.Builder(getActivity());
-                    dialogBuilder.setTitle("设置主屏幕")
-                            .setMessage("请先在手机的设置中将勿扰phone\n" +
-                                    "设置为默认主屏幕（桌面）\n以获得更好的使用体验")
-                            .setPositiveButton(getActivity().getResources().getString(R.string.okbutton), new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .create().show();
-
+                    showNotHomeDialog();
                 } else {
                     if (!time.getText().toString().equals("") && !time.getText().toString().equals("0")) {
                         if (!Recoder.isTimed) {
@@ -83,6 +63,32 @@ public class SetTimeFragment extends Fragment {
                 }
             }
         });
+    }
+    private void enableLauncher()
+    {
+        PackageManager  mPackageManager;
+        mPackageManager = getActivity().getApplicationContext().getPackageManager();
+        mPackageManager.setComponentEnabledSetting(new
+
+                        ComponentName("com.u3.dontdistraction",
+
+                        "com.u3.dontdistraction.activity.HomeActivity"),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
+    }
+    private void showNotHomeDialog()
+    {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+        dialogBuilder.setTitle("设置主屏幕")
+                .setMessage("请先在手机的设置中将勿扰phone\n" +
+                        "设置为默认主屏幕（桌面）\n以获得更好的使用体验")
+                .setPositiveButton(getActivity().getResources().getString(R.string.okbutton), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create().show();
     }
     private boolean isHome()
     {
