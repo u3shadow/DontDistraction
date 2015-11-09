@@ -1,12 +1,10 @@
 package com.u3.dontdistraction.activity;
 
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -19,7 +17,21 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.u3.dontdistraction.R;
+import com.u3.dontdistraction.fragments.AboutFragment;
+import com.u3.dontdistraction.fragments.RecordFragment;
+import com.u3.dontdistraction.fragments.SetTimeFragment;
+import com.u3.dontdistraction.util.RefreshProblem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /*import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
@@ -28,34 +40,59 @@ import com.j256.ormlite.stmt.query.NeedsFutureClause;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
-import com.sina.weibo.sdk.openapi.LogoutAPI;*/
-import com.u3.dontdistraction.fragments.AboutFragment;
-import com.u3.dontdistraction.fragments.RecordFragment;
-import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.fragments.SetTimeFragment;
-import com.u3.dontdistraction.util.RefreshProblem;
+import com.sina.weibo.sdk.openapi.LogoutAPI;*/import butterknife.Bind;
+import butterknife.ButterKnife;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class MainActivity extends FragmentActivity{
+public class MainActivity extends FragmentActivity {
     Fragment aboutFragment;
     Fragment setTimeFragment;
     Fragment recordFragment;
-   // private LogOutRequestListener mLogoutListener = new LogOutRequestListener();
-   // private Oauth2AccessToken token;
-    List<Button> buttonList;
+    // private LogOutRequestListener mLogoutListener = new LogOutRequestListener();
+    // private Oauth2AccessToken token;
+    List<LinearLayout> llList;
     DrawerLayout drawerLayout;
-    private Button recordButton;
-    private Button setButton;
-    private Button aboutButton;
-    private Button refreshButton;
+    @Bind(R.id.Fl_content)
+    FrameLayout FlContent;
+    @Bind(R.id.tv_username)
+    TextView tvUsername;
+    @Bind(R.id.iv_headpic)
+    SimpleDraweeView ivHeadpic;
+    @Bind(R.id.iv_settime)
+    ImageView ivSettime;
+    @Bind(R.id.Tv_settime)
+    TextView TvSettime;
+    @Bind(R.id.ll_time_set)
+    LinearLayout llTimeSet;
+    @Bind(R.id.iv_record)
+    ImageView ivRecord;
+    @Bind(R.id.Tv_record)
+    TextView TvRecord;
+    @Bind(R.id.ll_record)
+    LinearLayout llRecord;
+    @Bind(R.id.iv_refresh)
+    ImageView ivRefresh;
+    @Bind(R.id.Tv_refresh)
+    TextView TvRefresh;
+    @Bind(R.id.ll_refresh)
+    LinearLayout llRefresh;
+    @Bind(R.id.iv_about)
+    ImageView ivAbout;
+    @Bind(R.id.tv_about)
+    TextView tvAbout;
+    @Bind(R.id.ll_about)
+    LinearLayout llAbout;
+    @Bind(R.id.bt_logoff)
+    Button btLogoff;
+    @Bind(R.id.layout_main)
+    DrawerLayout layoutMain;
     private PackageManager mPackageManager;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         initView();
         enableLauncher();
         showLint();
@@ -64,16 +101,12 @@ public class MainActivity extends FragmentActivity{
         initFragment();
         setListener();
     }
-    private void initView()
-    {
-        drawerLayout = (DrawerLayout)findViewById(R.id.layout_main);
-        setButton = (Button) findViewById(R.id.bt_time_set);
-        aboutButton = (Button) findViewById(R.id.bt_about);
-        recordButton = (Button) findViewById(R.id.bt_record);
-        refreshButton = (Button)findViewById(R.id.bt_refresh);
+
+    private void initView() {
+        drawerLayout = (DrawerLayout) findViewById(R.id.layout_main);
     }
-    private void enableLauncher()
-    {
+
+    private void enableLauncher() {
         mPackageManager = getApplicationContext().getPackageManager();
         mPackageManager.setComponentEnabledSetting(new
                         ComponentName("com.u3.dontdistraction",
@@ -81,8 +114,9 @@ public class MainActivity extends FragmentActivity{
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                 PackageManager.DONT_KILL_APP);
     }
+
     private void showLint() {
-        SharedPreferences preferences  = getSharedPreferences("App",0);
+        SharedPreferences preferences = getSharedPreferences("App", 0);
         Boolean isFirstTime = preferences.getBoolean("isFirstOpen", true);
     }
 
@@ -92,10 +126,12 @@ public class MainActivity extends FragmentActivity{
             jumpToLogin();
         }*/
     }
-    private void jumpToLogin(){
+
+    private void jumpToLogin() {
         Intent mIntent = new Intent(this, LoginActivity.class);
         startActivity(mIntent);
     }
+
     private void initFragment() {
         aboutFragment = new AboutFragment();
         setTimeFragment = new SetTimeFragment();
@@ -104,41 +140,42 @@ public class MainActivity extends FragmentActivity{
         fragmentTransaction.add(R.id.Fl_content, setTimeFragment);
         fragmentTransaction.commit();
     }
+
     private void setListener() {
 
-        setButton.setOnClickListener(new View.OnClickListener() {
+        llTimeSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.Fl_content, setTimeFragment);
                 fragmentTransaction.commit();
-                reSetButton(setButton.getId());
-               toggle();
+                resetLL(llTimeSet.getId());
+                toggle();
             }
         });
 
-        aboutButton.setOnClickListener(new View.OnClickListener() {
+        llAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.Fl_content, aboutFragment);
                 fragmentTransaction.commit();
-                reSetButton(aboutButton.getId());
+                resetLL(llAbout.getId());
                 toggle();
             }
         });
 
-        recordButton.setOnClickListener(new View.OnClickListener() {
+        llRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.Fl_content, recordFragment);
                 fragmentTransaction.commit();
-                reSetButton(recordButton.getId());
-               toggle();
+                resetLL(llRecord.getId());
+                toggle();
             }
         });
-        refreshButton.setOnClickListener(new View.OnClickListener() {
+        llRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 RefreshProblem refreshProblem = new RefreshProblem(MainActivity.this);
@@ -159,62 +196,75 @@ public class MainActivity extends FragmentActivity{
                 }
             }
         });*/
-       buttonList = new ArrayList<Button>(){
+        llList = new ArrayList<LinearLayout>() {
             {
-                add(setButton);
-                add(aboutButton);
-                add(recordButton);
+                add(llAbout);
+                add(llTimeSet);
+                add(llRecord);
             }
         };
-        reSetButton(setButton.getId());
+        resetLL(llTimeSet.getId());
     }
-    private void reSetButton(int id)
-    {
-        for(int i = 0;i < buttonList.size();i++)
+
+    private void resetLL(int id) {
+     ivAbout.setImageResource(R.drawable.about0);
+        tvAbout.setTextColor(getResources().getColor(R.color.black));
+        ivRecord.setImageResource(R.drawable.record0);
+        TvRecord.setTextColor(getResources().getColor(R.color.black));
+        ivSettime.setImageResource(R.drawable.time0);
+        TvSettime.setTextColor(getResources().getColor(R.color.black));
+        switch (id)
         {
-            if(buttonList.get(i).getId() != id){
-            buttonList.get(i).setBackgroundColor(getResources().getColor(R.color.sliding_button));
+            case R.id.ll_time_set:{
+                ivSettime.setImageResource(R.drawable.time);
+                TvSettime.setTextColor(getResources().getColor(R.color.sliding_button_press));
+                break;
             }
-            else
-            {
-                buttonList.get(i).setBackgroundColor(getResources().getColor(R.color.sliding_button_press));
+            case R.id.ll_record:{
+                ivRecord.setImageResource(R.drawable.record1);
+                TvRecord.setTextColor(getResources().getColor(R.color.sliding_button_press));
+                break;
+            }
+            case R.id.ll_about:{
+                ivAbout.setImageResource(R.drawable.about1);
+                tvAbout.setTextColor(getResources().getColor(R.color.sliding_button_press));
+                break;
             }
         }
     }
 
 
+    /* private class LogOutRequestListener implements RequestListener {
+         @Override
+         public void onComplete(String response) {
+             if (!TextUtils.isEmpty(response)) {
+                 try {
+                     JSONObject obj = new JSONObject(response);
+                     String value = obj.getString("result");
+                     if ("true".equalsIgnoreCase(value)) {
+                         AccessTokenKeeper.clear(MainActivity.this);
+                         Toast.makeText(MainActivity.this,getResources().getString(R.string.logoff_success),Toast.LENGTH_LONG).show();
+                         Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
+                         startActivity(mIntent);
+                     }
+                 } catch (JSONException e) {
+                     e.printStackTrace();
+                 }
 
-   /* private class LogOutRequestListener implements RequestListener {
-        @Override
-        public void onComplete(String response) {
-            if (!TextUtils.isEmpty(response)) {
-                try {
-                    JSONObject obj = new JSONObject(response);
-                    String value = obj.getString("result");
-                    if ("true".equalsIgnoreCase(value)) {
-                        AccessTokenKeeper.clear(MainActivity.this);
-                        Toast.makeText(MainActivity.this,getResources().getString(R.string.logoff_success),Toast.LENGTH_LONG).show();
-                        Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
-                        startActivity(mIntent);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+             }
+         }
 
-            }
-        }
-
-        @Override
-        public void onWeiboException(WeiboException e) {
-        }
-    }*/
+         @Override
+         public void onWeiboException(WeiboException e) {
+         }
+     }*/
     private long exitTime;
+
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
                 && event.getAction() == KeyEvent.ACTION_DOWN) {
-            if ((System.currentTimeMillis() - exitTime) > 2000)
-            {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
                 Toast.makeText(getApplicationContext(), "再按一次,退出",
                         Toast.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();
@@ -228,8 +278,8 @@ public class MainActivity extends FragmentActivity{
         }
         return super.dispatchKeyEvent(event);
     }
-    private void setEndReciver()
-    {
+
+    private void setEndReciver() {
         final IntentFilter filter = new IntentFilter();
         filter.addAction("com.u3.end");
         registerReceiver(endReciver, filter);
@@ -241,14 +291,15 @@ public class MainActivity extends FragmentActivity{
             finish();
         }
     };
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(endReciver);
 
     }
-    private void toggle()
-    {
+
+    private void toggle() {
         drawerLayout.closeDrawer(Gravity.LEFT);
     }
 }

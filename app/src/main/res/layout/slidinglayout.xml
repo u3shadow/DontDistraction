@@ -1,63 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="#124370"
-
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#FFF"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@drawable/headback"
+        >
     <TextView
         android:id="@+id/tv_username"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         />
-    <ImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/iv_headpic"
-        android:background="@drawable/logo"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="130dp"
-        android:layout_height="140dp" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="left"
+        android:layout_marginBottom="10dp"
+        fresco:roundAsCircle="true"
+        fresco:backgroundImage="@color/sliding_button"
+        fresco:placeholderImage="@drawable/logo"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="vertical"
+        >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:textColor="#FFF"
-        android:text="我在想，革命是永垂不朽的！——切格瓦拉"
+        android:text="我在想,革命是永垂不朽的!——切格瓦拉"
         />
+    </LinearLayout>
+    </LinearLayout>
 
-<Button
-    android:id="@+id/bt_time_set"
-    android:layout_marginTop="10dp"
-    android:background="@drawable/slidingmenu"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/settime"
-    />
-    <Button
-        android:id="@+id/bt_record"
-        android:background="@drawable/slidingmenu"
-        android:layout_marginTop="10dp"
+    <LinearLayout
+        android:id="@+id/ll_time_set"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/record_button"
-        />
-    <Button
-        android:id="@+id/bt_refresh"
-        android:background="@drawable/slidingmenu"
-        android:layout_marginTop="10dp"
+        android:layout_height="48dp">
+        <ImageView
+            android:id="@+id/iv_settime"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/time0"
+            />
+        <TextView
+            android:id="@+id/Tv_settime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:text="设置时间"
+            android:textColor="#000"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_record"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="更新题目"
-        />
-    <Button
-        android:id="@+id/bt_about"
-        android:background="@drawable/slidingmenu"
-        android:layout_marginTop="10dp"
+        android:layout_height="48dp">
+        <ImageView
+            android:id="@+id/iv_record"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/record0"
+            />
+        <TextView
+            android:id="@+id/Tv_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:text="历史记录"
+            android:textColor="#000"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_refresh"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/about_button"
-        />
-
+        android:layout_height="48dp">
+        <ImageView
+            android:id="@+id/iv_refresh"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/refresh0"
+            />
+        <TextView
+            android:id="@+id/Tv_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:text="更新题目"
+            android:textColor="#000"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <LinearLayout
+        android:id="@+id/ll_about"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:layout_alignParentBottom="true"
+        android:paddingRight="16dp"
+        android:paddingBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <ImageView
+            android:id="@+id/iv_about"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/about0"
+            />
+        <TextView
+            android:id="@+id/tv_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:text="关于我们"
+            android:textColor="#000"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
     <Button
         android:id="@+id/bt_logoff"
         android:background="@drawable/slidingmenu"
@@ -67,4 +159,5 @@
         android:visibility="gone"
         android:text="@string/logoff"
         />
+    </RelativeLayout>
 </LinearLayout>

@@ -6,4 +6,5 @@
     <color name="fail_record">#FFF</color>
     <color name="sameday">#FFDDD3</color>
     <color name="notsameday">#5DBCD2</color>
+    <color name="black">#000</color>
 </resources>
