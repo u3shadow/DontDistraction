@@ -120,13 +120,6 @@ public class ResultActivity extends Activity {
         filter.addAction("com.u3.end");
         registerReceiver(endReciver, filter);
     }
-
-    @Override
-    protected void onStop() {
-
-        super.onStop();
-    }
-
     final BroadcastReceiver endReciver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
