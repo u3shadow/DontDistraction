@@ -10,6 +10,6 @@
         android:layout_height="match_parent" />
    <include layout="@layout/slidinglayout"
        android:layout_gravity="start"
-       android:layout_width="180dp"
+       android:layout_width="280dp"
        android:layout_height="match_parent"/>
 </android.support.v4.widget.DrawerLayout>

@@ -2,6 +2,7 @@ package com.u3.dontdistraction;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.leakcanary.LeakCanary;
 
 /**
@@ -12,5 +13,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         LeakCanary.install(this);
+        Fresco.initialize(this);
     }
 }

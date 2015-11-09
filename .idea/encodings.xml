@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/about0.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/about1.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/headback.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/headback.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-about (1).png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-about (2).png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-about (3).png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-about.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-record (1).png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-record.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-refresh (1).png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-refresh (2).png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-refresh.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-touxiang (1).png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-touxiang.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-weibiaoti5 (1).png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/iconfont-weibiaoti5.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/record0.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/record1.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/refresh0.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/refresh1.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/time.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/time0.png" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
