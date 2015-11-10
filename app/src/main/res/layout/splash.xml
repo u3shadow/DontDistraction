@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#487270"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    >
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/icon"
+        android:layout_centerInParent="true"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:text="WuRaoPhone"
+        android:textColor="#FFF"
+        android:layout_below="@id/iv_icon"
+        />
+</RelativeLayout>
