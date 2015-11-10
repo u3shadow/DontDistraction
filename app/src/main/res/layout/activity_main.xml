@@ -25,6 +25,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:elevation="6dp"
                 fresco:roundAsCircle="true"
                 fresco:backgroundImage="@color/sliding_button_press"
                 />
@@ -32,11 +33,10 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:scaleType="centerInside"
+            android:elevation="6dp"
             android:layout_gravity="center"
             android:src="@drawable/menu"
             />
-
-
         </FrameLayout>
     </FrameLayout>
    <include layout="@layout/slidinglayout"
