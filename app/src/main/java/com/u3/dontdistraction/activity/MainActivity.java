@@ -85,6 +85,8 @@ public class MainActivity extends FragmentActivity {
     Button btLogoff;
     @Bind(R.id.layout_main)
     DrawerLayout layoutMain;
+    @Bind(R.id.fba)
+    FrameLayout fba;
     private PackageManager mPackageManager;
 
     @Override
@@ -180,6 +182,12 @@ public class MainActivity extends FragmentActivity {
             public void onClick(View view) {
                 RefreshProblem refreshProblem = new RefreshProblem(MainActivity.this);
                 refreshProblem.refresh();
+            }
+        });
+        fba.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggle(true);
             }
         });
         Button logoffButton = (Button) findViewById(R.id.bt_logoff);
@@ -301,5 +309,12 @@ public class MainActivity extends FragmentActivity {
 
     private void toggle() {
         drawerLayout.closeDrawer(Gravity.LEFT);
+    }
+    private void toggle(boolean open)
+    {
+        if(open)
+        drawerLayout.openDrawer(Gravity.LEFT);
+        else
+            toggle();
     }
 }
