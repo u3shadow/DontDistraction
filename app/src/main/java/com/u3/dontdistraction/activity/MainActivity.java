@@ -16,6 +16,8 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -33,6 +35,9 @@ import com.u3.dontdistraction.util.RefreshProblem;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /*import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
@@ -40,8 +45,7 @@ import com.j256.ormlite.stmt.query.NeedsFutureClause;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
-import com.sina.weibo.sdk.openapi.LogoutAPI;*/import butterknife.Bind;
-import butterknife.ButterKnife;
+import com.sina.weibo.sdk.openapi.LogoutAPI;*/
 
 public class MainActivity extends FragmentActivity {
     Fragment aboutFragment;
@@ -103,6 +107,7 @@ public class MainActivity extends FragmentActivity {
         initFragment();
         setListener();
     }
+
 
     private void initView() {
         drawerLayout = (DrawerLayout) findViewById(R.id.layout_main);
@@ -215,25 +220,24 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void resetLL(int id) {
-     ivAbout.setImageResource(R.drawable.about0);
+        ivAbout.setImageResource(R.drawable.about0);
         tvAbout.setTextColor(getResources().getColor(R.color.black));
         ivRecord.setImageResource(R.drawable.record0);
         TvRecord.setTextColor(getResources().getColor(R.color.black));
         ivSettime.setImageResource(R.drawable.time0);
         TvSettime.setTextColor(getResources().getColor(R.color.black));
-        switch (id)
-        {
-            case R.id.ll_time_set:{
+        switch (id) {
+            case R.id.ll_time_set: {
                 ivSettime.setImageResource(R.drawable.time);
                 TvSettime.setTextColor(getResources().getColor(R.color.sliding_button_press));
                 break;
             }
-            case R.id.ll_record:{
+            case R.id.ll_record: {
                 ivRecord.setImageResource(R.drawable.record1);
                 TvRecord.setTextColor(getResources().getColor(R.color.sliding_button_press));
                 break;
             }
-            case R.id.ll_about:{
+            case R.id.ll_about: {
                 ivAbout.setImageResource(R.drawable.about1);
                 tvAbout.setTextColor(getResources().getColor(R.color.sliding_button_press));
                 break;
@@ -310,10 +314,10 @@ public class MainActivity extends FragmentActivity {
     private void toggle() {
         drawerLayout.closeDrawer(Gravity.LEFT);
     }
-    private void toggle(boolean open)
-    {
-        if(open)
-        drawerLayout.openDrawer(Gravity.LEFT);
+
+    private void toggle(boolean open) {
+        if (open)
+            drawerLayout.openDrawer(Gravity.LEFT);
         else
             toggle();
     }
