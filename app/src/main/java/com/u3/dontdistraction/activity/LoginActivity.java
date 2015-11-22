@@ -1,18 +1,29 @@
 package com.u3.dontdistraction.activity;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
-/*import com.sina.weibo.sdk.auth.AuthInfo;
+import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
-import com.sina.weibo.sdk.exception.WeiboException;*/
+import com.sina.weibo.sdk.exception.WeiboException;
+import com.u3.dontdistraction.R;
+import com.u3.dontdistraction.util.Constants;
 
 /**
  * Created by U3 on 2015/5/29.
  */
 public class LoginActivity extends Activity {
-  /*  private Oauth2AccessToken token;
+    private Oauth2AccessToken token;
     private Button loginButton;
     private Oauth2AccessToken mAccessToken;
     private AuthInfo mAuthInfo;
@@ -122,5 +133,5 @@ public class LoginActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(endReciver);
-    }*/
+    }
 }
