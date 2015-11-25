@@ -17,7 +17,6 @@
         <activity android:name=".activity.WelComeActivity">
 
         </activity>
-
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
@@ -43,10 +42,6 @@
             android:taskAffinity=""
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar">
         </activity>
-        <activity android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
-            android:configChanges="keyboardHidden|orientation"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="false"/>
         <activity
             android:name=".activity.HomeActivity"
             android:launchMode="singleTask"

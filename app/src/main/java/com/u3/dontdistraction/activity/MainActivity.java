@@ -16,6 +16,8 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -57,7 +59,7 @@ public class MainActivity extends FragmentActivity {
     FrameLayout FlContent;
     @Bind(R.id.tv_username)
     TextView tvUsername;
-    @Bind(R.id.iv_head)
+    @Bind(R.id.iv_headpic)
     SimpleDraweeView ivHeadpic;
     @Bind(R.id.iv_settime)
     ImageView ivSettime;
@@ -191,13 +193,6 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 toggle(true);
-            }
-        });
-        ivHeadpic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mIntent = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(mIntent);
             }
         });
         Button logoffButton = (Button) findViewById(R.id.bt_logoff);
