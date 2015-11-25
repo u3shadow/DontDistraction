@@ -17,6 +17,7 @@ import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.u3.dontdistraction.R;
+import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Constants;
 
 /**
