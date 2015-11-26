@@ -9,16 +9,15 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,11 +25,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.sina.weibo.sdk.exception.WeiboException;
+import com.sina.weibo.sdk.net.RequestListener;
+import com.sina.weibo.sdk.openapi.LogoutAPI;
+import com.sina.weibo.sdk.openapi.UsersAPI;
+import com.sina.weibo.sdk.openapi.models.User;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.fragments.AboutFragment;
 import com.u3.dontdistraction.fragments.RecordFragment;
 import com.u3.dontdistraction.fragments.SetTimeFragment;
+import com.u3.dontdistraction.util.AccessTokenKeeper;
+import com.u3.dontdistraction.util.Constants;
 import com.u3.dontdistraction.util.RefreshProblem;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,20 +61,20 @@ public class MainActivity extends FragmentActivity {
     Fragment aboutFragment;
     Fragment setTimeFragment;
     Fragment recordFragment;
-    // private LogOutRequestListener mLogoutListener = new LogOutRequestListener();
-    // private Oauth2AccessToken token;
+     private LogOutRequestListener mLogoutListener = new LogOutRequestListener();
+     private Oauth2AccessToken token;
     List<LinearLayout> llList;
     DrawerLayout drawerLayout;
     @Bind(R.id.Fl_content)
     FrameLayout FlContent;
-    @Bind(R.id.tv_username)
-    TextView tvUsername;
     @Bind(R.id.iv_headpic)
     SimpleDraweeView ivHeadpic;
     @Bind(R.id.iv_settime)
     ImageView ivSettime;
     @Bind(R.id.Tv_settime)
     TextView TvSettime;
+    @Bind(R.id.tv_juzi)
+    TextView tvJuzi;
     @Bind(R.id.ll_time_set)
     LinearLayout llTimeSet;
     @Bind(R.id.iv_record)
@@ -85,13 +95,14 @@ public class MainActivity extends FragmentActivity {
     TextView tvAbout;
     @Bind(R.id.ll_about)
     LinearLayout llAbout;
-    @Bind(R.id.bt_logoff)
-    Button btLogoff;
     @Bind(R.id.layout_main)
     DrawerLayout layoutMain;
     @Bind(R.id.fba)
     FrameLayout fba;
+    @Bind(R.id.ll_out)
+    LinearLayout logoutLayout;
     private PackageManager mPackageManager;
+    private UsersAPI mUserApi;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -122,22 +133,54 @@ public class MainActivity extends FragmentActivity {
                 PackageManager.DONT_KILL_APP);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isLogin();
+    }
+
     private void showLint() {
         SharedPreferences preferences = getSharedPreferences("App", 0);
         Boolean isFirstTime = preferences.getBoolean("isFirstOpen", true);
     }
 
     private void isLogin() {
-      /*  token = AccessTokenKeeper.readAccessToken(this);
+        token = AccessTokenKeeper.readAccessToken(this);
         if (token == null || !token.isSessionValid()) {
-            jumpToLogin();
-        }*/
+            tvJuzi.setText("点击登录");
+        }
+        else
+        {
+                mUserApi = new UsersAPI(this,Constants.APP_KEY,token);
+                long uid = Long.parseLong(token.getUid());
+                mUserApi.show(uid, new RequestListener() {
+                    @Override
+                    public void onComplete(String response) {
+                        if (!TextUtils.isEmpty(response)) {
+                            User mUser = User.parse(response);
+                            tvJuzi.setText(mUser.name);
+                           Uri uri = Uri.parse(mUser.avatar_large);
+                            ivHeadpic.setImageURI(uri);
+                        }
+                    }
+
+                    @Override
+                    public void onWeiboException(WeiboException e) {
+
+                    }
+                });
+        }
+        tvJuzi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(token == null || !token.isSessionValid()){
+                Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(mIntent);
+                }
+            }
+        });
     }
 
-    private void jumpToLogin() {
-        Intent mIntent = new Intent(this, LoginActivity.class);
-        startActivity(mIntent);
-    }
 
     private void initFragment() {
         aboutFragment = new AboutFragment();
@@ -195,20 +238,24 @@ public class MainActivity extends FragmentActivity {
                 toggle(true);
             }
         });
-        Button logoffButton = (Button) findViewById(R.id.bt_logoff);
-      /*  logoffButton.setOnClickListener(new View.OnClickListener() {
+
+        logoutLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(AccessTokenKeeper.readAccessToken(MainActivity.this).isSessionValid()) {
                     new LogoutAPI(MainActivity.this, Constants.APP_KEY,
                             AccessTokenKeeper.readAccessToken(MainActivity.this)).logout(mLogoutListener);
-                }else
-                {
-                    Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(mIntent);
+                    tvJuzi.setText("点击登录");
+                    tvJuzi.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
+                                startActivity(mIntent);
+                        }
+                    });
                 }
             }
-        });*/
+        });
         llList = new ArrayList<LinearLayout>() {
             {
                 add(llAbout);
@@ -246,7 +293,7 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-    /* private class LogOutRequestListener implements RequestListener {
+     private class LogOutRequestListener implements RequestListener {
          @Override
          public void onComplete(String response) {
              if (!TextUtils.isEmpty(response)) {
@@ -256,8 +303,6 @@ public class MainActivity extends FragmentActivity {
                      if ("true".equalsIgnoreCase(value)) {
                          AccessTokenKeeper.clear(MainActivity.this);
                          Toast.makeText(MainActivity.this,getResources().getString(R.string.logoff_success),Toast.LENGTH_LONG).show();
-                         Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
-                         startActivity(mIntent);
                      }
                  } catch (JSONException e) {
                      e.printStackTrace();
@@ -268,8 +313,9 @@ public class MainActivity extends FragmentActivity {
 
          @Override
          public void onWeiboException(WeiboException e) {
+
          }
-     }*/
+     }
     private long exitTime;
 
     @Override

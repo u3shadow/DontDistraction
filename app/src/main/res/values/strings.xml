@@ -21,13 +21,13 @@
     <string name="time_end">治疗成功！</string>
     <string name="wrong_time">请输入正确的时间</string>
     <string name="enter_answer">答题！</string>
-    <string name="send_success">心灵鸡汤微博发送成功！</string>
-    <string name="badresult">我错了</string>
+    <string name="send_success">微博发送成功！</string>
+    <string name="badresult">不要怂，发！</string>
     <string name="istimed">已经开始计时，请熄灭再点亮屏幕</string>
     <string name="begain">开始！</string>
     <string name="complete">完成！</string>
     <string name="not_send">返回</string>
-    <string name="bad_result_msg">不太顺利啊</string>
+    <string name="bad_result_msg">不太顺利啊，发条微博鼓励下自己吧</string>
     <string name="good_result_msg">治疗成功！恭喜你！再来一次吧</string>
     <string name="input_answer">答对即可完成本次治疗</string>
     <string name="wrong_answer">额，好像答错了哦</string>
