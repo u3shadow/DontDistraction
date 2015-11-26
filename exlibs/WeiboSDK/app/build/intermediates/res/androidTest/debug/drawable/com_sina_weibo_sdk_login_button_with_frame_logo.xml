@@ -22,4 +22,4 @@
           android:drawable="@drawable/ic_com_sina_weibo_sdk_login_button_with_frame_logo_focused" />
     <item android:drawable="@drawable/ic_com_sina_weibo_sdk_login_button_with_frame_logo_normal" />
 </selector>
-<!-- From: file:/D:/DontDistraction/exlibs/WeiboSDK/app/src/main/res/drawable/com_sina_weibo_sdk_login_button_with_frame_logo.xml --><!-- From: file:/D:/DontDistraction/exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_login_button_with_frame_logo.xml -->
+<!-- From: file:/H:/WuRaoPhone/exlibs/WeiboSDK/app/src/main/res/drawable/com_sina_weibo_sdk_login_button_with_frame_logo.xml --><!-- From: file:/H:/WuRaoPhone/exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_login_button_with_frame_logo.xml -->

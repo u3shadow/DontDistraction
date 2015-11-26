@@ -148,6 +148,7 @@ public class MainActivity extends FragmentActivity {
         token = AccessTokenKeeper.readAccessToken(this);
         if (token == null || !token.isSessionValid()) {
             tvJuzi.setText("点击登录");
+            ivHeadpic.setImageDrawable(getResources().getDrawable(R.drawable.user));
         }
         else
         {
@@ -246,6 +247,7 @@ public class MainActivity extends FragmentActivity {
                     new LogoutAPI(MainActivity.this, Constants.APP_KEY,
                             AccessTokenKeeper.readAccessToken(MainActivity.this)).logout(mLogoutListener);
                     tvJuzi.setText("点击登录");
+                    ivHeadpic.setImageDrawable(getResources().getDrawable(R.drawable.user));
                     tvJuzi.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

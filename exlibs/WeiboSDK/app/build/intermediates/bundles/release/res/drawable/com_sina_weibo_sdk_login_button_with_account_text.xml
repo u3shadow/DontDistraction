@@ -22,4 +22,4 @@
           android:drawable="@drawable/ic_com_sina_weibo_sdk_login_with_account_text_focused" />
     <item android:drawable="@drawable/ic_com_sina_weibo_sdk_login_with_account_text_normal" />
 </selector>
-<!-- From: file:/D:/DontDistraction/exlibs/WeiboSDK/app/src/main/res/drawable/com_sina_weibo_sdk_login_button_with_account_text.xml -->
+<!-- From: file:/H:/WuRaoPhone/exlibs/WeiboSDK/app/src/main/res/drawable/com_sina_weibo_sdk_login_button_with_account_text.xml -->
