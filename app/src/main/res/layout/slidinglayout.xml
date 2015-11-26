@@ -35,6 +35,7 @@
         android:orientation="vertical"
         >
     <TextView
+        android:id="@+id/tv_juzi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#FFF"
@@ -150,14 +151,32 @@
             android:textSize="14sp"
             />
     </LinearLayout>
-    <Button
-        android:id="@+id/bt_logoff"
-        android:background="@drawable/slidingmenu"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text="@string/logoff"
-        />
+        <LinearLayout
+            android:id="@+id/ll_out"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:layout_above="@id/ll_about"
+            android:paddingRight="16dp"
+            android:paddingBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+            <ImageView
+                android:id="@+id/iv_out"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/logout"
+                />
+            <TextView
+                android:id="@+id/tv_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:text="退出登录"
+                android:textColor="#000"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

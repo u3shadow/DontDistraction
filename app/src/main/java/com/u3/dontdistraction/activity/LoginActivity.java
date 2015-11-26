@@ -17,6 +17,7 @@ import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.u3.dontdistraction.R;
+import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Constants;
 
 /**
@@ -78,8 +79,8 @@ public class LoginActivity extends Activity {
 
     public void SSotest() {
         mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
-        mSsoHandler = new SsoHandler(this, mAuthInfo);
-        mSsoHandler.authorize(new AuthListener());
+        mSsoHandler = new SsoHandler(LoginActivity.this, mAuthInfo);
+        mSsoHandler.authorizeWeb(new AuthListener());
     }
 
     @Override

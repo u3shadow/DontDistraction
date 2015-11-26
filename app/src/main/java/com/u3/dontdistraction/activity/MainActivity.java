@@ -12,13 +12,11 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,11 +24,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.sina.weibo.sdk.exception.WeiboException;
+import com.sina.weibo.sdk.net.RequestListener;
+import com.sina.weibo.sdk.openapi.LogoutAPI;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.fragments.AboutFragment;
 import com.u3.dontdistraction.fragments.RecordFragment;
 import com.u3.dontdistraction.fragments.SetTimeFragment;
+import com.u3.dontdistraction.util.AccessTokenKeeper;
+import com.u3.dontdistraction.util.Constants;
 import com.u3.dontdistraction.util.RefreshProblem;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,8 +58,8 @@ public class MainActivity extends FragmentActivity {
     Fragment aboutFragment;
     Fragment setTimeFragment;
     Fragment recordFragment;
-    // private LogOutRequestListener mLogoutListener = new LogOutRequestListener();
-    // private Oauth2AccessToken token;
+     private LogOutRequestListener mLogoutListener = new LogOutRequestListener();
+     private Oauth2AccessToken token;
     List<LinearLayout> llList;
     DrawerLayout drawerLayout;
     @Bind(R.id.Fl_content)
@@ -65,6 +72,8 @@ public class MainActivity extends FragmentActivity {
     ImageView ivSettime;
     @Bind(R.id.Tv_settime)
     TextView TvSettime;
+    @Bind(R.id.tv_juzi)
+    TextView tvJuzi;
     @Bind(R.id.ll_time_set)
     LinearLayout llTimeSet;
     @Bind(R.id.iv_record)
@@ -85,12 +94,12 @@ public class MainActivity extends FragmentActivity {
     TextView tvAbout;
     @Bind(R.id.ll_about)
     LinearLayout llAbout;
-    @Bind(R.id.bt_logoff)
-    Button btLogoff;
     @Bind(R.id.layout_main)
     DrawerLayout layoutMain;
     @Bind(R.id.fba)
     FrameLayout fba;
+    @Bind(R.id.ll_out)
+    LinearLayout logoutLayout;
     private PackageManager mPackageManager;
 
     @Override
@@ -128,10 +137,10 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void isLogin() {
-      /*  token = AccessTokenKeeper.readAccessToken(this);
+        token = AccessTokenKeeper.readAccessToken(this);
         if (token == null || !token.isSessionValid()) {
             jumpToLogin();
-        }*/
+        }
     }
 
     private void jumpToLogin() {
@@ -195,8 +204,14 @@ public class MainActivity extends FragmentActivity {
                 toggle(true);
             }
         });
-        Button logoffButton = (Button) findViewById(R.id.bt_logoff);
-      /*  logoffButton.setOnClickListener(new View.OnClickListener() {
+        tvJuzi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(mIntent);
+            }
+        });
+        logoutLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(AccessTokenKeeper.readAccessToken(MainActivity.this).isSessionValid()) {
@@ -208,7 +223,7 @@ public class MainActivity extends FragmentActivity {
                     startActivity(mIntent);
                 }
             }
-        });*/
+        });
         llList = new ArrayList<LinearLayout>() {
             {
                 add(llAbout);
@@ -246,7 +261,7 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-    /* private class LogOutRequestListener implements RequestListener {
+     private class LogOutRequestListener implements RequestListener {
          @Override
          public void onComplete(String response) {
              if (!TextUtils.isEmpty(response)) {
@@ -268,8 +283,9 @@ public class MainActivity extends FragmentActivity {
 
          @Override
          public void onWeiboException(WeiboException e) {
+
          }
-     }*/
+     }
     private long exitTime;
 
     @Override
