@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -16,6 +15,7 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
+import com.sina.weibo.sdk.openapi.UsersAPI;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Constants;
@@ -25,6 +25,7 @@ import com.u3.dontdistraction.util.Constants;
  */
 public class LoginActivity extends Activity {
     private Oauth2AccessToken token;
+    private UsersAPI mUserApi;
     private Button loginButton;
     private Oauth2AccessToken mAccessToken;
     private AuthInfo mAuthInfo;
@@ -36,9 +37,9 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
         isLogin();
         setEndReciver();
-        initView();
-        initListener();
+        SSotest();
     }
+
     private void isLogin() {
         token = AccessTokenKeeper.readAccessToken(this);
         if (token != null && token.isSessionValid()) {
@@ -63,24 +64,11 @@ public class LoginActivity extends Activity {
         }
     };
 
-
-    private void initView() {
-        loginButton = (Button) findViewById(R.id.bt_login);
-    }
-
-    private void initListener() {
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SSotest();
-            }
-        });
-    }
-
     public void SSotest() {
         mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
         mSsoHandler = new SsoHandler(LoginActivity.this, mAuthInfo);
         mSsoHandler.authorizeWeb(new AuthListener());
+        finish();
     }
 
     @Override

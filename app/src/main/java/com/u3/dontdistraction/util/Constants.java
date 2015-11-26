@@ -38,6 +38,7 @@ public interface Constants {
      */
     public static final String REDIRECT_URL = "http://127.0.0.1";
 
+
     /**
      * Scope 是 OAuth2.0 授权机制中 authorize 接口的一个参数。通过 Scope，平台将开放更多的微博
      * 核心功能给开发者，同时也加强用户隐私保护，提升了用户体验，用户在新 OAuth2.0 授权页中有权利

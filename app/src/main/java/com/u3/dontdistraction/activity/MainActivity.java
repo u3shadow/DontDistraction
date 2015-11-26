@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -28,6 +29,8 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.LogoutAPI;
+import com.sina.weibo.sdk.openapi.UsersAPI;
+import com.sina.weibo.sdk.openapi.models.User;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.fragments.AboutFragment;
 import com.u3.dontdistraction.fragments.RecordFragment;
@@ -64,8 +67,6 @@ public class MainActivity extends FragmentActivity {
     DrawerLayout drawerLayout;
     @Bind(R.id.Fl_content)
     FrameLayout FlContent;
-    @Bind(R.id.tv_username)
-    TextView tvUsername;
     @Bind(R.id.iv_headpic)
     SimpleDraweeView ivHeadpic;
     @Bind(R.id.iv_settime)
@@ -101,6 +102,7 @@ public class MainActivity extends FragmentActivity {
     @Bind(R.id.ll_out)
     LinearLayout logoutLayout;
     private PackageManager mPackageManager;
+    private UsersAPI mUserApi;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -131,6 +133,12 @@ public class MainActivity extends FragmentActivity {
                 PackageManager.DONT_KILL_APP);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isLogin();
+    }
+
     private void showLint() {
         SharedPreferences preferences = getSharedPreferences("App", 0);
         Boolean isFirstTime = preferences.getBoolean("isFirstOpen", true);
@@ -139,14 +147,40 @@ public class MainActivity extends FragmentActivity {
     private void isLogin() {
         token = AccessTokenKeeper.readAccessToken(this);
         if (token == null || !token.isSessionValid()) {
-            jumpToLogin();
+            tvJuzi.setText("点击登录");
         }
+        else
+        {
+                mUserApi = new UsersAPI(this,Constants.APP_KEY,token);
+                long uid = Long.parseLong(token.getUid());
+                mUserApi.show(uid, new RequestListener() {
+                    @Override
+                    public void onComplete(String response) {
+                        if (!TextUtils.isEmpty(response)) {
+                            User mUser = User.parse(response);
+                            tvJuzi.setText(mUser.name);
+                           Uri uri = Uri.parse(mUser.avatar_large);
+                            ivHeadpic.setImageURI(uri);
+                        }
+                    }
+
+                    @Override
+                    public void onWeiboException(WeiboException e) {
+
+                    }
+                });
+        }
+        tvJuzi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(token == null || !token.isSessionValid()){
+                Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(mIntent);
+                }
+            }
+        });
     }
 
-    private void jumpToLogin() {
-        Intent mIntent = new Intent(this, LoginActivity.class);
-        startActivity(mIntent);
-    }
 
     private void initFragment() {
         aboutFragment = new AboutFragment();
@@ -204,23 +238,21 @@ public class MainActivity extends FragmentActivity {
                 toggle(true);
             }
         });
-        tvJuzi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent mIntent = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(mIntent);
-            }
-        });
+
         logoutLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(AccessTokenKeeper.readAccessToken(MainActivity.this).isSessionValid()) {
                     new LogoutAPI(MainActivity.this, Constants.APP_KEY,
                             AccessTokenKeeper.readAccessToken(MainActivity.this)).logout(mLogoutListener);
-                }else
-                {
-                    Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(mIntent);
+                    tvJuzi.setText("点击登录");
+                    tvJuzi.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
+                                startActivity(mIntent);
+                        }
+                    });
                 }
             }
         });
@@ -271,8 +303,6 @@ public class MainActivity extends FragmentActivity {
                      if ("true".equalsIgnoreCase(value)) {
                          AccessTokenKeeper.clear(MainActivity.this);
                          Toast.makeText(MainActivity.this,getResources().getString(R.string.logoff_success),Toast.LENGTH_LONG).show();
-                         Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
-                         startActivity(mIntent);
                      }
                  } catch (JSONException e) {
                      e.printStackTrace();
