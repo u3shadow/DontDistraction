@@ -19,50 +19,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58e68f8f-27d8-4e95-bf8a-ed68dece7d1e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/outputs/aar/app-debug.aar" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/outputs/aar/app-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/outputs/aar/app-release.aar" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/outputs/aar/app-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/resources/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/resources/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/drawable/user.png" afterPath="$PROJECT_DIR$/src/main/res/drawable/user.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/u3/dontdistraction/activity/MainActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/u3/dontdistraction/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/WeiboSDK-app.iml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/WeiboSDK-app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/WeiboSDK.iml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/WeiboSDK.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.iml" afterPath="$PROJECT_DIR$/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_button_blue.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_button_blue.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/drawable/com_sina_weibo_sdk_button_blue.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/drawable/com_sina_weibo_sdk_button_blue.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/drawable/com_sina_weibo_sdk_button_blue.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/drawable/com_sina_weibo_sdk_button_blue.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_button_grey.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_button_grey.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/drawable/com_sina_weibo_sdk_button_grey.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/drawable/com_sina_weibo_sdk_button_grey.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/drawable/com_sina_weibo_sdk_button_grey.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/drawable/com_sina_weibo_sdk_button_grey.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_login_button_with_account_text.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_login_button_with_account_text.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/drawable/com_sina_weibo_sdk_login_button_with_account_text.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/drawable/com_sina_weibo_sdk_login_button_with_account_text.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/drawable/com_sina_weibo_sdk_login_button_with_account_text.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/drawable/com_sina_weibo_sdk_login_button_with_account_text.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_login_button_with_frame_logo.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_login_button_with_frame_logo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/drawable/com_sina_weibo_sdk_login_button_with_frame_logo.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/drawable/com_sina_weibo_sdk_login_button_with_frame_logo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/drawable/com_sina_weibo_sdk_login_button_with_frame_logo.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/drawable/com_sina_weibo_sdk_login_button_with_frame_logo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_login_button_with_original_logo.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/drawable/com_sina_weibo_sdk_login_button_with_original_logo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/drawable/com_sina_weibo_sdk_login_button_with_original_logo.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/drawable/com_sina_weibo_sdk_login_button_with_original_logo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/drawable/com_sina_weibo_sdk_login_button_with_original_logo.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/drawable/com_sina_weibo_sdk_login_button_with_original_logo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/exlibs.iml" afterPath="$PROJECT_DIR$/../exlibs/exlibs.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/mergeAssets/release/merger.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/mergeAssets/release/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/mergeResources/androidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/mergeResources/androidTest/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/packageResources/debug/merger.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/packageResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/packageResources/release/merger.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/incremental/packageResources/release/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/layout/slidinglayout.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/slidinglayout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/values-en/values-en.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/values-en/values-en.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/values-en/values-en.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/values-en/values-en.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/values-en/values-en.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/values-en/values-en.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/values-zh-rTW/values-zh-rTW.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/values-zh-rTW/values-zh-rTW.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/values-zh-rTW/values-zh-rTW.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/values-zh-rTW/values-zh-rTW.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/values-zh-rTW/values-zh-rTW.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/values-zh-rTW/values-zh-rTW.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/values/values.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/values/values.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/bundles/release/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/values/values.xml" afterPath="$PROJECT_DIR$/../exlibs/WeiboSDK/app/build/intermediates/res/androidTest/debug/values/values.xml" />
+      <change type="DELETED" beforePath="H:\WuRaoPhone\exlib\privatekey.ppk" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/u3/dontdistraction/other/PenaltyMessage.java" afterPath="$PROJECT_DIR$/src/main/java/com/u3/dontdistraction/other/PenaltyMessage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="app.iws" />
@@ -94,21 +52,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34177214">
+            <state vertical-scroll-proportion="0.0">
               <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../build.gradle">
+      <file leaf-file-name="PenaltyMessage.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/u3/dontdistraction/other/PenaltyMessage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.43498275">
+              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -127,7 +85,7 @@
     </leaf>
   </component>
   <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="C:\Users\u3\Desktop\privatekey.ppk" />
+    <option name="KEY_STORE_PATH" value="H:\WuRaoPhone\exlib\u3key.ppk" />
     <option name="KEY_ALIAS" value="u3shadow" />
     <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
@@ -3665,6 +3623,7 @@
         <option value="$PROJECT_DIR$/src/main/res/layout/slidinglayout.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/u3/dontdistraction/activity/MainActivity.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/u3/dontdistraction/other/PenaltyMessage.java" />
       </list>
     </option>
   </component>
@@ -3728,7 +3687,167 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="exlibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WuRaoPhone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WuRaoPhone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WuRaoPhone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WuRaoPhone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dontdistraction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WuRaoPhone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dontdistraction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WuRaoPhone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dontdistraction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="other" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3782,7 +3901,7 @@
     <property name="FullScreen" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="e2524500" />
     <property name="show.do.not.copy.http.proxy.settings.to.gradle" value="true" />
-    <property name="last_opened_file_path" value="H:/APPS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../exlib/u3key.ppk" />
     <property name="ExportApk.ApkPath" value="H:\APPS" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
@@ -4035,7 +4154,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30957684" sideWeight="0.46268657" order="7" side_tool="false" content_ui="tabs" />
@@ -4152,10 +4271,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../exlib/privatekey.ppk">
+    <entry file="file://$PROJECT_DIR$/../settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="36" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -4168,18 +4287,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../settings.gradle">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="36" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/u3/dontdistraction/other/PenaltyMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34177214">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.43498275">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
           <folding />
         </state>
       </provider>
