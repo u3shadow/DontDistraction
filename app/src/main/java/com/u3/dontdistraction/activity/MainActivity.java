@@ -111,7 +111,6 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initView();
-        enableLauncher();
         showLint();
         isLogin();
         setEndReciver();
@@ -122,15 +121,6 @@ public class MainActivity extends FragmentActivity {
 
     private void initView() {
         drawerLayout = (DrawerLayout) findViewById(R.id.layout_main);
-    }
-
-    private void enableLauncher() {
-        mPackageManager = getApplicationContext().getPackageManager();
-        mPackageManager.setComponentEnabledSetting(new
-                        ComponentName("com.u3.dontdistraction",
-                        "com.u3.dontdistraction.activity.HomeActivity"),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                PackageManager.DONT_KILL_APP);
     }
 
     @Override

@@ -10,6 +10,7 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -36,7 +37,19 @@ public class ScreenLockActivity extends Activity {
     TextView problem;
     Problems problems;
     EditText answer;
-    PackageManager mPackageManager;
+    BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String reason = intent.getStringExtra("reason");
+            if (reason != null) {
+                if (reason.equals("homekey")) {
+                    Recoder.isTimeEnd = false;
+                    Recoder.isFront = false;
+                    startResultActivity();
+                }
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +58,9 @@ public class ScreenLockActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
                         WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_screenlock);
-
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+        registerReceiver(receiver,filter);
         initView();
         initProblem();
         timeCountDown();
@@ -56,16 +71,6 @@ public class ScreenLockActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        enableLauncher();
-    }
-    private void enableLauncher()
-    {
-        mPackageManager = getApplicationContext().getPackageManager();
-        mPackageManager.setComponentEnabledSetting(new
-                        ComponentName("com.u3.dontdistraction",
-                        "com.u3.dontdistraction.activity.HomeActivity"),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                PackageManager.DONT_KILL_APP);
     }
     public void timeCountDown() {
         lockTime = Recoder.lockTime;
@@ -87,7 +92,6 @@ public class ScreenLockActivity extends Activity {
                 endLock.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        disableLauncher();
                         Recoder.isTimeEnd = true;
                         Recoder.isFront = false;
                         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
@@ -112,7 +116,6 @@ public class ScreenLockActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (answer.getText().toString() != null && problems.isAnswerRight(answer.getText().toString())) {
-                    disableLauncher();
                     Recoder.isTimeEnd = true;
                     Recoder.isFront = false;
                     startResultActivity();
@@ -125,7 +128,6 @@ public class ScreenLockActivity extends Activity {
         endLock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                disableLauncher();
                 Recoder.isTimeEnd = false;
                 Recoder.isFront = false;
                 startResultActivity();
@@ -141,16 +143,6 @@ public class ScreenLockActivity extends Activity {
     {
         TranslateAnimation animation1  = (TranslateAnimation)AnimationUtils.loadAnimation(this,R.anim.edittextshake);
         answer.startAnimation(animation1);
-    }
-    private void disableLauncher()
-    {
-        mPackageManager = getApplicationContext().getPackageManager();
-        mPackageManager.setComponentEnabledSetting(new
-
-                        ComponentName("com.u3.dontdistraction",
-                        "com.u3.dontdistraction.activity.HomeActivity"),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                PackageManager.DONT_KILL_APP);
     }
     private void initProblem() {
         problems = new Problems(ScreenLockActivity.this);
@@ -191,12 +183,19 @@ public class ScreenLockActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-
+        Log.i("sl","slp");
         ActivityManager activityManager = (ActivityManager) getApplicationContext()
                 .getSystemService(Context.ACTIVITY_SERVICE);
 
         activityManager.moveTaskToFront(getTaskId(), 0);
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("sl","sls");
+    }
+
     @Override
     protected void onStart() {
        Recoder.isFront = true;
@@ -205,6 +204,8 @@ public class ScreenLockActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Log.i("sl","sld");
         unregisterReceiver(endReciver);
+        unregisterReceiver(receiver);
     }
 }
