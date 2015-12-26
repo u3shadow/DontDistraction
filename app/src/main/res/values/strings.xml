@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="useagain">继续使用</string>
     <string name="sendmsg">发送微博</string>
-    <string name="about">【提醒】请在使用本软件前在系统设置中将主屏幕设置为本软件。</string>
+    <string name="about">如果有任何问题和建议请发送邮件至u3shadow@gmail.com</string>
     <string name="settime">设置时间</string>
     <string name="about_button">关于</string>
     <string name="logoff">注销</string>

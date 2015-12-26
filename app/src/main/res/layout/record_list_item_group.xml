@@ -6,7 +6,7 @@
     android:id="@+id/tv_group"
     android:gravity="center"
     android:textColor="#FFF"
-    android:background="#124370"
+    android:background="#855B32"
     android:textSize="35sp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
