@@ -23,4 +23,4 @@
           android:drawable="@drawable/ic_com_sina_weibo_sdk_logo" />
     <item android:drawable="@drawable/ic_com_sina_weibo_sdk_logo" />
 </selector>
-<!-- From: file:/E:/DontDistraction/exlibs/WeiboSDK/app/src/main/res/drawable/com_sina_weibo_sdk_login_button_with_original_logo.xml -->
+<!-- From: file:/home/u3/project/DontDistraction/exlibs/WeiboSDK/app/src/main/res/drawable/com_sina_weibo_sdk_login_button_with_original_logo.xml -->
