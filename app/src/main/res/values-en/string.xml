@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">WuRaophone</string>
 
-    <string name="welcome">Please input time(minutes)</string>
+    <string name="welcome">Input time(minutes)</string>
     <string name="action_settings">Settings</string>
     <string name="useagain">One more try</string>
     <string name="sendmsg">Send WeiBo msg</string>
@@ -18,7 +18,7 @@
     <string name="login">WeiBo Login</string>
     <string name="logoff_success">Logout Success</string>
 	<string name="endlock">Force End</string>
-    <string name="time_remain">Time left£º</string>
+    <string name="time_remain">Time left:</string>
     <string name="minute">M</string>
     <string name="second">S</string>
     <string name="time_end">Success!</string>

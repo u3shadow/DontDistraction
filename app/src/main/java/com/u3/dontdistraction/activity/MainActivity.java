@@ -3,7 +3,6 @@ package com.u3.dontdistraction.activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -137,7 +136,7 @@ public class MainActivity extends FragmentActivity {
     private void isLogin() {
         token = AccessTokenKeeper.readAccessToken(this);
         if (token == null || !token.isSessionValid()) {
-            tvJuzi.setText("点击登录");
+            tvJuzi.setText("Login");
             ivHeadpic.setImageDrawable(getResources().getDrawable(R.drawable.user));
         }
         else
@@ -236,7 +235,7 @@ public class MainActivity extends FragmentActivity {
                 if(AccessTokenKeeper.readAccessToken(MainActivity.this).isSessionValid()) {
                     new LogoutAPI(MainActivity.this, Constants.APP_KEY,
                             AccessTokenKeeper.readAccessToken(MainActivity.this)).logout(mLogoutListener);
-                    tvJuzi.setText("点击登录");
+                    tvJuzi.setText("Login");
                     ivHeadpic.setImageDrawable(getResources().getDrawable(R.drawable.user));
                     tvJuzi.setOnClickListener(new View.OnClickListener() {
                         @Override
