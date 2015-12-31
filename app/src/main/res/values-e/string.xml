@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">WuRaophone</string>
+
+    <string name="welcome">Please input time(minutes)</string>
+    <string name="action_settings">Settings</string>
+    <string name="useagain">One more try</string>
+    <string name="sendmsg">Send WeiBo msg</string>
+    <string name="about">If you have any problem and advice please email to u3shadow@gmail.com</string>
+    <string name="aboutus">About us</string>
+    <string name="settime">Set time</string>
+    <string name="history">Learn history</string>
+    <string name="refreshproblems">Refresh Problems</string>
+    <string name="about_button">About</string>
+    <string name="logout">Logout</string>
+    <string name="notlog">Not login</string>
+    <string name="about_title">About</string>
+    <string name="settime_title">Go!</string>
+    <string name="login">WeiBo Login</string>
+    <string name="logoff_success">Logout Success</string>
+	<string name="endlock">Force End</string>
+    <string name="time_remain">Time left£º</string>
+    <string name="minute">M</string>
+    <string name="second">S</string>
+    <string name="time_end">Success!</string>
+    <string name="wrong_time">Please input right time</string>
+    <string name="enter_answer">Answer!</string>
+    <string name="send_success">Success Send WeiBo</string>
+    <string name="badresult">Send!</string>
+    <string name="istimed">Please turn off and on the screen</string>
+    <string name="begain">begain!</string>
+    <string name="complete">finish!</string>
+    <string name="not_send">back</string>
+    <string name="bad_result_msg">Seem not going well? Send a message!</string> 
+	<string name="good_result_msg">Congratulations!</string>
+    <string name="input_answer">Answer the question can lock off</string>
+    <string name="wrong_answer">The answer is wrong</string>
+    <string name="unlock_success">Success</string>
+    <string name="unlock_fail">Faild</string>
+    <string name="record_button">History</string>
+    <string name="norecord_title">No records</string>
+    <string name="norecord">No records, please learn first</string>
+    <string name="okbutton">Ok</string>
+    <string name="nothingtoshow">:(No thing to show</string>
+</resources>
+

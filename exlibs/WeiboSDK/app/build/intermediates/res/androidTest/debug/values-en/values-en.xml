@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/u3/project/DontDistraction/exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/values-en/values-en.xml -->
+    <!-- From: file:/D:/DontDistraction/exlibs/WeiboSDK/app/build/intermediates/bundles/debug/res/values-en/values-en.xml -->
     <eat-comment/>
     <string name="com_sina_weibo_sdk_login">Login</string>
     <string name="com_sina_weibo_sdk_login_with_weibo_account">Login with Weibo</string>

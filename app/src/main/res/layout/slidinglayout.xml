@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="30dp"
-            android:text="设置时间"
+            android:text="@string/settime"
             android:textColor="#000"
             android:textSize="14sp"
             />
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="30dp"
-            android:text="历史记录"
+            android:text="@string/history"
             android:textColor="#000"
             android:textSize="14sp"
             />
@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="30dp"
-            android:text="更新题目"
+            android:text="@string/refreshproblems"
             android:textColor="#000"
             android:textSize="14sp"
             />
@@ -144,7 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="30dp"
-            android:text="关于我们"
+            android:text="@string/aboutus"
             android:textColor="#000"
             android:textSize="14sp"
             />
@@ -171,7 +171,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="30dp"
-                android:text="退出登录"
+                android:text="@string/logout"
                 android:textColor="#000"
                 android:textSize="14sp"
                 />

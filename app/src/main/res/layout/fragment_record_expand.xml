@@ -24,7 +24,7 @@
             android:textSize="35sp"
             android:textColor="#FFF"
             android:visibility="gone"
-            android:text=":( 没什么可以显示的"
+            android:text="@string/nothingtoshow"
             />
     </FrameLayout>
 </RelativeLayout>
