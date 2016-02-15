@@ -56,7 +56,7 @@ public class RefreshProblem {
                     Log.i("problem", line);
                 }
                 SharedPreferences preferences = mContext.getSharedPreferences(Problems.PROBLEM, 0);
-                preferences.edit().putString(Problems.PROBLEM,stringBuffer.toString()).commit();
+                preferences.edit().putString(Problems.PROBLEM,stringBuffer.toString()).apply();
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {

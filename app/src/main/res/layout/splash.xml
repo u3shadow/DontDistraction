@@ -18,7 +18,7 @@
         android:textSize="40sp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="20dp"
-        android:text="WuRaoPhone"
+        android:text="@string/wuraophon"
         android:textColor="#FFF"
         android:layout_below="@id/iv_icon"
         />

@@ -9,7 +9,7 @@
 <ExpandableListView
     android:id="@+id/elv_record"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"></ExpandableListView>
+    android:layout_height="match_parent"/>
         <ProgressBar
             android:id="@+id/progress"
             style="@style/mprogress"

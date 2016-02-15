@@ -62,7 +62,7 @@ public class SetTimeFragment extends Fragment {
 
     private void reopenScreenLock() {
         Intent mIntent = new Intent(getActivity(), ScreenLockActivity.class);
-        Recoder.lockTime = new Integer(time.getText().toString());
+        Recoder.lockTime = Integer.valueOf(time.getText().toString());
         Recoder.isTimed = true;
         setRecevier();
         getActivity().startActivity(mIntent);

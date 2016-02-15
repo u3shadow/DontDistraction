@@ -27,9 +27,7 @@ import java.util.List;
  * Created by U3 on 2015/7/5.
  */
 public class RecordFragment extends Fragment {
-    private RecordAdapter adapter;
-    private RecordDal recordDal;
-   private List<String> group;
+    private List<String> group;
    private List<List<Record>> child;
     private List<Record> mList;
     ExpandableListView listView;
@@ -98,7 +96,7 @@ public class RecordFragment extends Fragment {
        @Override
        protected Void doInBackground(Void... params) {
 
-               recordDal = new RecordDal(getActivity());
+           RecordDal recordDal = new RecordDal(getActivity());
                mList = recordDal.getList();
 
            return null;
@@ -128,7 +126,7 @@ public class RecordFragment extends Fragment {
            mList = list1;
            genGroup();
            genChild();
-           adapter = new RecordAdapter(mList,getActivity(),group,child);
+           RecordAdapter adapter = new RecordAdapter(mList, getActivity(), group, child);
            listView.setAdapter(adapter);
            progressBar.setVisibility(View.GONE);
        }

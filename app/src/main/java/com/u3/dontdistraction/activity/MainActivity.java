@@ -101,7 +101,6 @@ public class MainActivity extends FragmentActivity {
     @Bind(R.id.ll_out)
     LinearLayout logoutLayout;
     private PackageManager mPackageManager;
-    private UsersAPI mUserApi;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -141,7 +140,7 @@ public class MainActivity extends FragmentActivity {
         }
         else
         {
-                mUserApi = new UsersAPI(this,Constants.APP_KEY,token);
+            UsersAPI mUserApi = new UsersAPI(this, Constants.APP_KEY, token);
                 long uid = Long.parseLong(token.getUid());
                 mUserApi.show(uid, new RequestListener() {
                     @Override
@@ -149,7 +148,7 @@ public class MainActivity extends FragmentActivity {
                         if (!TextUtils.isEmpty(response)) {
                             User mUser = User.parse(response);
                             tvJuzi.setText(mUser.name);
-                           Uri uri = Uri.parse(mUser.avatar_large);
+                            Uri uri = Uri.parse(mUser.avatar_large);
                             ivHeadpic.setImageURI(uri);
                         }
                     }

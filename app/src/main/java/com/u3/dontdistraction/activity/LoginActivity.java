@@ -24,11 +24,6 @@ import com.u3.dontdistraction.util.Constants;
  * Created by U3 on 2015/5/29.
  */
 public class LoginActivity extends Activity {
-    private Oauth2AccessToken token;
-    private UsersAPI mUserApi;
-    private Button loginButton;
-    private Oauth2AccessToken mAccessToken;
-    private AuthInfo mAuthInfo;
     private SsoHandler mSsoHandler;
 
     @Override
@@ -41,7 +36,7 @@ public class LoginActivity extends Activity {
     }
 
     private void isLogin() {
-        token = AccessTokenKeeper.readAccessToken(this);
+        Oauth2AccessToken token = AccessTokenKeeper.readAccessToken(this);
         if (token != null && token.isSessionValid()) {
             jumpToSetTime();
         }
@@ -65,7 +60,7 @@ public class LoginActivity extends Activity {
     };
 
     public void SSotest() {
-        mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+        AuthInfo mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
         mSsoHandler = new SsoHandler(LoginActivity.this, mAuthInfo);
         mSsoHandler.authorizeWeb(new AuthListener());
         finish();
@@ -84,7 +79,7 @@ public class LoginActivity extends Activity {
         @Override
         public void onComplete(Bundle values) {
             // 从 Bundle 中解析 Token
-            mAccessToken = Oauth2AccessToken.parseAccessToken(values);
+            Oauth2AccessToken mAccessToken = Oauth2AccessToken.parseAccessToken(values);
             if (mAccessToken.isSessionValid()) {
                 // 显示 Token
                 // updateTokenView(false);

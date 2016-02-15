@@ -36,7 +36,7 @@ public class AccessTokenKeeper {
         editor.putString(KEY_UID, token.getUid());
         editor.putString(KEY_ACCESS_TOKEN, token.getToken());
         editor.putLong(KEY_EXPIRES_IN, token.getExpiresTime());
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -72,6 +72,6 @@ public class AccessTokenKeeper {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
         Editor editor = pref.edit();
         editor.clear();
-        editor.commit();
+        editor.apply();
     }
 }
