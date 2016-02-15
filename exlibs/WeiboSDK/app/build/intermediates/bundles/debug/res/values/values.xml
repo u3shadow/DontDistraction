@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/D:/DontDistraction/exlibs/WeiboSDK/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/home/u3/project/DontDistraction/exlibs/WeiboSDK/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <color name="com_sina_weibo_sdk_blue">#3B5998</color>
     <color name="com_sina_weibo_sdk_loginview_text_color">#FFFFFF</color>
-    <!-- From: file:/D:/DontDistraction/exlibs/WeiboSDK/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/home/u3/project/DontDistraction/exlibs/WeiboSDK/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/D:/DontDistraction/exlibs/WeiboSDK/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/home/u3/project/DontDistraction/exlibs/WeiboSDK/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <dimen name="com_sina_weibo_sdk_loginview_compound_drawable_padding">12dp</dimen>
     <dimen name="com_sina_weibo_sdk_loginview_padding">12dip</dimen>
@@ -17,12 +17,12 @@
     <dimen name="com_sina_weibo_sdk_loginview_padding_right">16dp</dimen>
     <dimen name="com_sina_weibo_sdk_loginview_padding_top">6dp</dimen>
     <dimen name="com_sina_weibo_sdk_loginview_text_size">16.0sp</dimen>
-    <!-- From: file:/D:/DontDistraction/exlibs/WeiboSDK/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/home/u3/project/DontDistraction/exlibs/WeiboSDK/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="com_sina_weibo_sdk_login">登录</string>
     <string name="com_sina_weibo_sdk_login_with_weibo_account">用微博登录</string>
     <string name="com_sina_weibo_sdk_logout">注销</string>
-    <!-- From: file:/D:/DontDistraction/exlibs/WeiboSDK/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/home/u3/project/DontDistraction/exlibs/WeiboSDK/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
