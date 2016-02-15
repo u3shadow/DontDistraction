@@ -3,9 +3,6 @@
     android:background="@drawable/background"
      android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 <ExpandableListView
     android:id="@+id/elv_record"
     android:layout_width="match_parent"
@@ -13,7 +10,7 @@
         <ProgressBar
             android:id="@+id/progress"
             style="@style/mprogress"
-            android:layout_gravity="center"
+            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
@@ -26,5 +23,4 @@
             android:visibility="gone"
             android:text="@string/nothingtoshow"
             />
-    </FrameLayout>
 </RelativeLayout>
