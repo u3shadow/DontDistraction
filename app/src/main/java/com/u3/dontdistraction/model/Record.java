@@ -1,7 +1,5 @@
 package com.u3.dontdistraction.model;
 
-import android.hardware.camera2.params.BlackLevelPattern;
-
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 

@@ -1,7 +1,6 @@
 package test.com.u3.dontdistraction.database;
 
 import android.test.AndroidTestCase;
-import android.util.Log;
 
 import com.u3.dontdistraction.database.RecordOpenHelper;
 import com.u3.dontdistraction.model.Record;

@@ -2,7 +2,6 @@ package com.u3.dontdistraction.other;
 
 
 
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -20,11 +19,11 @@ import java.util.Random;
  * Created by U3 on 2015/5/29.
  */
 public class Problems {
-    public static String PROBLEM = "problem";
+    public static final String PROBLEM = "problem";
     private int promNumMax;
     private int promNumMin = 0;
     private int promNumber = 0;
-    private Context mContext;
+    private final Context mContext;
     private  List<Problem> problemList = new ArrayList<Problem>() {
         {
             add(new Problem("牛虻的父亲是什么职业？", "神父"));
@@ -83,7 +82,7 @@ public Problems(Context context)
         return problemList.get(promNumber).getProblem();
     }
 
-    public String getAnswer() {
+    private String getAnswer() {
         return problemList.get(promNumber).getAnswer();
     }
     public boolean isAnswerRight(String answer)

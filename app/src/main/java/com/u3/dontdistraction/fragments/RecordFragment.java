@@ -2,7 +2,6 @@ package com.u3.dontdistraction.fragments;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.activity.MainActivity;
 import com.u3.dontdistraction.adapter.RecordAdapter;
 import com.u3.dontdistraction.databasedal.RecordDal;
 import com.u3.dontdistraction.model.Record;
@@ -30,14 +28,14 @@ public class RecordFragment extends Fragment {
     private List<String> group;
    private List<List<Record>> child;
     private List<Record> mList;
-    ExpandableListView listView;
-    ProgressBar progressBar;
+    private ExpandableListView listView;
+    private ProgressBar progressBar;
     private TextView norecord;
     public interface callback{
         public void resetButton();
         public void restLis();
     }
-    public void noRecord()
+    private void noRecord()
     {
         AlertDialog.Builder dialogBuilder =  new AlertDialog.Builder(getActivity());
         dialogBuilder.setTitle(getActivity().getResources().getString(R.string.norecord_title))
@@ -60,7 +58,7 @@ public class RecordFragment extends Fragment {
         task.execute();
         return view;
     }
-    public void genGroup()
+    private void genGroup()
     {
         group = new ArrayList<String>();
         for(int i = 0;i < mList.size();i++) {
@@ -71,7 +69,7 @@ public class RecordFragment extends Fragment {
             }
         }
     }
-    public void genChild()
+    private void genChild()
     {
         child = new ArrayList<List<Record>>();
         for(int i = 0;i < group.size();i++)
@@ -92,7 +90,7 @@ public class RecordFragment extends Fragment {
             }
         }
     }
-   class GetListTask extends AsyncTask<Void,Void,Void>{
+   private class GetListTask extends AsyncTask<Void,Void,Void>{
        @Override
        protected Void doInBackground(Void... params) {
 

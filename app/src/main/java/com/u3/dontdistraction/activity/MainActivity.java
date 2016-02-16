@@ -57,13 +57,13 @@ import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.LogoutAPI;*/
 
 public class MainActivity extends FragmentActivity {
-    Fragment aboutFragment;
-    Fragment setTimeFragment;
-    Fragment recordFragment;
-     private LogOutRequestListener mLogoutListener = new LogOutRequestListener();
+    private Fragment aboutFragment;
+    private Fragment setTimeFragment;
+    private Fragment recordFragment;
+     private final LogOutRequestListener mLogoutListener = new LogOutRequestListener();
      private Oauth2AccessToken token;
-    List<LinearLayout> llList;
-    DrawerLayout drawerLayout;
+    private List<LinearLayout> llList;
+    private DrawerLayout drawerLayout;
     @Bind(R.id.Fl_content)
     FrameLayout FlContent;
     @Bind(R.id.iv_headpic)
@@ -100,7 +100,7 @@ public class MainActivity extends FragmentActivity {
     FrameLayout fba;
     @Bind(R.id.ll_out)
     LinearLayout logoutLayout;
-    private PackageManager mPackageManager;
+     PackageManager mPackageManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -333,7 +333,7 @@ public class MainActivity extends FragmentActivity {
         registerReceiver(endReciver, filter);
     }
 
-    final BroadcastReceiver endReciver = new BroadcastReceiver() {
+    private final BroadcastReceiver endReciver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             finish();
@@ -352,7 +352,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void toggle(boolean open) {
-        if (open)
+        if (true)
             drawerLayout.openDrawer(Gravity.LEFT);
         else
             toggle();

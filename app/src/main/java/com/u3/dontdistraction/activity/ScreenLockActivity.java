@@ -3,11 +3,9 @@ package com.u3.dontdistraction.activity;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -30,14 +28,14 @@ import com.u3.dontdistraction.util.Recoder;
  * Created by U3 on 2015/5/29.
  */
 public class ScreenLockActivity extends Activity {
-    TextView text;
-    int lockTime;
-    Button putAnswer;
-    Button endLock;
-    TextView problem;
-    Problems problems;
-    EditText answer;
-    BroadcastReceiver receiver = new BroadcastReceiver() {
+    private TextView text;
+    private int lockTime;
+    private Button putAnswer;
+    private Button endLock;
+    private TextView problem;
+    private Problems problems;
+    private EditText answer;
+    private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             String reason = intent.getStringExtra("reason");
@@ -68,11 +66,7 @@ public class ScreenLockActivity extends Activity {
         setEndReciver();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-    public void timeCountDown() {
+    private void timeCountDown() {
         lockTime = Recoder.lockTime;
         lockTime = lockTime * 60 * 1000;
         new CountDownTimer(lockTime, 1000) {
@@ -156,7 +150,7 @@ public class ScreenLockActivity extends Activity {
         registerReceiver(endReciver, filter);
     }
 
-    final BroadcastReceiver endReciver = new BroadcastReceiver() {
+    private final BroadcastReceiver endReciver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             finish();

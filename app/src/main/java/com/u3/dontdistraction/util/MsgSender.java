@@ -15,9 +15,9 @@ import com.u3.dontdistraction.other.PenaltyMessage;
  * Created by U3 on 2015/5/29.
  */
 public class MsgSender {
-    private StatusesAPI mStatusesAPI;
-    private Context mContext;
-    private PenaltyMessage penaltyMessage;
+    private final StatusesAPI mStatusesAPI;
+    private final Context mContext;
+    private final PenaltyMessage penaltyMessage;
 
     public MsgSender(Context context) {
         mContext = context;
@@ -30,7 +30,7 @@ public class MsgSender {
         mStatusesAPI.update(penaltyMessage.getMessage(), null, null, mListener);
     }
 
-    private RequestListener mListener = new RequestListener() {
+    private final RequestListener mListener = new RequestListener() {
         @Override
         public void onComplete(String response) {
             if (response.startsWith("{\"created_at\"")) {

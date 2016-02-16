@@ -6,8 +6,6 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.u3.dontdistraction.model.Problem;
 import com.u3.dontdistraction.other.Problems;
 
 import java.io.BufferedReader;
@@ -17,13 +15,12 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 /**
  * Created by u3 on 2015/11/7.
  */
 public class RefreshProblem {
-    private Context mContext;
+    private final Context mContext;
     public RefreshProblem(Context context)
     {
         mContext = context;
@@ -33,7 +30,7 @@ public class RefreshProblem {
         RefreshTask task = new RefreshTask();
         task.execute();
         }
-    class RefreshTask extends AsyncTask<Void, Void, Void> {
+    private class RefreshTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
             Toast.makeText(mContext,"开始更新",Toast.LENGTH_LONG).show();

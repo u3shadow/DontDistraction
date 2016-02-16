@@ -1,19 +1,14 @@
 package com.u3.dontdistraction.fragments;
 
 
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,18 +16,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.u3.dontdistraction.activity.LoginActivity;
 import com.u3.dontdistraction.activity.ScreenLockActivity;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.util.Recoder;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SetTimeFragment extends Fragment {
 
-    Button setTime;
-    EditText time;
+    private Button setTime;
+    private EditText time;
     PackageManager mPackageManager;
 
     @Override
@@ -68,7 +59,7 @@ public class SetTimeFragment extends Fragment {
         getActivity().startActivity(mIntent);
     }
 
-    final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (Recoder.isTimed) {

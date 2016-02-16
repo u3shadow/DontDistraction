@@ -18,10 +18,10 @@ import java.util.List;
  * Created by U3 on 2015/7/12.
  */
 public class RecordAdapter extends BaseExpandableListAdapter {
-    Context context;
-    List<Record> mList;
-    List<String> group;
-    List<List<Record>> child;
+    private final Context context;
+    private final List<Record> mList;
+    private final List<String> group;
+    private final List<List<Record>> child;
     public RecordAdapter(List<Record> list, Context context, List<String> group, List<List<Record>> child){
         this.context = context;
         mList = list;

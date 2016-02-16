@@ -17,7 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Created by Administrator on 2015/11/10.
+ * Created by ${U3} on 2015/11/10.
  */
 public class SplashActivity extends Activity {
     @Bind(R.id.iv_icon)
@@ -59,7 +59,7 @@ public class SplashActivity extends Activity {
         registerReceiver(endReciver, filter);
     }
 
-    final BroadcastReceiver endReciver = new BroadcastReceiver() {
+    private final BroadcastReceiver endReciver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             finish();

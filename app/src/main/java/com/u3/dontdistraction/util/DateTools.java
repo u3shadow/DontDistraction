@@ -13,7 +13,7 @@ public class DateTools {
     public static String getTime(Date date) {
         return getFormatDateTime(date, "HH:mm:ss");
     }
-    public static String getFormatDateTime(Date date, String format) {
+    private static String getFormatDateTime(Date date, String format) {
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         return sdf.format(date);
     }

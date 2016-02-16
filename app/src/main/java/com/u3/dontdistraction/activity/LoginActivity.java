@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.sina.weibo.sdk.auth.AuthInfo;
@@ -15,7 +14,6 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
-import com.sina.weibo.sdk.openapi.UsersAPI;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Constants;
@@ -52,14 +50,14 @@ public class LoginActivity extends Activity {
         filter.addAction("com.u3.end");
         registerReceiver(endReciver, filter);
     }
-    final BroadcastReceiver endReciver = new BroadcastReceiver() {
+    private final BroadcastReceiver endReciver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             finish();
         }
     };
 
-    public void SSotest() {
+    private void SSotest() {
         AuthInfo mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
         mSsoHandler = new SsoHandler(LoginActivity.this, mAuthInfo);
         mSsoHandler.authorizeWeb(new AuthListener());
@@ -74,7 +72,7 @@ public class LoginActivity extends Activity {
         }
     }
 
-    class AuthListener implements WeiboAuthListener {
+    private class AuthListener implements WeiboAuthListener {
 
         @Override
         public void onComplete(Bundle values) {

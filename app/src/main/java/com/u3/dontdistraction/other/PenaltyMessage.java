@@ -8,8 +8,7 @@ import java.util.Random;
  * Created by U3 on 2015/5/29.
  */
 public class PenaltyMessage {
-    private int msgNumMin = 0;
-    private static List<String> msgList = new ArrayList<String>() {
+    private static final List<String> msgList = new ArrayList<String>() {
         {
             add("#勿扰机#我又看书的时候玩手机了,这个肥皂我承包了！");
             add("#勿扰机#我又看书的时候玩手机了,这个肥皂我承包了！");

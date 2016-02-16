@@ -122,7 +122,7 @@ public class ResultActivity extends Activity {
         filter.addAction("com.u3.end");
         registerReceiver(endReciver, filter);
     }
-    final BroadcastReceiver endReciver = new BroadcastReceiver() {
+    private final BroadcastReceiver endReciver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             finish();
