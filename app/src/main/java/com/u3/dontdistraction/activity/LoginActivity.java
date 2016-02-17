@@ -28,16 +28,8 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        isLogin();
         setEndReciver();
         SSotest();
-    }
-
-    private void isLogin() {
-        Oauth2AccessToken token = AccessTokenKeeper.readAccessToken(this);
-        if (token != null && token.isSessionValid()) {
-            jumpToSetTime();
-        }
     }
 
     private void jumpToSetTime() {
