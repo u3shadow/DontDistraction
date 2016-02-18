@@ -64,6 +64,7 @@ public class ResultActivity extends Activity {
         noSendButton = (Button) findViewById(R.id.bt_notsend);
         text = (TextView) findViewById(R.id.tv_result);
         image = (ImageView) findViewById(R.id.iv_resultimg);
+
     }
 
     private void initListener() {

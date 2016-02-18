@@ -15,17 +15,22 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowApplication;
 
+import java.lang.reflect.Method;
+
 /**
  * Created by ${U3} on 2016/2/17.
  */
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class,sdk = 21)
 public class LoginActivityTest {
-    @Test
-    public void is_jump_to_weibo_login_activity()
-    {
-        LoginActivity activity = Robolectric.setupActivity(LoginActivity.class);
-        Assert.assertNotNull(activity);
-    }
 
+    @Test
+    public void is_jump_to_MainActivity() throws Exception {
+        Class<LoginActivity> class1 = LoginActivity.class;
+        Object instance = class1.newInstance();
+        Method method = class1.getDeclaredMethod("jumpToSetTime", new Class[]{});
+        method.setAccessible(true);
+        method.invoke(instance,new Object[]{});
+
+    }
 }
