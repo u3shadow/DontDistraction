@@ -35,6 +35,7 @@ public class ScreenLockActivity extends Activity {
     private TextView problem;
     private Problems problems;
     private EditText answer;
+    private CountDownTimer mTimer;
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -69,7 +70,7 @@ public class ScreenLockActivity extends Activity {
     private void timeCountDown() {
         lockTime = Recoder.lockTime;
         lockTime = lockTime * 60 * 1000;
-        new CountDownTimer(lockTime, 1000) {
+        mTimer =  new CountDownTimer(lockTime, 1000) {
             public void onTick(long millisUntilFinished) {
                 text.setText(getResources().getString(R.string.time_remain)
                         + millisUntilFinished / (60 * 1000)
@@ -94,7 +95,8 @@ public class ScreenLockActivity extends Activity {
                     }
                 });
             }
-        }.start();
+        };
+        mTimer.start();
     }
 
     private void initView() {
@@ -199,6 +201,7 @@ public class ScreenLockActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         Log.i("sl","sld");
+        mTimer.cancel();
         unregisterReceiver(endReciver);
         unregisterReceiver(receiver);
     }

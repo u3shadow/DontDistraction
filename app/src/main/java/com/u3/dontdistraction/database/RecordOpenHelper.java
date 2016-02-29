@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * Created by U3 on 2015/7/4.
  */
 public class RecordOpenHelper extends OrmLiteSqliteOpenHelper {
-    private Dao<Record,Integer> recordDao;
+    private static Dao<Record,Integer> recordDao;
    public RecordOpenHelper(Context context)
    {
        super(context,"ddphone",null,1);
@@ -30,6 +30,7 @@ public class RecordOpenHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
+
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource, int i, int i1) {
 
@@ -41,4 +42,5 @@ public class RecordOpenHelper extends OrmLiteSqliteOpenHelper {
         }
         return recordDao;
     }
+
 }

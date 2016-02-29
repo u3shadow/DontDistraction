@@ -1,3 +1,4 @@
+/*
 package test.com.u3.dontdistraction.activity;
 
 import android.content.Intent;
@@ -21,9 +22,11 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowApplication;
 
+*/
 /**
  * Created by ${U3} on 2016/2/18.
- */
+ *//*
+
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 19)
 public class ResultActivityTest {
@@ -53,3 +56,4 @@ public class ResultActivityTest {
         Assert.assertEquals(expected,actual);
     }
 }
+*/

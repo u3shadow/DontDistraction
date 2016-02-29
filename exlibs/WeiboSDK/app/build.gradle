@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 21
     buildToolsVersion '23.0.1'
 
     defaultConfig {
@@ -18,6 +18,5 @@ android {
 }
 
 dependencies {
-
     compile files('libs/weiboSDKCore_3.1.2.jar')
 }

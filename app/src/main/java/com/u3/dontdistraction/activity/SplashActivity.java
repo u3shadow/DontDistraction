@@ -32,8 +32,8 @@ public class SplashActivity extends Activity {
         ButterKnife.bind(this);
         AlphaAnimation animation = new AlphaAnimation(1, (float) 0.5);
         animation.setRepeatMode(Animation.REVERSE);
-        animation.setRepeatCount(3);
-        animation.setDuration(1500);
+        animation.setRepeatCount(2);
+        animation.setDuration(900);
         ivIcon.startAnimation(animation);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override

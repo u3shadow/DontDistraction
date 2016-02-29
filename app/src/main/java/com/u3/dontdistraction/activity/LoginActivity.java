@@ -32,10 +32,7 @@ public class LoginActivity extends Activity {
         SSotest();
     }
 
-    private void jumpToSetTime() {
-        Intent mIntent = new Intent(this, MainActivity.class);
-        startActivity(mIntent);
-    }
+
     private void setEndReciver()
     {
         final IntentFilter filter = new IntentFilter();
@@ -52,7 +49,7 @@ public class LoginActivity extends Activity {
     private void SSotest() {
         AuthInfo mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
         mSsoHandler = new SsoHandler(LoginActivity.this, mAuthInfo);
-        mSsoHandler.authorizeWeb(new AuthListener());
+        mSsoHandler.authorize(new AuthListener());
         finish();
     }
 
@@ -77,7 +74,6 @@ public class LoginActivity extends Activity {
                 // 保存 Token 到 SharedPreferences
                 AccessTokenKeeper.writeAccessToken(LoginActivity.this, mAccessToken);
                 Toast.makeText(LoginActivity.this, "认证成功", Toast.LENGTH_SHORT).show();
-                jumpToSetTime();
             } else {
                 // 以下几种情况，您会收到 Code：
                 // 1. 当您未在平台上注册的应用程序的包名与签名时；
