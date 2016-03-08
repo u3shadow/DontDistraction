@@ -49,7 +49,7 @@ public class LoginActivity extends Activity {
     private void SSotest() {
         AuthInfo mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
         mSsoHandler = new SsoHandler(LoginActivity.this, mAuthInfo);
-        mSsoHandler.authorize(new AuthListener());
+        mSsoHandler.authorizeWeb(new AuthListener());
         finish();
     }
 

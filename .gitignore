@@ -6,3 +6,5 @@
 /build
 /captures
 /exlibs
+.idea/misc.xml
+app/app.iml
