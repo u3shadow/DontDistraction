@@ -20,8 +20,9 @@ import org.robolectric.shadows.ShadowApplication;
 /**
  * Created by u3 on 16-3-7.
  */
+// need note adddb method to run this test
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class,sdk = 21)
+@Config(constants = BuildConfig.class,sdk = 19)
 public class ResultActivityTest {
 
 
@@ -30,7 +31,6 @@ public class ResultActivityTest {
         ResultActivity activity = Robolectric.setupActivity(ResultActivity.class);
         Assert.assertNotNull(activity);
     }
-/*
     @Test
     public void is_the_imageview_show_at_screen() {
 
@@ -46,5 +46,5 @@ public class ResultActivityTest {
         activity.findViewById(R.id.bt_notsend).performClick();
         Intent actual = ShadowApplication.getInstance().getNextStartedActivity();
         Assert.assertEquals(expected, actual);
-    }*/
+    }
 }
