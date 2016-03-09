@@ -24,7 +24,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.LogoutAPI;
@@ -37,6 +39,7 @@ import com.u3.dontdistraction.fragments.SetTimeFragment;
 import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Constants;
 import com.u3.dontdistraction.util.RefreshProblem;
+import com.u3.dontdistraction.weibocallback.AuthListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -157,8 +160,7 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 if(token == null || !token.isSessionValid()){
-                Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(mIntent);
+                SSotest();
                 }
             }
         });
@@ -233,8 +235,7 @@ public class MainActivity extends FragmentActivity {
                     tvJuzi.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                                Intent mIntent = new Intent(MainActivity.this, LoginActivity.class);
-                                startActivity(mIntent);
+                            SSotest();
                         }
                     });
                 }
@@ -350,5 +351,10 @@ public class MainActivity extends FragmentActivity {
             drawerLayout.openDrawer(Gravity.LEFT);
         else
             toggle();
+    }
+    private void SSotest() {
+        AuthInfo mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+        SsoHandler mSsoHandler = new SsoHandler(MainActivity.this, mAuthInfo);
+        mSsoHandler.authorizeWeb(new AuthListener(this));
     }
 }
