@@ -15,7 +15,6 @@ import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.databasedal.RecordDal;
 import com.u3.dontdistraction.model.Record;
 import com.u3.dontdistraction.util.MsgSender;
-import com.u3.dontdistraction.util.Recoder;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -31,6 +30,7 @@ public class ResultActivity extends Activity {
     private ImageView image;
     private RecordDal recordDal;
     private Record record;
+    private Boolean isTimeEnd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +46,10 @@ public class ResultActivity extends Activity {
 
     private void initData() {
         sender = new MsgSender(this);
-        Recoder.isTimed = false;
+        ScreenLockActivity.isTimed = false;
         recordDal = new RecordDal(this);
-        record = new Record(Recoder.isTimeEnd, new Date());
+        isTimeEnd = getIntent().getBooleanExtra("isTimeEnd",false);
+        record = new Record(isTimeEnd,new Date());
     }
 
     private void addRecord() {
@@ -80,7 +81,7 @@ public class ResultActivity extends Activity {
 
     private void setView() {
 
-        if (!Recoder.isTimeEnd) {
+        if (!isTimeEnd) {
             setSuccessView();
         } else {
             setFailView();

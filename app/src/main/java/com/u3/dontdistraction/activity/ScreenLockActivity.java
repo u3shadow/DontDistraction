@@ -22,12 +22,12 @@ import android.widget.Toast;
 
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.other.Problems;
-import com.u3.dontdistraction.util.Recoder;
 
 /**
  * Created by U3 on 2015/5/29.
  */
 public class ScreenLockActivity extends Activity {
+    public static boolean isTimed = false;
     private TextView text;
     private int lockTime;
     private Button putAnswer;
@@ -42,9 +42,7 @@ public class ScreenLockActivity extends Activity {
             String reason = intent.getStringExtra("reason");
             if (reason != null) {
                 if (reason.equals("homekey")) {
-                    Recoder.isTimeEnd = false;
-                    Recoder.isFront = false;
-                    startResultActivity();
+                    startResultActivity(false);
                 }
             }
         }
@@ -68,7 +66,8 @@ public class ScreenLockActivity extends Activity {
     }
 
     private void timeCountDown() {
-        lockTime = Recoder.lockTime;
+
+        lockTime = getIntent().getIntExtra("lockTime",-1);
         lockTime = lockTime * 60 * 1000;
         mTimer =  new CountDownTimer(lockTime, 1000) {
             public void onTick(long millisUntilFinished) {
@@ -81,15 +80,13 @@ public class ScreenLockActivity extends Activity {
 
             public void onFinish() {
                 text.setText(getResources().getString(R.string.time_end));
-                Recoder.isTimeEnd = true;
                 putAnswer.setVisibility(View.GONE);
                 endLock.setText(getResources().getString(R.string.complete));
                 endLock.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Recoder.isTimeEnd = true;
-                        Recoder.isFront = false;
                         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
+                        mIntent.putExtra("isTimeEnd",true);
                         startActivity(mIntent);
                         ScreenLockActivity.this.finish();
                     }
@@ -112,9 +109,7 @@ public class ScreenLockActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (answer.getText().toString() != null && problems.isAnswerRight(answer.getText().toString())) {
-                    Recoder.isTimeEnd = true;
-                    Recoder.isFront = false;
-                    startResultActivity();
+                    startResultActivity(true);
                 } else {
                     animation();
                     Toast.makeText(ScreenLockActivity.this, getResources().getString(R.string.wrong_answer), Toast.LENGTH_LONG).show();
@@ -124,14 +119,14 @@ public class ScreenLockActivity extends Activity {
         endLock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Recoder.isTimeEnd = false;
-                Recoder.isFront = false;
-                startResultActivity();
+
+                startResultActivity(false);
             }
         });
     }
-    private void startResultActivity(){
+    private void startResultActivity(Boolean isTimeEnd){
         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
+        mIntent.putExtra("isTimeEnd",isTimeEnd);
         startActivity(mIntent);
         ScreenLockActivity.this.finish();
     }
@@ -194,7 +189,6 @@ public class ScreenLockActivity extends Activity {
 
     @Override
     protected void onStart() {
-       Recoder.isFront = true;
         super.onStart();
     }
     @Override

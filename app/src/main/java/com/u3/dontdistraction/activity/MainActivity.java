@@ -109,7 +109,6 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initView();
-        showLint();
         isLogin();
         setEndReciver();
         initFragment();
@@ -125,11 +124,6 @@ public class MainActivity extends FragmentActivity {
     protected void onResume() {
         super.onResume();
         isLogin();
-    }
-
-    private void showLint() {
-        SharedPreferences preferences = getSharedPreferences("App", 0);
-        Boolean isFirstTime = preferences.getBoolean("isFirstOpen", true);
     }
 
     private void isLogin() {

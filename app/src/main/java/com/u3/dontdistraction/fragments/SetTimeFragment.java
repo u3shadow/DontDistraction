@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import com.u3.dontdistraction.activity.ScreenLockActivity;
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.util.Recoder;
 
 public class SetTimeFragment extends Fragment {
 
@@ -41,7 +40,7 @@ public class SetTimeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                     if (!time.getText().toString().equals("") && !time.getText().toString().equals("0")) {
-                        if (!Recoder.isTimed) {
+                        if (!ScreenLockActivity.isTimed) {
                             reopenScreenLock();
                         }
                     } else {
@@ -53,8 +52,9 @@ public class SetTimeFragment extends Fragment {
 
     private void reopenScreenLock() {
         Intent mIntent = new Intent(getActivity(), ScreenLockActivity.class);
-        Recoder.lockTime = Integer.valueOf(time.getText().toString());
-        Recoder.isTimed = true;
+        int lockTime = Integer.valueOf(time.getText().toString());
+        ScreenLockActivity.isTimed = true;
+        mIntent.putExtra("lockTime",lockTime);
         setRecevier();
         getActivity().startActivity(mIntent);
     }
@@ -62,7 +62,7 @@ public class SetTimeFragment extends Fragment {
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (Recoder.isTimed) {
+            if (ScreenLockActivity.isTimed) {
                 KeyguardManager km = (KeyguardManager) getActivity().getSystemService(Context.KEYGUARD_SERVICE);
                 if (km.inKeyguardRestrictedInputMode()) {
                     Intent alarmIntent = new Intent(context, ScreenLockActivity.class);
