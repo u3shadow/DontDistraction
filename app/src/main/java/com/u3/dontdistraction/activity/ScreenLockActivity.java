@@ -47,6 +47,7 @@ public class ScreenLockActivity extends Activity {
             }
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,21 +56,23 @@ public class ScreenLockActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
                         WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_screenlock);
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
-        registerReceiver(receiver,filter);
         initView();
         initProblem();
         timeCountDown();
         initListener();
         setEndReciver();
+        addHomeReceiver();
     }
-
+    private void addHomeReceiver(){
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+        registerReceiver(receiver,filter);
+    }
     private void timeCountDown() {
 
-        lockTime = getIntent().getIntExtra("lockTime",-1);
+        lockTime = getIntent().getIntExtra("lockTime", -1);
         lockTime = lockTime * 60 * 1000;
-        mTimer =  new CountDownTimer(lockTime, 1000) {
+        mTimer = new CountDownTimer(lockTime, 1000) {
             public void onTick(long millisUntilFinished) {
                 text.setText(getResources().getString(R.string.time_remain)
                         + millisUntilFinished / (60 * 1000)
@@ -86,7 +89,7 @@ public class ScreenLockActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
-                        mIntent.putExtra("isTimeEnd",true);
+                        mIntent.putExtra("isTimeEnd", true);
                         startActivity(mIntent);
                         ScreenLockActivity.this.finish();
                     }
@@ -124,17 +127,19 @@ public class ScreenLockActivity extends Activity {
             }
         });
     }
-    private void startResultActivity(Boolean isTimeEnd){
+
+    private void startResultActivity(Boolean isTimeEnd) {
         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
-        mIntent.putExtra("isTimeEnd",isTimeEnd);
+        mIntent.putExtra("isTimeEnd", isTimeEnd);
         startActivity(mIntent);
         ScreenLockActivity.this.finish();
     }
-    private void animation()
-    {
-        TranslateAnimation animation1  = (TranslateAnimation)AnimationUtils.loadAnimation(this,R.anim.edittextshake);
+
+    private void animation() {
+        TranslateAnimation animation1 = (TranslateAnimation) AnimationUtils.loadAnimation(this, R.anim.edittextshake);
         answer.startAnimation(animation1);
     }
+
     private void initProblem() {
         problems = new Problems(ScreenLockActivity.this);
         problem.setText(problems.getProblem());
@@ -163,6 +168,7 @@ public class ScreenLockActivity extends Activity {
         }
         return true;
     }
+
     //屏蔽menu
     @Override
     public void onWindowFocusChanged(boolean pHasWindowFocus) {
@@ -171,10 +177,11 @@ public class ScreenLockActivity extends Activity {
             sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         }
     }
+
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i("sl","slp");
+        Log.i("sl", "slp");
         ActivityManager activityManager = (ActivityManager) getApplicationContext()
                 .getSystemService(Context.ACTIVITY_SERVICE);
 
@@ -184,17 +191,18 @@ public class ScreenLockActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i("sl","sls");
+        Log.i("sl", "sls");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("sl","sld");
+        Log.i("sl", "sld");
         mTimer.cancel();
         unregisterReceiver(endReciver);
         unregisterReceiver(receiver);
