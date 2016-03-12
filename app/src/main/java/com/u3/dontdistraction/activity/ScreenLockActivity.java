@@ -35,6 +35,8 @@ public class ScreenLockActivity extends Activity {
     private TextView problem;
     private Problems problems;
     private EditText answer;
+    private TextView gnome;
+    private TextView start;
     private CountDownTimer mTimer;
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
@@ -62,6 +64,7 @@ public class ScreenLockActivity extends Activity {
         initListener();
         setEndReciver();
         addHomeReceiver();
+        problemToggle(false);
     }
     private void addHomeReceiver(){
         IntentFilter filter = new IntentFilter();
@@ -105,6 +108,8 @@ public class ScreenLockActivity extends Activity {
         problem = (TextView) findViewById(R.id.tv_problem);
         answer = (EditText) findViewById(R.id.et_answer);
         endLock = (Button) findViewById(R.id.bt_endlock);
+        gnome = (TextView)findViewById(R.id.gnome);
+        start = (Button)findViewById(R.id.start);
     }
 
     private void initListener() {
@@ -124,6 +129,12 @@ public class ScreenLockActivity extends Activity {
             public void onClick(View v) {
 
                 startResultActivity(false);
+            }
+        });
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                problemToggle(true);
             }
         });
     }
@@ -206,5 +217,22 @@ public class ScreenLockActivity extends Activity {
         mTimer.cancel();
         unregisterReceiver(endReciver);
         unregisterReceiver(receiver);
+    }
+    public void problemToggle(boolean isShow){
+        if(isShow){
+            putAnswer.setVisibility(View.VISIBLE);
+            endLock.setVisibility(View.VISIBLE);
+            problem.setVisibility(View.VISIBLE);
+            answer.setVisibility(View.VISIBLE);
+            start.setVisibility(View.INVISIBLE);
+            gnome.setVisibility(View.INVISIBLE);
+        }else{
+            putAnswer.setVisibility(View.INVISIBLE);
+            endLock.setVisibility(View.INVISIBLE);
+            problem.setVisibility(View.INVISIBLE);
+            answer.setVisibility(View.INVISIBLE);
+            start.setVisibility(View.VISIBLE);
+            gnome.setVisibility(View.VISIBLE);
+        }
     }
 }

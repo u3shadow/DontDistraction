@@ -56,4 +56,23 @@
         android:layout_width="300dp"
         android:layout_height="50dp" />
 
+    <TextView
+        android:id="@+id/gnome"
+        android:text="Miracles sometimes occur, but one has to work terribly for them. （ C. Weizmann ）"
+        android:textSize="22sp"
+        android:textColor="#FFF"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/start"
+        android:text="@string/startAnswer"
+        android:layout_below="@id/gnome"
+        android:background="@drawable/lockbuttonback"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="50dp" />
 </RelativeLayout>

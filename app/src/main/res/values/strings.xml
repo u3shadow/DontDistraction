@@ -35,4 +35,5 @@
     <string name="okbutton">确定</string>
     <string name="nothingtoshow">:( 没什么可以显示的</string>
     <string name="wuraophon">WuRaoPhone</string>
+    <string name="startAnswer">展开题目</string>
 </resources>
