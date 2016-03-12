@@ -14,7 +14,6 @@ android {
         multiDexEnabled = true
         versionName "1.3"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     dexOptions{
         jumboMode = true

@@ -32,6 +32,9 @@ public class RecordDal {
         }
         return list;
     }
+    public void delete(Record record) throws SQLException {
+        openHelper.getRecordDao().delete(record);
+    }
     public List<Record> getUpdate(List<Record> list)
     {
       /*  List<Record> list1 = new ArrayList<Record>();
