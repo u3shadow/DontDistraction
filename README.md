@@ -6,6 +6,9 @@ It can record your screen lock and off, when you want to lock off you should ans
 
 send to your weibo account, just for fun!
 
+I have pulish this project to wandoujia, so you can download apk from
+[download apk](http://www.wandoujia.com/apps/com.u3.dontdistraction)
+
 ## some screen shoots from the project
 
 ![screen shoot](http://img.wdjimg.com/mms/screenshot/7/47/32c500cd97fbc03e8be3ef8809a75477_320_550.jpeg)
