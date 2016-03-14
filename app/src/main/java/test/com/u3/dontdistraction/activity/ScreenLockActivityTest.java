@@ -12,7 +12,9 @@ import com.u3.dontdistraction.activity.ResultActivity;
 import com.u3.dontdistraction.activity.ScreenLockActivity;
 import com.u3.dontdistraction.activity.SplashActivity;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
@@ -26,27 +28,48 @@ import org.robolectric.shadows.ShadowApplication;
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class,sdk = 19)
 public class ScreenLockActivityTest {
+    ScreenLockActivity activity;
+    @Before
+    public void inittest(){
+        activity = Robolectric.setupActivity(ScreenLockActivity.class);
+    }
     @Test
     public void create_the_activity()
     {
-        ScreenLockActivity activity = Robolectric.setupActivity(ScreenLockActivity.class);
-        Assert.assertNotNull(activity);
+       assertNotNull(activity);
     }
     @Test
     public void is_the_msg_show_at_screen()
     {
-        ScreenLockActivity activity = Robolectric.setupActivity(ScreenLockActivity.class);
         TextView msg = (TextView)activity.findViewById(R.id.tv_msg);
-        Assert.assertEquals(View.VISIBLE, msg.getVisibility());
+       assertEquals(View.VISIBLE, msg.getVisibility());
     }
     @Test
     public void is_start_correct_activity()
     {
-        ScreenLockActivity activity = Robolectric.setupActivity(ScreenLockActivity.class);
         Intent expected = new Intent(activity, ResultActivity.class);
         expected.putExtra("isTimeEnd",false);
         activity.findViewById(R.id.bt_endlock).performClick();
         Intent actual = ShadowApplication.getInstance().getNextStartedActivity();
-        Assert.assertEquals(expected,actual);
+        assertEquals(expected,actual);
+    }
+    @Test
+    public void has_gnome(){
+      TextView gnome = (TextView)activity.findViewById(R.id.gnome);
+       assertNotNull(gnome);
+    }
+    @Test
+    public void is_gnome_show(){
+        TextView gnome = (TextView)activity.findViewById(R.id.gnome);
+        int expect = View.VISIBLE;
+        int actual  = gnome.getVisibility();
+        assertEquals(expect, actual);
+    }
+    @Test
+    public void open_problem_after_click_open_button(){
+        activity.findViewById(R.id.start).performClick();
+       int actual =  activity.findViewById(R.id.tv_problem).getVisibility();
+        int expect = View.VISIBLE;
+        assertEquals(expect, actual);
     }
 }

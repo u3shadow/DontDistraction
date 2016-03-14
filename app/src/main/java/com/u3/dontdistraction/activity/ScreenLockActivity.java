@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.u3.dontdistraction.R;
+import com.u3.dontdistraction.other.Gnomes;
 import com.u3.dontdistraction.other.Problems;
 
 /**
@@ -60,6 +61,7 @@ public class ScreenLockActivity extends Activity {
         setContentView(R.layout.activity_screenlock);
         initView();
         initProblem();
+        initGnome();
         timeCountDown();
         initListener();
         setEndReciver();
@@ -69,7 +71,7 @@ public class ScreenLockActivity extends Activity {
     private void addHomeReceiver(){
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
-        registerReceiver(receiver,filter);
+        registerReceiver(receiver, filter);
     }
     private void timeCountDown() {
 
@@ -152,8 +154,12 @@ public class ScreenLockActivity extends Activity {
     }
 
     private void initProblem() {
-        problems = new Problems(ScreenLockActivity.this);
+        problems = new Problems(this);
         problem.setText(problems.getProblem());
+    }
+    private void initGnome(){
+        Gnomes gnomes = new Gnomes(this);
+        gnome.setText(gnomes.getGnome());
     }
 
 
