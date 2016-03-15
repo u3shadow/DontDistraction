@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.u3.dontdistraction.model.GnomeEntity;
-import com.u3.dontdistraction.model.Problem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -74,7 +73,7 @@ public Gnomes(Context context)
         }
     }
     public String getGnome() {
-        return gnomeList.get(gnomeNumber).getGenomeString();
+        return gnomeList.get(gnomeNumber).getGnomeString();
     }
 
 }

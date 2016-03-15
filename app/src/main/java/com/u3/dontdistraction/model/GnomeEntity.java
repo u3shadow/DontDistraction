@@ -5,16 +5,16 @@ package com.u3.dontdistraction.model;
  */
 public class GnomeEntity {
     public GnomeEntity(String gnome){
-        setGenomeString(gnome);
+        setGnomeString(gnome);
     }
-    public String getGenomeString() {
-        return genomeString;
-    }
-
-    public void setGenomeString(String genomeString) {
-        this.genomeString = genomeString;
+    public String getGnomeString() {
+        return gnomeString;
     }
 
-    private String genomeString;
+    public void setGnomeString(String gnomeString) {
+        this.gnomeString = gnomeString;
+    }
+
+    private String gnomeString;
 
 }

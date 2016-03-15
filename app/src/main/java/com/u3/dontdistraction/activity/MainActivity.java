@@ -38,6 +38,7 @@ import com.u3.dontdistraction.fragments.RecordFragment;
 import com.u3.dontdistraction.fragments.SetTimeFragment;
 import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Constants;
+import com.u3.dontdistraction.util.RefreshGnome;
 import com.u3.dontdistraction.util.RefreshProblem;
 import com.u3.dontdistraction.weibocallback.AuthListener;
 
@@ -116,6 +117,8 @@ public class MainActivity extends FragmentActivity {
         setEndReciver();
         initFragment();
         setListener();
+        RefreshGnome refreshGnome = new RefreshGnome(MainActivity.this);
+        refreshGnome.refresh();
     }
 
 
@@ -214,6 +217,7 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onClick(View view) {
                 RefreshProblem refreshProblem = new RefreshProblem(MainActivity.this);
+
                 refreshProblem.refresh();
             }
         });
