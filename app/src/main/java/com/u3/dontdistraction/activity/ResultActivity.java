@@ -89,7 +89,7 @@ public class ResultActivity extends Activity {
     }
 
     private void setSuccessView() {
-        image.setImageResource(R.drawable.badresult);
+        image.setImageResource(R.drawable.sad);
         text.setText(getResources().getString(R.string.bad_result_msg));
         okButton.setText(getResources().getString(R.string.badresult));
         okButton.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +105,7 @@ public class ResultActivity extends Activity {
     }
 
     private void setFailView() {
-        image.setImageResource(R.drawable.goodresult);
+        image.setImageResource(R.drawable.smile);
         text.setText(getResources().getString(R.string.good_result_msg));
         noSendButton.setVisibility(View.GONE);
         okButton.setText(getResources().getString(R.string.useagain));
