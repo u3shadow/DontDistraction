@@ -34,5 +34,6 @@
     <string name="norecord">No records, please learn first</string>
     <string name="okbutton">OK</string>
     <string name="nothingtoshow">:(No thing to show</string>
+    <string name="startAnswer">open</string>
 </resources>
 

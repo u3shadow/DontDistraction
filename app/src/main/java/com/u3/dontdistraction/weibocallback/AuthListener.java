@@ -9,6 +9,7 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.u3.dontdistraction.util.AccessTokenKeeper;
+import com.umeng.analytics.MobclickAgent;
 
 import java.net.ContentHandler;
 
@@ -31,6 +32,7 @@ private Context mContext;
                 // 保存 Token 到 SharedPreferences
                 AccessTokenKeeper.writeAccessToken(mContext,mAccessToken);
                 Toast.makeText(mContext, "认证成功", Toast.LENGTH_SHORT).show();
+
             } else {
                 // 以下几种情况，您会收到 Code：
                 // 1. 当您未在平台上注册的应用程序的包名与签名时；

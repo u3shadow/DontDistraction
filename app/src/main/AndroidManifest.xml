@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
       android:name=".MyApplication"
@@ -42,6 +43,7 @@
             <service android:name="com.sina.weibo.sdk.net.DownloadService"
                 android:exported="false">
             </service>
-
+        <meta-data android:value="56efa1f567e58ed0f5000ad2" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>
     </application>
 </manifest>

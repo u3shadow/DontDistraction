@@ -15,6 +15,7 @@ import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.databasedal.RecordDal;
 import com.u3.dontdistraction.model.Record;
 import com.u3.dontdistraction.util.MsgSender;
+import com.umeng.analytics.MobclickAgent;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -42,8 +43,14 @@ public class ResultActivity extends Activity {
         initListener();
         setView();
         setEndReciver();
+        MobclickAgent.onResume(this);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
     private void initData() {
         sender = new MsgSender(this);
         ScreenLockActivity.isTimed = false;

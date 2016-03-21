@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 
 import com.u3.dontdistraction.R;
+import com.umeng.analytics.MobclickAgent;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -43,7 +44,7 @@ public class SplashActivity extends Activity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                Intent mIntent = new Intent(SplashActivity.this,MainActivity.class);
+                Intent mIntent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(mIntent);
             }
 
@@ -52,8 +53,16 @@ public class SplashActivity extends Activity {
 
             }
         });
+        MobclickAgent.onResume(this);
     }
-    private void setEndReciver(){
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
+    private void setEndReciver() {
         final IntentFilter filter = new IntentFilter();
         filter.addAction("com.u3.end");
         registerReceiver(endReciver, filter);
