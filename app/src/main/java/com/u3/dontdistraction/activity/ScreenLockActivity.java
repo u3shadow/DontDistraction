@@ -19,16 +19,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.other.Gnomes;
 import com.u3.dontdistraction.other.Problems;
+import com.u3.dontdistraction.util.MyProgressBar;
 
 /**
  * Created by U3 on 2015/5/29.
  */
 public class ScreenLockActivity extends Activity {
     public static boolean isTimed = false;
+    private boolean isTimeEnd = false;
     private TextView text;
     private int lockTime;
     private Button putAnswer;
@@ -39,10 +42,14 @@ public class ScreenLockActivity extends Activity {
     private TextView gnome;
     private TextView start;
     private CountDownTimer mTimer;
+    private MyProgressBar progressBar;
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             String reason = intent.getStringExtra("reason");
+            if(intent.getAction().toString().equals(Intent.ACTION_SCREEN_OFF)){
+                problemToggle(false);
+            }
             if (reason != null) {
                 if (reason.equals("homekey")) {
                     startResultActivity(false);
@@ -56,8 +63,7 @@ public class ScreenLockActivity extends Activity {
         super.onCreate(savedInstanceState);
         final Window win = getWindow();
         win.addFlags(
-                WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
-                        WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         setContentView(R.layout.activity_screenlock);
         initView();
         initProblem();
@@ -71,16 +77,25 @@ public class ScreenLockActivity extends Activity {
     private void addHomeReceiver(){
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
         registerReceiver(receiver, filter);
     }
     private void timeCountDown() {
 
         lockTime = getIntent().getIntExtra("lockTime", -1);
+        if(lockTime > 0){
+            progressBar.setProgressColor(getResources().getColor(R.color.progress));
+            progressBar.setProgressBackColor(getResources().getColor(R.color.progressBack));
+            progressBar.setDrawable(getResources().getDrawable(R.drawable.coffe));
+            progressBar.setBoundWidth(0);
+            progressBar.setProgressWidth(30);
+            progressBar.setIsRote(true);
+            progressBar.start(lockTime);
+        }
         lockTime = lockTime * 60 * 1000;
         mTimer = new CountDownTimer(lockTime, 1000) {
             public void onTick(long millisUntilFinished) {
-                text.setText(getResources().getString(R.string.time_remain)
-                        + millisUntilFinished / (60 * 1000)
+                text.setText(millisUntilFinished / (60 * 1000)
                         + getResources().getString(R.string.minute)
                         + (millisUntilFinished / 1000 - (millisUntilFinished / (60 * 1000) * 60))
                         + getResources().getString(R.string.second));
@@ -94,7 +109,8 @@ public class ScreenLockActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
-                        mIntent.putExtra("isTimeEnd", true);
+                        isTimeEnd = true;
+                        mIntent.putExtra("isTimeEnd", isTimeEnd);
                         startActivity(mIntent);
                         ScreenLockActivity.this.finish();
                     }
@@ -106,6 +122,7 @@ public class ScreenLockActivity extends Activity {
 
     private void initView() {
         text = (TextView) findViewById(R.id.tv_msg);
+        progressBar = (MyProgressBar)findViewById(R.id.progress);
         putAnswer = (Button) findViewById(R.id.bt_enteranswer);
         problem = (TextView) findViewById(R.id.tv_problem);
         answer = (EditText) findViewById(R.id.et_answer);
@@ -229,9 +246,11 @@ public class ScreenLockActivity extends Activity {
             putAnswer.setVisibility(View.VISIBLE);
             endLock.setVisibility(View.VISIBLE);
             problem.setVisibility(View.VISIBLE);
+            if(!isTimeEnd)
             answer.setVisibility(View.VISIBLE);
             start.setVisibility(View.INVISIBLE);
             gnome.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.INVISIBLE);
         }else{
             putAnswer.setVisibility(View.INVISIBLE);
             endLock.setVisibility(View.INVISIBLE);
@@ -239,6 +258,7 @@ public class ScreenLockActivity extends Activity {
             answer.setVisibility(View.INVISIBLE);
             start.setVisibility(View.VISIBLE);
             gnome.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
         }
     }
 }

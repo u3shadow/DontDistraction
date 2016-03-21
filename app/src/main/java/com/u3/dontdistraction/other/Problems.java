@@ -29,7 +29,7 @@ public class Problems {
             add(new Problem("牛虻的父亲是什么职业？", "神父"));
             add(new Problem("雅典王子忒修斯勇闯克里特岛斩杀米诺牛的时候采用了以下哪种算法？\n（A: 动态规划；B: 穷举；C: 记忆化搜索；D: Dijkstra算法。）", "A"));
             add(new Problem("以下哪个概念和公孙龙的《指物论》中的“指”字含义相近？\nA，变量；B，数组；C，对象；D，指针", "A"));
-            add(new Problem("蔺相如，司马相如；魏无忌，长孙无忌。下列哪一组对应关系与此类似\nA，PHP，Python；B，JSP，servlet；C，Java，Javascript；D，C，C++", "C"));
+            add(new Problem("蔺相如，司马相如；魏无忌，长孙无忌。下列哪一组对应关系与此类似\nA，PHP，Python；B，JSP，servlet；C，java，Javascript；D，C，C++", "C"));
             add(new Problem("《公孙龙子》记载：“齐王之谓尹文曰：‘寡人甚好士，以齐国无士，何也？’尹文曰：‘愿闻大王之所谓士者。’齐王无以应。”这说明了齐王：\na，昏庸无道；b，是个结巴；c，不会下定义；d，不会定义自己的需求。", "d"));
             add(new Problem("惠施曾提出过“卵有毛”的命题，以下哪一项是导致这个错误命题的原因：\na，混淆了命名空间；b，引入了错误的包；c，衍生类未重载；d，调用了危险的指针。", "c"));
             add(new Problem("明朝时期张居正改革的一条鞭法的主要思想是：\na，面向过程；b，万物皆数；c，统一接口；d，泛型编程。", "c"));

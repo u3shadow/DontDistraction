@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="sliding_button_press">#FBA208</color>
-    <color name="sliding_button">#FFF</color>
-    <color name="success_record">#FFF</color>
-    <color name="fail_record">#FFF</color>
-    <color name="black">#000</color>
-</resources>

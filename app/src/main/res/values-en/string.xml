@@ -26,7 +26,7 @@
     <string name="not_send">back</string>
     <string name="bad_result_msg">Seem not going well? Send a message!</string> 
 	<string name="good_result_msg">Congratulations!</string>
-    <string name="input_answer">Answer the question can lock off</string>
+    <string name="input_answer">Lock off by answer</string>
     <string name="wrong_answer">The answer is wrong</string>
     <string name="unlock_success">Success</string>
     <string name="unlock_fail">Faild</string>

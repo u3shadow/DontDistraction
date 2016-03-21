@@ -2,17 +2,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@drawable/background"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     >
 
     <TextView
+        android:id="@+id/tv_msg"
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
         android:layout_margin="20dp"
         android:textSize="30sp"
-        android:textColor="#FFF"
-        android:id="@+id/tv_msg"
+        android:textColor="#24936E"
         android:layout_height="wrap_content" />
 
     <EditText
@@ -32,7 +34,7 @@
         android:textSize="22sp"
         android:layout_margin="15dp"
         android:layout_centerHorizontal="true"
-        android:textColor="#FFF"
+        android:textColor="#86473F"
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -56,12 +58,18 @@
         android:layout_width="300dp"
         android:layout_height="50dp" />
 
+    <com.u3.dontdistraction.util.MyProgressBar
+        android:id="@+id/progress"
+        android:layout_below="@id/tv_msg"
+        android:layout_centerInParent="true"
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
     <TextView
         android:id="@+id/gnome"
+        android:layout_below="@id/progress"
         android:text="Miracles sometimes occur, but one has to work terribly for them. （ C. Weizmann ）"
         android:textSize="22sp"
-        android:textColor="#FFF"
-        android:layout_centerInParent="true"
+        android:textColor="#86473F"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -71,7 +79,7 @@
         android:layout_below="@id/gnome"
         android:background="@drawable/lockbuttonback"
         android:gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="30dp"
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="50dp" />
