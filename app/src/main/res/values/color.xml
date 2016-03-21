@@ -5,6 +5,8 @@
     <color name="success_record">#FFF</color>
     <color name="fail_record">#FFF</color>
     <color name="black">#000</color>
+    <color name="successback">#5cb1ed</color>
+    <color name="faildback">#B5CAA0</color>
     <color name="progress">#24936E</color>
     <color name="progressBack">#B5CAA0</color>
 </resources>

@@ -93,14 +93,15 @@ public class RecordAdapter extends BaseExpandableListAdapter {
         }
             holder.unlockData.setVisibility(View.GONE);
         if (currentRecord.isSuccess()) {
-            holder.itemLayout.setBackgroundResource(R.drawable.success_record_pic);
+            holder.itemLayout.setBackgroundColor(this.context.getResources().getColor(R.color.successback));
             holder.isSuccessText.setText(R.string.unlock_success);
-            holder.isSuccessText.setTextColor(context.getResources().getColor(R.color.success_record));
+            holder.isSuccessText.setTextColor(this.context.getResources().getColor(R.color.success_record));
         } else {
-            holder.itemLayout.setBackgroundResource(R.drawable.fail_record_pic);
+            holder.itemLayout.setBackgroundColor(this.context.getResources().getColor(R.color.faildback));
             holder.isSuccessText.setText(R.string.unlock_fail);
-            holder.isSuccessText.setTextColor(context.getResources().getColor(R.color.fail_record));
+            holder.isSuccessText.setTextColor(this.context.getResources().getColor(R.color.fail_record));
         }
+
         holder.unlockDataText.setText(DateTools.getDay(currentRecord.getDate()));
         holder.unlockTimeText.setText(DateTools.getTime(currentRecord.getDate()));
         return view;
