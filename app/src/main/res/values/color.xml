@@ -8,5 +8,5 @@
     <color name="successback">#5cb1ed</color>
     <color name="faildback">#B5CAA0</color>
     <color name="progress">#24936E</color>
-    <color name="progressBack">#B5CAA0</color>
+    <color name="progressBack">#B0CCE2</color>
 </resources>

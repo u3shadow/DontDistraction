@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_margin="20dp"
         android:textSize="30sp"
-        android:textColor="#24936E"
+        android:textColor="#28a3f9"
         android:layout_height="wrap_content" />
 
     <EditText

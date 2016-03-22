@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -20,7 +21,7 @@ import butterknife.ButterKnife;
 /**
  * Created by ${U3} on 2015/11/10.
  */
-public class SplashActivity extends Activity {
+public class SplashActivity extends AppCompatActivity {
     @Bind(R.id.iv_icon)
     ImageView ivIcon;
 

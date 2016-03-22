@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,7 +24,7 @@ import java.util.Date;
 /**
  * Created by U3 on 2015/5/29.
  */
-public class ResultActivity extends Activity {
+public class ResultActivity extends AppCompatActivity {
     private Button okButton;
     private Button noSendButton;
     private MsgSender sender;

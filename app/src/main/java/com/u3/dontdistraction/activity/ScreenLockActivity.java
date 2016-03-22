@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -30,7 +31,7 @@ import com.umeng.analytics.MobclickAgent;
 /**
  * Created by U3 on 2015/5/29.
  */
-public class ScreenLockActivity extends Activity {
+public class ScreenLockActivity extends AppCompatActivity {
     public static boolean isTimed = false;
     private boolean isTimeEnd = false;
     private TextView text;
