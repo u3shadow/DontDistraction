@@ -21,7 +21,7 @@
     <string name="enter_answer">Answer!</string>
     <string name="send_success">Success Send WeiBo</string>
     <string name="badresult">Send!</string>
-    <string name="begain">begain!</string>
+    <string name="begain">begin!</string>
     <string name="complete">finish!</string>
     <string name="not_send">back</string>
     <string name="bad_result_msg">Seem not going well? Send a message!</string> 
