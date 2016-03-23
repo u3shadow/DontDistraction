@@ -16,6 +16,37 @@ public class Record {
     private boolean isSuccess;
     @DatabaseField(columnName = "recorddate")
     private Date date;
+
+    public int getLearntime() {
+        return learntime;
+    }
+
+    public void setLearntime(int learntime) {
+        this.learntime = learntime;
+    }
+
+    public Date getStarTime() {
+        return starTime;
+    }
+
+    public void setStarTime(Date starTime) {
+        this.starTime = starTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    @DatabaseField(columnName = "learntime")
+    private int learntime;
+    @DatabaseField(columnName = "startime")
+    private Date starTime;
+    @DatabaseField(columnName = "endtime")
+    private Date endTime;
     public Record()
     {}
     public Record(boolean isSuccess,Date date)
