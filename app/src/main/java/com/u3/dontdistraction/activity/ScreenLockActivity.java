@@ -169,7 +169,7 @@ public class ScreenLockActivity extends AppCompatActivity {
     private void startResultActivity(Boolean isTimeEnd) {
         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
         mIntent.putExtra("isTimeEnd", isTimeEnd);
-        mIntent.putExtra("starTime",startTime);
+        mIntent.putExtra("startTime",startTime.getTime());
         startActivity(mIntent);
         ScreenLockActivity.this.finish();
     }

@@ -55,8 +55,13 @@ public class ResultActivity extends AppCompatActivity {
         ScreenLockActivity.isTimed = false;
         recordDal = new RecordDal(this);
         isTimeEnd = getIntent().getBooleanExtra("isTimeEnd",false);
-        Date startTime =(Date)getIntent().getSerializableExtra("startTime");
-        Log.i("date123", startTime.toString()+"");
+        Date startTime =new Date();
+        startTime.setTime(getIntent().getLongExtra("startTime", -1));
+        Date now = new Date();
+        Long duration = now.getTime() - startTime.getTime();
+        int durationMinu = (int)(duration/(1000*60));
+        int durationSec = (int)(duration - durationMinu*60000)/1000;
+        Log.i("date123", durationMinu+" : "+durationSec);
         record = new Record(isTimeEnd,new Date());
     }
 
