@@ -116,10 +116,7 @@ public class ScreenLockActivity extends AppCompatActivity {
                 endLock.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
-                        isTimeEnd = true;
-                        mIntent.putExtra("isTimeEnd", isTimeEnd);
-                        startActivity(mIntent);
+                    startResultActivity(true);
                         ScreenLockActivity.this.finish();
                     }
                 });
@@ -171,6 +168,7 @@ public class ScreenLockActivity extends AppCompatActivity {
         mIntent.putExtra("isTimeEnd", isTimeEnd);
         mIntent.putExtra("startTime",startTime.getTime());
         startActivity(mIntent);
+
         ScreenLockActivity.this.finish();
     }
 
