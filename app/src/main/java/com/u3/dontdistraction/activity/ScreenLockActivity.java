@@ -26,7 +26,8 @@ import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.other.Gnomes;
 import com.u3.dontdistraction.other.Problems;
 import com.u3.dontdistraction.util.MyProgressBar;
-import com.umeng.analytics.MobclickAgent;
+
+import java.util.Date;
 
 /**
  * Created by U3 on 2015/5/29.
@@ -45,6 +46,7 @@ public class ScreenLockActivity extends AppCompatActivity {
     private TextView start;
     private CountDownTimer mTimer;
     private MyProgressBar progressBar;
+    private Date startTime;
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -67,6 +69,7 @@ public class ScreenLockActivity extends AppCompatActivity {
         win.addFlags(
                 WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         setContentView(R.layout.activity_screenlock);
+        initDate();
         initView();
         initProblem();
         initGnome();
@@ -75,9 +78,10 @@ public class ScreenLockActivity extends AppCompatActivity {
         setEndReciver();
         addHomeReceiver();
         problemToggle(false);
-        MobclickAgent.onResume(this);
     }
-
+    private void initDate(){
+        startTime = new Date();
+        }
     private void addHomeReceiver(){
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
@@ -165,6 +169,7 @@ public class ScreenLockActivity extends AppCompatActivity {
     private void startResultActivity(Boolean isTimeEnd) {
         Intent mIntent = new Intent(ScreenLockActivity.this, ResultActivity.class);
         mIntent.putExtra("isTimeEnd", isTimeEnd);
+        mIntent.putExtra("starTime",startTime);
         startActivity(mIntent);
         ScreenLockActivity.this.finish();
     }
@@ -223,7 +228,6 @@ public class ScreenLockActivity extends AppCompatActivity {
         ActivityManager activityManager = (ActivityManager) getApplicationContext()
                 .getSystemService(Context.ACTIVITY_SERVICE);
         activityManager.moveTaskToFront(getTaskId(), 0);
-        MobclickAgent.onPause(this);
     }
 
     @Override

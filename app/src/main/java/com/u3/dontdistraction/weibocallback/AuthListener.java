@@ -9,7 +9,6 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.u3.dontdistraction.util.AccessTokenKeeper;
-import com.umeng.analytics.MobclickAgent;
 
 import java.net.ContentHandler;
 

@@ -1,6 +1,7 @@
 package com.u3.dontdistraction;
 
 import android.app.Application;
+import android.support.multidex.MultiDex;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.leakcanary.LeakCanary;
@@ -12,7 +13,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
- //       LeakCanary.install(this);
+        LeakCanary.install(this);
         Fresco.initialize(this);
     }
 }

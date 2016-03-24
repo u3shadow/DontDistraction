@@ -42,7 +42,6 @@ import com.u3.dontdistraction.util.Constants;
 import com.u3.dontdistraction.util.RefreshGnome;
 import com.u3.dontdistraction.util.RefreshProblem;
 import com.u3.dontdistraction.weibocallback.AuthListener;
-import com.umeng.analytics.MobclickAgent;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -121,13 +120,11 @@ public class MainActivity extends AppCompatActivity {
         setListener();
         RefreshGnome refreshGnome = new RefreshGnome(MainActivity.this);
         refreshGnome.refresh();
-        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
     }
 
     private void initView() {
@@ -159,7 +156,6 @@ public class MainActivity extends AppCompatActivity {
                             tvJuzi.setText(mUser.name);
                             Uri uri = Uri.parse(mUser.avatar_large);
                             ivHeadpic.setImageURI(uri);
-                            MobclickAgent.onProfileSignIn("weibo",mUser.id);
                         }
                     }
 
@@ -302,7 +298,6 @@ public class MainActivity extends AppCompatActivity {
                      if ("true".equalsIgnoreCase(value)) {
                          AccessTokenKeeper.clear(MainActivity.this);
                          Toast.makeText(MainActivity.this,getResources().getString(R.string.logoff_success),Toast.LENGTH_LONG).show();
-                         MobclickAgent.onProfileSignOff();
                      }
                  } catch (JSONException e) {
                      e.printStackTrace();

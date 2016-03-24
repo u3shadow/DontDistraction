@@ -13,7 +13,6 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 
 import com.u3.dontdistraction.R;
-import com.umeng.analytics.MobclickAgent;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -54,13 +53,11 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         });
-        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
     }
 
     private void setEndReciver() {

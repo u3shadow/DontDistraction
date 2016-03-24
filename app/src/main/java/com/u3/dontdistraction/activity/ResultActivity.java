@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,7 +17,6 @@ import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.databasedal.RecordDal;
 import com.u3.dontdistraction.model.Record;
 import com.u3.dontdistraction.util.MsgSender;
-import com.umeng.analytics.MobclickAgent;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -44,19 +44,19 @@ public class ResultActivity extends AppCompatActivity {
         initListener();
         setView();
         setEndReciver();
-        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
     }
     private void initData() {
         sender = new MsgSender(this);
         ScreenLockActivity.isTimed = false;
         recordDal = new RecordDal(this);
         isTimeEnd = getIntent().getBooleanExtra("isTimeEnd",false);
+        Date startTime =(Date)getIntent().getSerializableExtra("startTime");
+        Log.i("date123", startTime.toString()+"");
         record = new Record(isTimeEnd,new Date());
     }
 
