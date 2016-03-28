@@ -102,8 +102,8 @@ public class RecordAdapter extends BaseExpandableListAdapter {
             holder.isSuccessText.setTextColor(this.context.getResources().getColor(R.color.fail_record));
         }
 
-        holder.unlockDataText.setText(DateTools.getDay(currentRecord.getDate()));
-        holder.unlockTimeText.setText(DateTools.getTime(currentRecord.getDate()));
+        holder.unlockDataText.setText(DateTools.getDay(currentRecord.getEndTime()));
+        holder.unlockTimeText.setText(DateTools.getTime(currentRecord.getEndTime()));
         return view;
     }
     class Holder {
@@ -115,6 +115,6 @@ public class RecordAdapter extends BaseExpandableListAdapter {
     }
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return false;
+        return true;
     }
 }

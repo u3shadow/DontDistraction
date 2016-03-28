@@ -15,7 +15,7 @@ public class Record {
     @DatabaseField(columnName = "issuccess")
     private boolean isSuccess;
     @DatabaseField(columnName = "recorddate")
-    private Date date;
+    private Date endTime;
 
     public int getLearntime() {
         return learntime;
@@ -33,26 +33,45 @@ public class Record {
         this.starTime = starTime;
     }
 
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
     @DatabaseField(columnName = "learntime")
     private int learntime;
     @DatabaseField(columnName = "startime")
     private Date starTime;
-    @DatabaseField(columnName = "endtime")
-    private Date endTime;
+    @DatabaseField(columnName = "minu")
+    private int minu;
+    @DatabaseField(columnName = "sec")
+    private int sec;
     public Record()
     {}
-    public Record(boolean isSuccess,Date date)
+
+    public int getMinu() {
+        return minu;
+    }
+
+    public void setMinu(int minu) {
+        this.minu = minu;
+    }
+
+    public int getSec() {
+        return sec;
+    }
+
+    public void setSec(int sec) {
+        this.sec = sec;
+    }
+
+    public void setSuccess(boolean success) {
+        isSuccess = success;
+    }
+
+    public Record(boolean isSuccess, Date starTime, Date endTime, int min, int sec)
     {
         this.isSuccess = isSuccess;
-        this.date = date;
+        this.endTime = endTime;
+        this.starTime = starTime;
+
+        minu = min;
+        this.sec = sec;
     }
     public boolean isSuccess() {
         return isSuccess;
@@ -62,12 +81,12 @@ public class Record {
         this.isSuccess = isSuccess;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getEndTime() {
+        return endTime;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
 }

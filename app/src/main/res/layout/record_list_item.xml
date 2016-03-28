@@ -24,7 +24,7 @@
     <RelativeLayout
         android:id="@+id/layout_recorditem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@+id/layout_unlockdata">
 
         <TextView

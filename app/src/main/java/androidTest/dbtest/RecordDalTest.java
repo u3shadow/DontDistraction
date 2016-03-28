@@ -14,7 +14,7 @@ import java.util.Date;
 public class RecordDalTest extends AndroidTestCase{
     public void test_add_records() throws SQLException {
         RecordDal dal = new RecordDal(getContext());
-        Record record = new Record(false,new Date());
+        Record record = new Record(false,new Date(),new Date(),1,2);
         int sizeBefor = dal.getList().size();
         dal.addRecord(record);
         int sizeAfter = dal.getList().size();
@@ -26,7 +26,7 @@ public class RecordDalTest extends AndroidTestCase{
 
      public void test_delete_records() throws SQLException {
         RecordDal dal = new RecordDal(getContext());
-        Record record = new Record(false,new Date());
+        Record record = new Record(false,new Date(),new Date(),1,2);
          dal.addRecord(record);
          int sizeBefor = dal.getList().size();
          dal.delete(record);

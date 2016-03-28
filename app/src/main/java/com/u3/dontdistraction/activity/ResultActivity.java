@@ -62,7 +62,7 @@ public class ResultActivity extends AppCompatActivity {
         int durationMinu = (int)(duration/(1000*60));
         int durationSec = (int)(duration - durationMinu*60000)/1000;
         Log.i("date123", durationMinu+" : "+durationSec);
-        record = new Record(isTimeEnd,new Date());
+        record = new Record(isTimeEnd,startTime,now,durationMinu,durationSec);
     }
 
     private void addRecord() {
