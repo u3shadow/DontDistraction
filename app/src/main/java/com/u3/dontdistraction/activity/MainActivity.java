@@ -41,13 +41,16 @@ import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Constants;
 import com.u3.dontdistraction.util.RefreshGnome;
 import com.u3.dontdistraction.util.RefreshProblem;
+import com.u3.dontdistraction.util.TimeRecoder;
 import com.u3.dontdistraction.weibocallback.AuthListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -113,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        TimeRecoder.initRecord(this);
         initView();
         isLogin();
         setEndReciver();
@@ -121,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
         RefreshGnome refreshGnome = new RefreshGnome(MainActivity.this);
         refreshGnome.refresh();
     }
-
     @Override
     protected void onPause() {
         super.onPause();
