@@ -35,6 +35,7 @@ import com.sina.weibo.sdk.openapi.UsersAPI;
 import com.sina.weibo.sdk.openapi.models.User;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.fragments.AboutFragment;
+import com.u3.dontdistraction.fragments.FootPrintFragment;
 import com.u3.dontdistraction.fragments.RecordFragment;
 import com.u3.dontdistraction.fragments.SetTimeFragment;
 import com.u3.dontdistraction.util.AccessTokenKeeper;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment aboutFragment;
     private Fragment setTimeFragment;
     private Fragment recordFragment;
+    private Fragment footFragment;
      private final LogOutRequestListener mLogoutListener = new LogOutRequestListener();
      private Oauth2AccessToken token;
     private List<LinearLayout> llList;
@@ -96,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
     TextView TvRefresh;
     @Bind(R.id.ll_refresh)
     LinearLayout llRefresh;
+    @Bind(R.id.ll_footprint)
+    LinearLayout llfootprint;
     @Bind(R.id.iv_about)
     ImageView ivAbout;
     @Bind(R.id.tv_about)
@@ -183,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
         aboutFragment = new AboutFragment();
         setTimeFragment = new SetTimeFragment();
         recordFragment = new RecordFragment();
+        footFragment = new FootPrintFragment();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.Fl_content, setTimeFragment);
         fragmentTransaction.commit();

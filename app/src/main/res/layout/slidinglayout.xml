@@ -118,6 +118,31 @@
             android:textSize="14sp"
             />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_footprint"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <ImageView
+            android:id="@+id/iv_footprint"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/foot1"
+            />
+        <TextView
+            android:id="@+id/Tv_footprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:text="@string/footprint"
+            android:textColor="#000"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

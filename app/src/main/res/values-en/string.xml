@@ -35,5 +35,6 @@
     <string name="okbutton">OK</string>
     <string name="nothingtoshow">:(No thing to show</string>
     <string name="startAnswer">open</string>
+    <string name="footprint">footprint</string>
 </resources>
 

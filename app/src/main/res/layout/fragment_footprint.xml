@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"     android:background="@drawable/background"
-    android:gravity="center"
+      android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
         android:id="@+id/days"
         android:text="你已经踩下了10个足迹"
         android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        android:textColor="#fff"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/times"
+        android:layout_centerInParent="true"
         android:text="今天已经学习了15分钟"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textColor="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/hint"
         android:text="再学习5分钟就可以踩下足迹"
+        android:layout_below="@id/times"
+        android:gravity="center"
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/confirm"
         android:text="留下足迹"
+        android:layout_below="@id/hint"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/buttonback"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
