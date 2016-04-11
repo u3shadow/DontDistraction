@@ -16,16 +16,45 @@ public class TimeRecoder {
       sharedPreferences = context.getSharedPreferences(timeRecord,0);
         Date date = new Date();
        String lastDay = sharedPreferences.getString("day","");
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         if (!DateTools.getDay(date).equals(lastDay)){
-            sharedPreferences.edit().putString("day",DateTools.getDay(date));
-            sharedPreferences.edit().putInt("time",0);
-            sharedPreferences.edit().apply();
+            editor.putString("day",DateTools.getDay(date));
+            editor.putInt("time",0);
+            editor.putBoolean("had",true);
+            editor.apply();
         }
     }
     public static int addTime(int time){
         int lastTime = sharedPreferences.getInt("time",0);
-       sharedPreferences.edit().putInt("time",lastTime+time);
-       sharedPreferences.edit().apply();
+       sharedPreferences.edit().putInt("time",lastTime+time).apply();
         return lastTime+time;
+    }
+    public static boolean canRecord(){
+       int time  = sharedPreferences.getInt("time",0);
+        if (time >= 10){
+            return true;
+        }else
+        {
+            return false;
+        }
+    }
+    public static boolean record(){
+        int days =  sharedPreferences.getInt("days",0);
+        days += 1;
+        if (hadRecord()) {
+            sharedPreferences.edit().putInt("days", days).apply();
+            sharedPreferences.edit().putBoolean("had",false).apply();
+            return true;
+        }
+        return false;
+    }
+    public static int getTime(){
+        return sharedPreferences.getInt("time",0);
+    }
+    public static int getDays(){
+         return sharedPreferences.getInt("days",0);
+    }
+    public static boolean hadRecord(){
+        return sharedPreferences.getBoolean("had",false);
     }
 }

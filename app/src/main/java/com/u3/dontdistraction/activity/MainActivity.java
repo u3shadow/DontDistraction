@@ -106,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
     TextView tvAbout;
     @Bind(R.id.ll_about)
     LinearLayout llAbout;
+    @Bind(R.id.iv_footprint)
+    ImageView ivfoot;
+    @Bind(R.id.Tv_footprint)
+    TextView tvfoot;
     @Bind(R.id.layout_main)
     DrawerLayout layoutMain;
     @Bind(R.id.fba)
@@ -235,6 +239,16 @@ public class MainActivity extends AppCompatActivity {
                 refreshProblem.refresh();
             }
         });
+        llfootprint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.Fl_content, footFragment);
+                fragmentTransaction.commit();
+                resetLL(llfootprint.getId());
+                toggle();
+            }
+        });
         fba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -264,6 +278,7 @@ public class MainActivity extends AppCompatActivity {
                 add(llAbout);
                 add(llTimeSet);
                 add(llRecord);
+                add(llfootprint);
             }
         };
         resetLL(llTimeSet.getId());
@@ -276,6 +291,9 @@ public class MainActivity extends AppCompatActivity {
         TvRecord.setTextColor(getResources().getColor(R.color.black));
         ivSettime.setImageResource(R.drawable.time0);
         TvSettime.setTextColor(getResources().getColor(R.color.black));
+        TvSettime.setTextColor(getResources().getColor(R.color.black));
+        ivfoot .setImageResource(R.drawable.foot1);
+        tvfoot.setTextColor(getResources().getColor(R.color.black));
         switch (id) {
             case R.id.ll_time_set: {
                 ivSettime.setImageResource(R.drawable.time);
@@ -291,6 +309,10 @@ public class MainActivity extends AppCompatActivity {
                 ivAbout.setImageResource(R.drawable.about1);
                 tvAbout.setTextColor(getResources().getColor(R.color.sliding_button_press));
                 break;
+            }
+            case R.id.ll_footprint: {
+                ivfoot.setImageResource(R.drawable.foot2);
+                tvfoot.setTextColor(getResources().getColor(R.color.sliding_button_press));
             }
         }
     }

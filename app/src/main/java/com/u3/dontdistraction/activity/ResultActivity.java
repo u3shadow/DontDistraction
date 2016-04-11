@@ -17,6 +17,7 @@ import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.databasedal.RecordDal;
 import com.u3.dontdistraction.model.Record;
 import com.u3.dontdistraction.util.MsgSender;
+import com.u3.dontdistraction.util.TimeRecoder;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -63,6 +64,7 @@ public class ResultActivity extends AppCompatActivity {
         int durationSec = (int)(duration - durationMinu*60000)/1000;
         Log.i("date123", durationMinu+" : "+durationSec);
         record = new Record(isTimeEnd,startTime,now,durationMinu,durationSec);
+        TimeRecoder.addTime(durationMinu);
     }
 
     private void addRecord() {
