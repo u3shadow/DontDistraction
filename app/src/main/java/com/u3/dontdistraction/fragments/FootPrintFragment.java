@@ -45,8 +45,12 @@ public class FootPrintFragment extends Fragment {
     private void initView() {
         days.setText("你已经踩下了"+TimeRecoder.getDays()+"个足迹");
         times.setText("今天已经学习了"+TimeRecoder.getTime()+"分钟");
-        if (TimeRecoder.canRecord())
+        if (TimeRecoder.canRecord()){
+            if(TimeRecoder.hadNotRecord())
             hint.setText("留下你的足迹吧");
+            else
+                hint.setText("今天已经踩过了");
+        }
         else
             hint.setText("再学习"+(10 - TimeRecoder.getTime())+"分钟就可以踩下足迹");
     }
@@ -55,9 +59,17 @@ private void initListener(){
         @Override
         public void onClick(View v) {
             if (TimeRecoder.canRecord()){
-                if (TimeRecoder.record()){
-                    initView();
+                if (TimeRecoder.hadNotRecord())
+                {
+                    if (TimeRecoder.record()){
+                        initView();
+                    }
+                }else
+                {
+                    Toast.makeText(getActivity(),"已经踩过啦",Toast.LENGTH_LONG).show();
                 }
+            }else{
+                Toast.makeText(getActivity(),"还不能踩",Toast.LENGTH_LONG).show();
             }
         }
     });

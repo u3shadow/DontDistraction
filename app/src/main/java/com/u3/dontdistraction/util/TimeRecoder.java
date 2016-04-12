@@ -2,7 +2,6 @@ package com.u3.dontdistraction.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.text.format.DateUtils;
 
 import java.util.Date;
 
@@ -41,7 +40,7 @@ public class TimeRecoder {
     public static boolean record(){
         int days =  sharedPreferences.getInt("days",0);
         days += 1;
-        if (hadRecord()) {
+        if (hadNotRecord()) {
             sharedPreferences.edit().putInt("days", days).apply();
             sharedPreferences.edit().putBoolean("had",false).apply();
             return true;
@@ -54,7 +53,7 @@ public class TimeRecoder {
     public static int getDays(){
          return sharedPreferences.getInt("days",0);
     }
-    public static boolean hadRecord(){
+    public static boolean hadNotRecord(){
         return sharedPreferences.getBoolean("had",false);
     }
 }
