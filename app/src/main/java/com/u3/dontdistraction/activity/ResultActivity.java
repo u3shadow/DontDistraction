@@ -96,14 +96,14 @@ public class ResultActivity extends AppCompatActivity {
 
     private void setView() {
 
-        if (!isTimeEnd) {
+        if (isTimeEnd) {
             setSuccessView();
         } else {
             setFailView();
         }
     }
 
-    private void setSuccessView() {
+    private void setFailView() {
         image.setImageResource(R.drawable.sad);
         text.setText(getResources().getString(R.string.bad_result_msg));
         okButton.setText(getResources().getString(R.string.badresult));
@@ -119,10 +119,23 @@ public class ResultActivity extends AppCompatActivity {
         noSendButton.setText("怂了，不发");
     }
 
-    private void setFailView() {
+    private void setSuccessView() {
         image.setImageResource(R.drawable.smile);
         text.setText(getResources().getString(R.string.good_result_msg));
-        noSendButton.setVisibility(View.GONE);
+        if (TimeRecoder.canRecord()&&TimeRecoder.hadNotRecord()){
+            noSendButton.setText("踩足迹");
+            noSendButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent mIntentfp = new Intent(ResultActivity.this,MainActivity.class);
+                    mIntentfp.putExtra("isFootPrint",true);
+                    startActivity(mIntentfp);
+                    finish();
+                }
+            });
+        }else{
+            noSendButton.setVisibility(View.GONE);
+        }
         okButton.setText(getResources().getString(R.string.useagain));
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override

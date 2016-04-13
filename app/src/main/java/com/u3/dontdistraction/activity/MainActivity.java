@@ -138,6 +138,12 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
+
     private void initView() {
         drawerLayout = (DrawerLayout) findViewById(R.id.layout_main);
     }
@@ -146,6 +152,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         isLogin();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        Boolean isfootprint = getIntent().getBooleanExtra("isFootPrint",false);
+        if(!isfootprint)
+        {
+            fragmentTransaction.replace(R.id.Fl_content, setTimeFragment);
+            resetLL(llTimeSet.getId());
+        }
+        else
+        {
+            fragmentTransaction.replace(R.id.Fl_content, footFragment);
+            resetLL(llfootprint.getId());
+        }
+        fragmentTransaction.commit();
+
     }
 
     private void isLogin() {
@@ -193,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
         recordFragment = new RecordFragment();
         footFragment = new FootPrintFragment();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.Fl_content, setTimeFragment);
+        fragmentTransaction.replace(R.id.Fl_content, setTimeFragment);
         fragmentTransaction.commit();
     }
 
@@ -381,7 +401,6 @@ public class MainActivity extends AppCompatActivity {
         unregisterReceiver(endReciver);
 
     }
-
     private void toggle() {
         drawerLayout.closeDrawer(Gravity.LEFT);
     }
