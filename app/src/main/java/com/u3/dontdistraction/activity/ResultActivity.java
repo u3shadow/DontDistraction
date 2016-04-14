@@ -116,14 +116,14 @@ public class ResultActivity extends AppCompatActivity {
                 finish();
             }
         });
-        noSendButton.setText("怂了，不发");
+        noSendButton.setText(getResources().getString(R.string.songle));
     }
 
     private void setSuccessView() {
         image.setImageResource(R.drawable.smile);
         text.setText(getResources().getString(R.string.good_result_msg));
         if (TimeRecoder.canRecord()&&TimeRecoder.hadNotRecord()){
-            noSendButton.setText("踩足迹");
+            noSendButton.setText(getResources().getString(R.string.addfootprint));
             noSendButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

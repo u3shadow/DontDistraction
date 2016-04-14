@@ -38,21 +38,22 @@ public class FootPrintFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        TimeRecoder.initRecord(getActivity());
         initView();
         initListener();
     }
 
     private void initView() {
-        days.setText("你已经踩下了"+TimeRecoder.getDays()+"个足迹");
-        times.setText("今天已经学习了"+TimeRecoder.getTime()+"分钟");
+        days.setText(getResources().getString(R.string.youhave)+TimeRecoder.getDays()+getResources().getString(R.string.footprint));
+        times.setText(getResources().getString(R.string.havelearn)+TimeRecoder.getTime()+getResources().getString(R.string.minute));
         if (TimeRecoder.canRecord()){
             if(TimeRecoder.hadNotRecord())
-            hint.setText("留下你的足迹吧");
+            hint.setText(getResources().getString(R.string.leavehint));
             else
-                hint.setText("今天已经踩过了");
+                hint.setText(getResources().getString(R.string.hadfoot));
         }
         else
-            hint.setText("再学习"+(10 - TimeRecoder.getTime())+"分钟就可以踩下足迹");
+            hint.setText(getString(R.string.learnmore)+(10 - TimeRecoder.getTime())+getString(R.string.tofootprint));
     }
 private void initListener(){
     confirm.setOnClickListener(new View.OnClickListener() {
@@ -66,10 +67,10 @@ private void initListener(){
                     }
                 }else
                 {
-                    Toast.makeText(getActivity(),"已经踩过啦",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),getString(R.string.hadfooted),Toast.LENGTH_LONG).show();
                 }
             }else{
-                Toast.makeText(getActivity(),"还不能踩",Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),getString(R.string.cantfoot),Toast.LENGTH_LONG).show();
             }
         }
     });

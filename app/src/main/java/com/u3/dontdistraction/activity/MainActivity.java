@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
     private Fragment setTimeFragment;
     private Fragment recordFragment;
     private Fragment footFragment;
-     private final LogOutRequestListener mLogoutListener = new LogOutRequestListener();
-     private Oauth2AccessToken token;
+    private final LogOutRequestListener mLogoutListener = new LogOutRequestListener();
+    private Oauth2AccessToken token;
     private List<LinearLayout> llList;
     private DrawerLayout drawerLayout;
     @Bind(R.id.Fl_content)
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout fba;
     @Bind(R.id.ll_out)
     LinearLayout logoutLayout;
-     PackageManager mPackageManager;
+    PackageManager mPackageManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         RefreshGnome refreshGnome = new RefreshGnome(MainActivity.this);
         refreshGnome.refresh();
     }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -153,14 +154,11 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         isLogin();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        Boolean isfootprint = getIntent().getBooleanExtra("isFootPrint",false);
-        if(!isfootprint)
-        {
+        Boolean isfootprint = getIntent().getBooleanExtra("isFootPrint", false);
+        if (!isfootprint) {
             fragmentTransaction.replace(R.id.Fl_content, setTimeFragment);
             resetLL(llTimeSet.getId());
-        }
-        else
-        {
+        } else {
             fragmentTransaction.replace(R.id.Fl_content, footFragment);
             resetLL(llfootprint.getId());
         }
@@ -174,33 +172,31 @@ public class MainActivity extends AppCompatActivity {
             tvJuzi.setText("Login");
             ivHeadpic.setImageDrawable(getResources().getDrawable(R.drawable.user));
 
-        }
-        else
-        {
+        } else {
             UsersAPI mUserApi = new UsersAPI(this, Constants.APP_KEY, token);
-                long uid = Long.parseLong(token.getUid());
-                mUserApi.show(uid, new RequestListener() {
-                    @Override
-                    public void onComplete(String response) {
-                        if (!TextUtils.isEmpty(response)) {
-                            User mUser = User.parse(response);
-                            tvJuzi.setText(mUser.name);
-                            Uri uri = Uri.parse(mUser.avatar_large);
-                            ivHeadpic.setImageURI(uri);
-                        }
+            long uid = Long.parseLong(token.getUid());
+            mUserApi.show(uid, new RequestListener() {
+                @Override
+                public void onComplete(String response) {
+                    if (!TextUtils.isEmpty(response)) {
+                        User mUser = User.parse(response);
+                        tvJuzi.setText(mUser.name);
+                        Uri uri = Uri.parse(mUser.avatar_large);
+                        ivHeadpic.setImageURI(uri);
                     }
+                }
 
-                    @Override
-                    public void onWeiboException(WeiboException e) {
+                @Override
+                public void onWeiboException(WeiboException e) {
 
-                    }
-                });
+                }
+            });
         }
         tvJuzi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(token == null || !token.isSessionValid()){
-                SSotest();
+                if (token == null || !token.isSessionValid()) {
+                    SSotest();
                 }
             }
         });
@@ -279,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
         logoutLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(AccessTokenKeeper.readAccessToken(MainActivity.this).isSessionValid()) {
+                if (AccessTokenKeeper.readAccessToken(MainActivity.this).isSessionValid()) {
                     new LogoutAPI(MainActivity.this, Constants.APP_KEY,
                             AccessTokenKeeper.readAccessToken(MainActivity.this)).logout(mLogoutListener);
                     tvJuzi.setText("Login");
@@ -312,7 +308,7 @@ public class MainActivity extends AppCompatActivity {
         ivSettime.setImageResource(R.drawable.time0);
         TvSettime.setTextColor(getResources().getColor(R.color.black));
         TvSettime.setTextColor(getResources().getColor(R.color.black));
-        ivfoot .setImageResource(R.drawable.foot1);
+        ivfoot.setImageResource(R.drawable.foot1);
         tvfoot.setTextColor(getResources().getColor(R.color.black));
         switch (id) {
             case R.id.ll_time_set: {
@@ -338,29 +334,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-     private class LogOutRequestListener implements RequestListener {
-         @Override
-         public void onComplete(String response) {
-             if (!TextUtils.isEmpty(response)) {
-                 try {
-                     JSONObject obj = new JSONObject(response);
-                     String value = obj.getString("result");
-                     if ("true".equalsIgnoreCase(value)) {
-                         AccessTokenKeeper.clear(MainActivity.this);
-                         Toast.makeText(MainActivity.this,getResources().getString(R.string.logoff_success),Toast.LENGTH_LONG).show();
-                     }
-                 } catch (JSONException e) {
-                     e.printStackTrace();
-                 }
+    private class LogOutRequestListener implements RequestListener {
+        @Override
+        public void onComplete(String response) {
+            if (!TextUtils.isEmpty(response)) {
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    String value = obj.getString("result");
+                    if ("true".equalsIgnoreCase(value)) {
+                        AccessTokenKeeper.clear(MainActivity.this);
+                        Toast.makeText(MainActivity.this, getResources().getString(R.string.logoff_success), Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
-             }
-         }
+            }
+        }
 
-         @Override
-         public void onWeiboException(WeiboException e) {
+        @Override
+        public void onWeiboException(WeiboException e) {
 
-         }
-     }
+        }
+    }
+
     private long exitTime;
 
     @Override
@@ -368,7 +365,7 @@ public class MainActivity extends AppCompatActivity {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
                 && event.getAction() == KeyEvent.ACTION_DOWN) {
             if ((System.currentTimeMillis() - exitTime) > 2000) {
-                Toast.makeText(getApplicationContext(), "再按一次,退出",
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.onemoreexit),
                         Toast.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();
             } else {
@@ -401,16 +398,18 @@ public class MainActivity extends AppCompatActivity {
         unregisterReceiver(endReciver);
 
     }
+
     private void toggle() {
         drawerLayout.closeDrawer(Gravity.LEFT);
     }
 
     private void toggle(boolean open) {
-        if (true)
+        if (open)
             drawerLayout.openDrawer(Gravity.LEFT);
         else
             toggle();
     }
+
     private void SSotest() {
         AuthInfo mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
         SsoHandler mSsoHandler = new SsoHandler(MainActivity.this, mAuthInfo);

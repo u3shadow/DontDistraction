@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">WuRaophone</string>
 
@@ -12,7 +13,7 @@
     <string name="about_title">About</string>
     <string name="settime_title">Go!</string>
     <string name="logoff_success">Logout Success</string>
-	<string name="endlock">Force End</string>
+    <string name="endlock">Force End</string>
     <string name="time_remain">Time left:</string>
     <string name="minute">M</string>
     <string name="second">S</string>
@@ -24,8 +25,8 @@
     <string name="begain">begin!</string>
     <string name="complete">finish!</string>
     <string name="not_send">back</string>
-    <string name="bad_result_msg">Seem not going well? Send a message!</string> 
-	<string name="good_result_msg">Congratulations!</string>
+    <string name="bad_result_msg">Seem not going well? Send a message!</string>
+    <string name="good_result_msg">Congratulations!</string>
     <string name="input_answer">Lock off by answer</string>
     <string name="wrong_answer">The answer is wrong</string>
     <string name="unlock_success">Success</string>
@@ -36,5 +37,15 @@
     <string name="nothingtoshow">:(No thing to show</string>
     <string name="startAnswer">open</string>
     <string name="footprint">footprint</string>
+    <string name="onemoreexit">press again to exit</string>
+    <string name="songle">not send by shame</string>
+    <string name="addfootprint">leave your footprint</string>
+    <string name="youhave">You have leaved</string>
+    <string name="havelearn">You have learn</string>
+    <string name="leavehint">leave your footprint</string>
+    <string name="hadfoot">already leaved today</string>
+    <string name="learnmore">learn more</string>
+    <string name="tofootprint">minutes to leave a footprint</string>
+    <string name="hadfooted">had leaved</string>
+    <string name="cantfoot">please learn first</string>
 </resources>
-
