@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+<ImageView
+    android:id="@+id/AC_Img"
+    android:src="@drawable/buttonback"
+    android:scaleType="center"
+    android:layout_width="300dp"
+    android:layout_height="300dp" />
+    <TextView
+        android:id="@+id/AC_Text"
+        android:text="Test Tile"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_below="@id/AC_Img"
+        android:layout_width="300dp"
+        android:layout_height="20dp" />
+</RelativeLayout>
