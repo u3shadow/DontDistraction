@@ -1,6 +1,6 @@
 package test.com.u3.dontdistraction.other;
 
-import com.u3.dontdistraction.other.PenaltyMessage;
+import com.u3.dontdistraction.result.PenaltyMessage;
 
 import org.junit.Assert;
 import org.junit.Test;

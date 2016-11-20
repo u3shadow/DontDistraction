@@ -1,4 +1,4 @@
-package com.u3.dontdistraction.other;
+package com.u3.dontdistraction.screenlock.gnome;
 
 
 
@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
-import com.u3.dontdistraction.model.GnomeEntity;
+import com.u3.dontdistraction.screenlock.model.GnomeEntity;
 
 import org.json.JSONArray;
 import org.json.JSONException;

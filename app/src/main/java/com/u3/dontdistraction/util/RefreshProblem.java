@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.u3.dontdistraction.other.Problems;
+import com.u3.dontdistraction.screenlock.problem.Problems;
 
 import java.io.BufferedReader;
 import java.io.IOException;

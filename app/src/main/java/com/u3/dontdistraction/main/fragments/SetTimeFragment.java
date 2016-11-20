@@ -1,4 +1,4 @@
-package com.u3.dontdistraction.fragments;
+package com.u3.dontdistraction.main.fragments;
 
 
 import android.app.Fragment;
@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.u3.dontdistraction.activity.ScreenLockActivity;
+import com.u3.dontdistraction.screenlock.page.ScreenLockActivity;
 import com.u3.dontdistraction.R;
 
 public class SetTimeFragment extends Fragment {

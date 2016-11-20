@@ -1,4 +1,4 @@
-package com.u3.dontdistraction.database;
+package com.u3.dontdistraction.record.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,7 +7,7 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.u3.dontdistraction.model.Record;
+import com.u3.dontdistraction.screenlock.model.Record;
 
 import java.sql.SQLException;
 

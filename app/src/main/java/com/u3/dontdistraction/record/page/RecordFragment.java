@@ -1,4 +1,4 @@
-package com.u3.dontdistraction.fragments;
+package com.u3.dontdistraction.record.page;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -15,10 +15,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.adapter.RecordAdapter;
-import com.u3.dontdistraction.databasedal.RecordDal;
-import com.u3.dontdistraction.model.Record;
-import com.u3.dontdistraction.other.Gnomes;
+import com.u3.dontdistraction.record.adapter.RecordAdapter;
+import com.u3.dontdistraction.record.databasedal.RecordDal;
+import com.u3.dontdistraction.screenlock.model.Record;
+import com.u3.dontdistraction.screenlock.gnome.Gnomes;
 import com.u3.dontdistraction.util.DateTools;
 
 import java.util.ArrayList;

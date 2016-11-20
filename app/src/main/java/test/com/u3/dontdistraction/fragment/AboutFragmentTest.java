@@ -5,12 +5,11 @@ import android.widget.TextView;
 
 import com.u3.dontdistraction.BuildConfig;
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.fragments.AboutFragment;
+import com.u3.dontdistraction.main.fragments.AboutFragment;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.util.FragmentTestUtil;

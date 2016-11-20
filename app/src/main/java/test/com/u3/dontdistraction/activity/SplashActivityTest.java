@@ -6,8 +6,8 @@ import android.widget.ImageView;
 
 import com.u3.dontdistraction.BuildConfig;
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.activity.MainActivity;
-import com.u3.dontdistraction.activity.SplashActivity;
+import com.u3.dontdistraction.main.MainActivity;
+import com.u3.dontdistraction.main.SplashActivity;
 
 import org.junit.Assert;
 import org.junit.Test;

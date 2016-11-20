@@ -1,9 +1,9 @@
-package com.u3.dontdistraction.databasedal;
+package com.u3.dontdistraction.record.databasedal;
 
 import android.content.Context;
 
-import com.u3.dontdistraction.database.RecordOpenHelper;
-import com.u3.dontdistraction.model.Record;
+import com.u3.dontdistraction.record.database.RecordOpenHelper;
+import com.u3.dontdistraction.screenlock.model.Record;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

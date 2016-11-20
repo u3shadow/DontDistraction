@@ -1,4 +1,4 @@
-package com.u3.dontdistraction.model;
+package com.u3.dontdistraction.screenlock.model;
 
 /**
  * Created by U3 on 2015/5/29.

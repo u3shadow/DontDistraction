@@ -5,10 +5,8 @@ import android.widget.EditText;
 
 import com.u3.dontdistraction.BuildConfig;
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.activity.MainActivity;
-import com.u3.dontdistraction.activity.ResultActivity;
-import com.u3.dontdistraction.activity.ScreenLockActivity;
-import com.u3.dontdistraction.fragments.SetTimeFragment;
+import com.u3.dontdistraction.screenlock.page.ScreenLockActivity;
+import com.u3.dontdistraction.main.fragments.SetTimeFragment;
 
 import org.junit.Before;
 import org.junit.Test;

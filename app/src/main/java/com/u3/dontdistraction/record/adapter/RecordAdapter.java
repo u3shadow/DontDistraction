@@ -1,4 +1,4 @@
-package com.u3.dontdistraction.adapter;
+package com.u3.dontdistraction.record.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.model.Record;
+import com.u3.dontdistraction.screenlock.model.Record;
 import com.u3.dontdistraction.util.DateTools;
 
 import java.util.List;

@@ -1,9 +1,8 @@
 package test.com.u3.dontdistraction.other;
 
 import com.u3.dontdistraction.BuildConfig;
-import com.u3.dontdistraction.activity.ScreenLockActivity;
-import com.u3.dontdistraction.model.Problem;
-import com.u3.dontdistraction.other.Problems;
+import com.u3.dontdistraction.screenlock.page.ScreenLockActivity;
+import com.u3.dontdistraction.screenlock.problem.Problems;
 
 import org.junit.Before;
 import org.junit.Test;

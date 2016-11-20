@@ -9,7 +9,7 @@ import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.StatusesAPI;
 import com.sina.weibo.sdk.openapi.models.Status;
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.other.PenaltyMessage;
+import com.u3.dontdistraction.result.PenaltyMessage;
 
 /**
  * Created by U3 on 2015/5/29.

@@ -1,10 +1,8 @@
 package test.com.u3.dontdistraction.other;
 
 import com.u3.dontdistraction.BuildConfig;
-import com.u3.dontdistraction.activity.ScreenLockActivity;
-import com.u3.dontdistraction.model.GnomeEntity;
-import com.u3.dontdistraction.other.Gnomes;
-import com.u3.dontdistraction.other.Problems;
+import com.u3.dontdistraction.screenlock.page.ScreenLockActivity;
+import com.u3.dontdistraction.screenlock.gnome.Gnomes;
 
 import org.junit.Before;
 import org.junit.Test;

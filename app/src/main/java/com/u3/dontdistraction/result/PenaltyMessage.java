@@ -1,4 +1,4 @@
-package com.u3.dontdistraction.other;
+package com.u3.dontdistraction.result;
 
 import java.util.ArrayList;
 import java.util.List;

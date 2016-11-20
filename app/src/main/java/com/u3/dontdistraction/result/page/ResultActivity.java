@@ -1,6 +1,5 @@
-package com.u3.dontdistraction.activity;
+package com.u3.dontdistraction.result.page;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.databasedal.RecordDal;
-import com.u3.dontdistraction.model.Record;
+import com.u3.dontdistraction.main.MainActivity;
+import com.u3.dontdistraction.record.databasedal.RecordDal;
+import com.u3.dontdistraction.screenlock.page.ScreenLockActivity;
+import com.u3.dontdistraction.screenlock.model.Record;
 import com.u3.dontdistraction.util.MsgSender;
 import com.u3.dontdistraction.util.TimeRecoder;
 

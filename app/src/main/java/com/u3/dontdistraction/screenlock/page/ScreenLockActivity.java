@@ -1,6 +1,5 @@
-package com.u3.dontdistraction.activity;
+package com.u3.dontdistraction.screenlock.page;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -20,11 +19,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.other.Gnomes;
-import com.u3.dontdistraction.other.Problems;
+import com.u3.dontdistraction.result.page.ResultActivity;
+import com.u3.dontdistraction.screenlock.gnome.Gnomes;
+import com.u3.dontdistraction.screenlock.problem.Problems;
 import com.u3.dontdistraction.util.MyProgressBar;
 
 import java.util.Date;

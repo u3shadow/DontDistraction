@@ -4,10 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.u3.dontdistraction.other.Gnomes;
-import com.u3.dontdistraction.other.Problems;
+import com.u3.dontdistraction.screenlock.gnome.Gnomes;
 
 import java.io.BufferedReader;
 import java.io.IOException;

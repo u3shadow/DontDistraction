@@ -2,8 +2,8 @@ package androidTest.dbtest;
 
 import android.test.AndroidTestCase;
 
-import com.u3.dontdistraction.databasedal.RecordDal;
-import com.u3.dontdistraction.model.Record;
+import com.u3.dontdistraction.record.databasedal.RecordDal;
+import com.u3.dontdistraction.screenlock.model.Record;
 
 import java.sql.SQLException;
 import java.util.Date;

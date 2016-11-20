@@ -1,4 +1,4 @@
-package com.u3.dontdistraction.fragments;
+package com.u3.dontdistraction.main.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.u3.dontdistraction.model;
+package com.u3.dontdistraction.screenlock.model;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;

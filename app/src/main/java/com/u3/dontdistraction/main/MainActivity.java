@@ -1,4 +1,4 @@
-package com.u3.dontdistraction.activity;
+package com.u3.dontdistraction.main;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -6,11 +6,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -34,10 +32,10 @@ import com.sina.weibo.sdk.openapi.LogoutAPI;
 import com.sina.weibo.sdk.openapi.UsersAPI;
 import com.sina.weibo.sdk.openapi.models.User;
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.fragments.AboutFragment;
-import com.u3.dontdistraction.fragments.FootPrintFragment;
-import com.u3.dontdistraction.fragments.RecordFragment;
-import com.u3.dontdistraction.fragments.SetTimeFragment;
+import com.u3.dontdistraction.main.fragments.AboutFragment;
+import com.u3.dontdistraction.main.fragments.FootPrintFragment;
+import com.u3.dontdistraction.record.page.RecordFragment;
+import com.u3.dontdistraction.main.fragments.SetTimeFragment;
 import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Constants;
 import com.u3.dontdistraction.util.RefreshGnome;
@@ -49,9 +47,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
