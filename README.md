@@ -11,7 +11,7 @@ I have pulish this project to wandoujia, so you can download apk from
 
 ## some screen shoots from the project
 
-![screen shoot](http://img.wdjimg.com/mms/screenshot/7/47/32c500cd97fbc03e8be3ef8809a75477_320_550.jpeg)
-![screen shoot](http://img.wdjimg.com/mms/screenshot/a/58/26ca4217a4710c4084f530d390c8558a_320_545.jpeg)
-![screen shoot](http://img.wdjimg.com/mms/screenshot/4/aa/27c8b65288b65ad805b230b8f8119aa4_320_545.jpeg)
-![screen shoot](http://img.wdjimg.com/mms/screenshot/f/0c/a7f3bdc9dc2abe52851189676d8590cf_320_545.jpeg)
+![screen shoot](http://img.wdjimg.com/mms/screenshot/9/52/24299cc42dfadafd73db219cff077529_320_569.jpeg)
+![screen shoot](http://img.wdjimg.com/mms/screenshot/9/31/bf87514eddf48b18553cb5e426575319_320_569.jpeg)
+![screen shoot](http://img.wdjimg.com/mms/screenshot/4/d6/ed32a926729f1d852c9262f121259d64_320_569.jpeg)
+![screen shoot](http://img.wdjimg.com/mms/screenshot/a/64/a28c611fdb92745f886934f813f8864a_320_569.jpeg)
