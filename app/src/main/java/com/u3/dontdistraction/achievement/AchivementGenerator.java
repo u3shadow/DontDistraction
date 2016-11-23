@@ -1,80 +1,77 @@
 package com.u3.dontdistraction.achievement;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
 import com.u3.dontdistraction.MyApplication;
 import com.u3.dontdistraction.util.TimeRecoder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ${U3} on 2016/10/14.
  */
 
 public class AchivementGenerator {
-   final private static String ACP = "achivement shared preference";
-
-    public static String getAchivement(){
-    SharedPreferences sharedPreferences = MyApplication.getApplication().getSharedPreferences(ACP,0);
+    final private static String ACP = "achivement shared preference";
+    Context mContext;
+    public  AchivementGenerator(Context context){
+        mContext = context;
+    }
+    public void showAchivement(){
+        SharedPreferences sharedPreferences = MyApplication.getApplication().getSharedPreferences(ACP,0);
         int days = TimeRecoder.getDays();
-        String imgId = null;
-        boolean hasGet;
-        switch (days){
-            case 1:
-                hasGet = sharedPreferences.getBoolean("1",false);
-                if (!hasGet) {
-                    imgId = "R.drawable.1";
-                    sharedPreferences.edit().putBoolean("1",true).apply();
+        int time = TimeRecoder.getTime();
+        List<Achivement> canGet = new ArrayList<>();
+        try {
+            List<Achivement> achivements = getList();
+            for (Achivement achivement:achivements){
+                switch (achivement.acType){
+                    case 1:
+                        if (days >= achivement.acCond){
+                            canGet.add(achivement);
+                        }
+                        break;
+                    case 2:
+                        if (time >= achivement.acCond){
+                            canGet.add(achivement);
+                        }
+                        break;
+                    default:break;
                 }
-                break;
-            case 5:
-                hasGet = sharedPreferences.getBoolean("5",false);
-                if (!hasGet) {
-                    imgId = "R.drawable.5";
-                    sharedPreferences.edit().putBoolean("5",true).apply();
-                }
-                break;
-            case 10:
-                hasGet = sharedPreferences.getBoolean("10",false);
-                if (!hasGet) {
-                    imgId = "R.drawable.10";
-                    sharedPreferences.edit().putBoolean("10",true).apply();
-                }
-                break;
-            case 50:
-                hasGet = sharedPreferences.getBoolean("50",false);
-                if (!hasGet) {
-                    imgId = "R.drawable.50";
-                    sharedPreferences.edit().putBoolean("50",true).apply();
-                }
-                break;
-            case 100:
-                hasGet = sharedPreferences.getBoolean("100",false);
-                if (!hasGet) {
-                    imgId = "R.drawable.100";
-                    sharedPreferences.edit().putBoolean("100",true).apply();
-                }
-                break;
-            case 200:
-                hasGet = sharedPreferences.getBoolean("200",false);
-                if (!hasGet) {
-                    imgId = "R.drawable.200";
-                    sharedPreferences.edit().putBoolean("200",true).apply();
-                }
-                break;
-            case 500:
-                hasGet = sharedPreferences.getBoolean("500",false);
-                if (!hasGet) {
-                    imgId = "R.drawable.500";
-                    sharedPreferences.edit().putBoolean("500",true).apply();
-                }
-                break;
-            case 1000:
-                hasGet = sharedPreferences.getBoolean("1000",false);
-                if (!hasGet) {
-                    imgId = "R.drawable.1000";
-                    sharedPreferences.edit().putBoolean("1000",true).apply();
-                }
-                break;
+            }
+            for (Achivement achivement:canGet){
+                showPop(achivement);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return imgId;
+    }
+    private List<Achivement> getList() throws JSONException {
+        SharedPreferences preferences  = mContext.getSharedPreferences("Achivement", Context.MODE_PRIVATE);
+        String json = preferences.getString("Achivement","");
+        List<Achivement> list = null;
+        if(!json.equals(""))
+        {
+            JSONArray arr = new JSONArray(json);
+            Gson gson = new Gson();
+            list = new ArrayList<Achivement>();
+            for(int i = 0;i < arr.length();i++)
+            {
+                list.add(gson.fromJson(arr.get(i).toString(),Achivement.class));
+            }
+        }
+        return list;
+    }
+    private void showPop(Achivement achivement){
+
+    }
+    private void saveId(String id){
+
     }
 }
