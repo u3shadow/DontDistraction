@@ -5,6 +5,7 @@ android {
     buildToolsVersion '23.0.2'
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
     }
     defaultConfig {
         applicationId "com.u3.dontdistraction"
@@ -34,6 +35,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile project(':exlibs:WeiboSDK:app')
+    compile 'com.facebook.stetho:stetho:1.4.1'
     compile files('libs/ormlite-core-4.48.jar')
     compile files('libs/ormlite-android-4.48.jar')
     compile 'com.google.code.gson:gson:2.3.1'

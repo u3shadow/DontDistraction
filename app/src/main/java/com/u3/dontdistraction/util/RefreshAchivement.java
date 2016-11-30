@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.u3.dontdistraction.achievement.Achivement;
-import com.u3.dontdistraction.screenlock.problem.Problems;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,7 +39,7 @@ public class RefreshAchivement {
 
         @Override
         protected Void doInBackground(Void... voids) {
-           String urlStr = "http://7xo3yv.com1.z0.glb.clouddn.com/problem.txt";
+           String urlStr = "http://7xo3yv.com1.z0.glb.clouddn.com/achivement.txt";
             URL url= null;
             try {
                 url = new URL(urlStr);
@@ -52,10 +51,10 @@ public class RefreshAchivement {
                 StringBuffer stringBuffer=new StringBuffer();
                 while((line=in.readLine())!=null){
                     stringBuffer.append(line);
-                    Log.i("problem", line);
+                    Log.i("ac", line);
                 }
                 SharedPreferences preferences = mContext.getSharedPreferences("Achivement", 0);
-                preferences.edit().putString(Problems.PROBLEM,stringBuffer.toString()).apply();
+                preferences.edit().putString("Achivement",stringBuffer.toString()).apply();
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {

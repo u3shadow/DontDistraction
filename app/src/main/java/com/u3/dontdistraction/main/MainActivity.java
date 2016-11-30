@@ -38,6 +38,7 @@ import com.u3.dontdistraction.record.page.RecordFragment;
 import com.u3.dontdistraction.main.fragments.SetTimeFragment;
 import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Constants;
+import com.u3.dontdistraction.util.RefreshAchivement;
 import com.u3.dontdistraction.util.RefreshGnome;
 import com.u3.dontdistraction.util.RefreshProblem;
 import com.u3.dontdistraction.util.TimeRecoder;
@@ -126,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
         setEndReciver();
         initFragment();
         setListener();
+        RefreshAchivement refreshAchivement = new RefreshAchivement(this);
+        refreshAchivement.getAc();
         RefreshGnome refreshGnome = new RefreshGnome(MainActivity.this);
         refreshGnome.refresh();
     }
