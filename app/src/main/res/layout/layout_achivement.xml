@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/tools"
     android:background="@drawable/buttonback"
-    android:layout_width="300dp" android:layout_height="300dp">
-<ImageView
-    android:id="@+id/AC_Img"
-    android:src="@drawable/background"
-    android:layout_margin="1dp"
-    android:scaleType="center"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
-    <TextView
+    android:layout_width="300dp"
+    android:layout_height="300dp">
+
+
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/AC_Img"
+        android:layout_margin="1dp"
+        fresco:placeholderImage="@drawable/background"
+        fresco:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+      <TextView
         android:id="@+id/AC_Text"
         android:text="Test Tile"
         android:textSize="20sp"
@@ -19,4 +25,11 @@
         android:layout_marginBottom="10dp"
         android:layout_width="300dp"
         android:layout_height="20dp" />
+     <ImageButton
+        android:id="@+id/close_button"
+        android:src="@drawable/close"
+        android:layout_gravity="right"
+        android:scaleType="centerCrop"
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
 </FrameLayout>

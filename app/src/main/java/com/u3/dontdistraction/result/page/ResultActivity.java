@@ -10,9 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.u3.dontdistraction.R;
+import com.u3.dontdistraction.achievement.AchivementGenerator;
 import com.u3.dontdistraction.main.MainActivity;
 import com.u3.dontdistraction.record.databasedal.RecordDal;
 import com.u3.dontdistraction.screenlock.page.ScreenLockActivity;
@@ -35,6 +37,7 @@ public class ResultActivity extends AppCompatActivity {
     private RecordDal recordDal;
     private Record record;
     private Boolean isTimeEnd;
+    private RelativeLayout parentLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class ResultActivity extends AppCompatActivity {
         initListener();
         setView();
         setEndReciver();
+        showAchivement();
     }
 
     @Override
@@ -81,6 +85,7 @@ public class ResultActivity extends AppCompatActivity {
         noSendButton = (Button) findViewById(R.id.bt_notsend);
         text = (TextView) findViewById(R.id.tv_result);
         image = (ImageView) findViewById(R.id.iv_resultimg);
+        parentLayout = (RelativeLayout)findViewById(R.id.ll);
 
     }
 
@@ -163,5 +168,9 @@ public class ResultActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(endReciver);
+    }
+    private void showAchivement(){
+        AchivementGenerator generator = new AchivementGenerator(this,parentLayout);
+        generator.showAchivement();
     }
 }
