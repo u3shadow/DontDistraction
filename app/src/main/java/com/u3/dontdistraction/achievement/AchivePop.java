@@ -41,9 +41,9 @@ public class AchivePop extends PopupWindow{
         setContentView(mainView);
         //设置宽度高度
 
-        setWidth(mainView.getWidth());
+        //setWidth(mainView.getWidth());
 
-        setHeight(mainView.getHeight());
+        //setHeight(mainView.getHeight());
         //设置显示隐藏动画
         //        setAnimationStyle();
     }

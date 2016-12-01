@@ -2,6 +2,7 @@ package com.u3.dontdistraction.achievement;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 
@@ -94,6 +95,7 @@ public class AchivementGenerator {
     }
     private void showPop(Achivement achivement){
         AchivePop pop = new AchivePop(mContext,achivement);
+        Log.i("pop","show");
         pop.showAtLocation(parentView, Gravity.CENTER,0,0);
     }
     private void saveId(String id){

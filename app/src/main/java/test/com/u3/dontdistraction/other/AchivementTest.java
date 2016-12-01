@@ -34,7 +34,7 @@ public class AchivementTest {
     @Before
     public void init(){
         activity  = Robolectric.setupActivity(MainActivity.class);
-        layout = (RelativeLayout)activity.findViewById(R.id.ll);
+        layout = (RelativeLayout)activity.findViewById(R.id.parent);
     }
     @Test
     public void get_ac_json_test(){

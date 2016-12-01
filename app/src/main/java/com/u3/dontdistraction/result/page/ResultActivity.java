@@ -49,7 +49,6 @@ public class ResultActivity extends AppCompatActivity {
         initListener();
         setView();
         setEndReciver();
-        showAchivement();
     }
 
     @Override
@@ -72,6 +71,11 @@ public class ResultActivity extends AppCompatActivity {
         TimeRecoder.addTime(durationMinu);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     private void addRecord() {
         try {
             recordDal.addRecord(record);
@@ -85,7 +89,7 @@ public class ResultActivity extends AppCompatActivity {
         noSendButton = (Button) findViewById(R.id.bt_notsend);
         text = (TextView) findViewById(R.id.tv_result);
         image = (ImageView) findViewById(R.id.iv_resultimg);
-        parentLayout = (RelativeLayout)findViewById(R.id.ll);
+        parentLayout = (RelativeLayout)findViewById(R.id.parent);
 
     }
 
@@ -123,6 +127,12 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
         noSendButton.setText(getResources().getString(R.string.songle));
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        showAchivement();
     }
 
     private void setSuccessView() {
@@ -170,7 +180,7 @@ public class ResultActivity extends AppCompatActivity {
         unregisterReceiver(endReciver);
     }
     private void showAchivement(){
-        AchivementGenerator generator = new AchivementGenerator(this,parentLayout);
+        AchivementGenerator generator = new AchivementGenerator(this.getApplicationContext(),parentLayout);
         generator.showAchivement();
     }
 }
