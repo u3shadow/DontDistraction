@@ -22,7 +22,7 @@ public class AchivePop extends PopupWindow{
 
     private View mainView;
 
-    public AchivePop(Context paramActivity, Achivement achivement) {
+    public AchivePop(Context paramActivity, Achivement achivement,View parent) {
         super(paramActivity);
         mainView = LayoutInflater.from(paramActivity).inflate(R.layout.layout_achivement, null);
         btClose = (ImageButton) mainView.findViewById(R.id.close_button);
@@ -40,12 +40,10 @@ public class AchivePop extends PopupWindow{
         tvName.setText("你获得了新的奖章:"+achivement.title);
         setContentView(mainView);
         //设置宽度高度
-
-        //setWidth(mainView.getWidth());
-
-        //setHeight(mainView.getHeight());
+        setWidth(parent.getWidth());
         //设置显示隐藏动画
-        //        setAnimationStyle();
+        setHeight(parent.getHeight());
     }
+
 
 }
