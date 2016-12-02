@@ -32,10 +32,11 @@ import com.sina.weibo.sdk.openapi.LogoutAPI;
 import com.sina.weibo.sdk.openapi.UsersAPI;
 import com.sina.weibo.sdk.openapi.models.User;
 import com.u3.dontdistraction.R;
+import com.u3.dontdistraction.achievement.AchivementGenerator;
 import com.u3.dontdistraction.main.fragments.AboutFragment;
 import com.u3.dontdistraction.main.fragments.FootPrintFragment;
-import com.u3.dontdistraction.record.page.RecordFragment;
 import com.u3.dontdistraction.main.fragments.SetTimeFragment;
+import com.u3.dontdistraction.record.page.RecordFragment;
 import com.u3.dontdistraction.util.AccessTokenKeeper;
 import com.u3.dontdistraction.util.Constants;
 import com.u3.dontdistraction.util.RefreshAchivement;
@@ -164,7 +165,15 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
     }
-
+ @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        showAchivement();
+    }
+     private void showAchivement(){
+        AchivementGenerator generator = new AchivementGenerator(this.getApplicationContext(),layoutMain);
+        generator.showAchivement();
+    }
     private void isLogin() {
         token = AccessTokenKeeper.readAccessToken(this);
         if (token == null || !token.isSessionValid()) {

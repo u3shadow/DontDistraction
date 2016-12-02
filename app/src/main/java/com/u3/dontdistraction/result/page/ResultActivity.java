@@ -14,11 +14,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.achievement.AchivementGenerator;
 import com.u3.dontdistraction.main.MainActivity;
 import com.u3.dontdistraction.record.databasedal.RecordDal;
-import com.u3.dontdistraction.screenlock.page.ScreenLockActivity;
 import com.u3.dontdistraction.screenlock.model.Record;
+import com.u3.dontdistraction.screenlock.page.ScreenLockActivity;
 import com.u3.dontdistraction.util.MsgSender;
 import com.u3.dontdistraction.util.TimeRecoder;
 
@@ -129,11 +128,7 @@ public class ResultActivity extends AppCompatActivity {
         noSendButton.setText(getResources().getString(R.string.songle));
     }
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        showAchivement();
-    }
+
 
     private void setSuccessView() {
         image.setImageResource(R.drawable.smile);
@@ -179,8 +174,5 @@ public class ResultActivity extends AppCompatActivity {
         super.onDestroy();
         unregisterReceiver(endReciver);
     }
-    private void showAchivement(){
-        AchivementGenerator generator = new AchivementGenerator(this.getApplicationContext(),parentLayout);
-        generator.showAchivement();
-    }
+
 }

@@ -37,7 +37,7 @@ public class AchivePop extends PopupWindow{
             }
         });
 
-        tvName.setText(achivement.title);
+        tvName.setText("你获得了新的奖章:"+achivement.title);
         setContentView(mainView);
         //设置宽度高度
 
