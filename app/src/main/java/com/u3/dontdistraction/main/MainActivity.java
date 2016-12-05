@@ -34,6 +34,7 @@ import com.sina.weibo.sdk.openapi.models.User;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.achievement.AchivementGenerator;
 import com.u3.dontdistraction.main.fragments.AboutFragment;
+import com.u3.dontdistraction.main.fragments.AcWallFragment;
 import com.u3.dontdistraction.main.fragments.FootPrintFragment;
 import com.u3.dontdistraction.main.fragments.SetTimeFragment;
 import com.u3.dontdistraction.record.page.RecordFragment;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment setTimeFragment;
     private Fragment recordFragment;
     private Fragment footFragment;
+    private Fragment wallFragment;
     private final LogOutRequestListener mLogoutListener = new LogOutRequestListener();
     private Oauth2AccessToken token;
     private List<LinearLayout> llList;
@@ -216,8 +218,9 @@ public class MainActivity extends AppCompatActivity {
         setTimeFragment = new SetTimeFragment();
         recordFragment = new RecordFragment();
         footFragment = new FootPrintFragment();
+        wallFragment = new AcWallFragment();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.Fl_content, setTimeFragment);
+        fragmentTransaction.replace(R.id.Fl_content, wallFragment);
         fragmentTransaction.commit();
     }
 

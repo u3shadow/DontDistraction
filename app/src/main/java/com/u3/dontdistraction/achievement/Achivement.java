@@ -5,9 +5,9 @@ package com.u3.dontdistraction.achievement;
  */
 
 public class Achivement {
-    String id;
-    int acType;
-    int acCond;
-    String imgUrl;
-    String title;
+  public  String id;
+  public int acType;
+  public  int acCond;
+  public  String imgUrl;
+  public  String title;
 }
