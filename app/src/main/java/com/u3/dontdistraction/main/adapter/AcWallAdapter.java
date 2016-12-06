@@ -3,6 +3,7 @@ package com.u3.dontdistraction.main.adapter;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.achievement.Achivement;
+import com.u3.dontdistraction.achievement.ShowAchivePop;
 
 import java.util.List;
 
@@ -46,13 +48,13 @@ public class AcWallAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convert1View, ViewGroup parent) {
+    public View getView(final int position, final View convert1View, final ViewGroup parent) {
        View convertView = LayoutInflater.from(context).inflate(R.layout.layout_acwallitem,null);
         SimpleDraweeView pic = (SimpleDraweeView)convertView.findViewById(R.id.AC_Img);
         TextView textView = (TextView) convertView.findViewById(R.id.AC_Text);
         ImageView getView = (ImageView) convertView.findViewById(R.id.get);
         ImageView noGetView = (ImageView) convertView.findViewById(R.id.noget);
-        Achivement achivement = list.get(position);
+        final Achivement achivement = list.get(position);
         Uri uri = Uri.parse(achivement.imgUrl);
         pic.setImageURI(uri);
         textView.setText(achivement.title);
@@ -61,6 +63,13 @@ public class AcWallAdapter extends BaseAdapter {
         }else{
             getView.setVisibility(View.VISIBLE);
         }
+        pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowAchivePop pop = new ShowAchivePop(context,achivement,parent);
+                pop.showAtLocation(parent,Gravity.CENTER,0,0);
+            }
+        });
         return convertView;
     }
 }

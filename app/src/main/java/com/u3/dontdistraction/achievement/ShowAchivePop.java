@@ -15,33 +15,32 @@ import com.u3.dontdistraction.R;
  * Created by ${U3} on 2016/11/23.
  */
 
-public class AchivePop extends PopupWindow{
+public class ShowAchivePop extends PopupWindow{
     ImageButton btClose;
     SimpleDraweeView tvImage;
-    TextView tvName;
+    TextView tvName,tvDes;
 
     private View mainView;
 
-    public AchivePop(Context paramActivity, Achivement achivement,View parent) {
+    public ShowAchivePop(Context paramActivity, Achivement achivement,View parent) {
         super(paramActivity);
-        mainView = LayoutInflater.from(paramActivity).inflate(R.layout.layout_achivement, null);
+        mainView = LayoutInflater.from(paramActivity).inflate(R.layout.layout_showachivement, null);
         btClose = (ImageButton) mainView.findViewById(R.id.close_button);
         tvImage = (SimpleDraweeView) mainView.findViewById(R.id.AC_Img);
         tvName = (TextView)mainView.findViewById(R.id.AC_Text);
+        tvDes = (TextView)mainView.findViewById(R.id.AC_des);
         Uri uri = Uri.parse(achivement.imgUrl);
         tvImage.setImageURI(uri);
         btClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AchivePop.this.dismiss();
+                ShowAchivePop.this.dismiss();
             }
         });
-
-        tvName.setText("你获得了新的奖章:"+achivement.title);
+        tvDes.setText(achivement.id);
+        tvName.setText(achivement.title);
         setContentView(mainView);
-        //设置宽度高度
         setWidth(parent.getWidth());
-        //设置显示隐藏动画
         setHeight(parent.getHeight());
     }
 

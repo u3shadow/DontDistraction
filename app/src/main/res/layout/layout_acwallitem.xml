@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dp"
-    android:layout_height="100dp"
+    android:layout_width="110dp"
+    android:layout_height="70dp"
     xmlns:fresco="http://schemas.android.com/tools">
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/AC_Img"
         fresco:placeholderImage="#000"
         android:layout_gravity="center"
         fresco:scaleType="fitCenter"
-        android:layout_width="150dp"
-        android:layout_height="100dp" />
+        android:layout_width="110dp"
+        android:layout_height="70dp" />
     <ImageView
         android:id="@+id/get"
         android:src="@drawable/get"
         android:visibility="invisible"
         android:layout_gravity="top|right"
-        android:layout_width="20dp"
-        android:layout_height="20dp" />
+        android:layout_width="10dp"
+        android:layout_height="10dp" />
      <ImageView
         android:id="@+id/noget"
         android:src="@drawable/notget"
          android:visibility="invisible"
         android:layout_gravity="top|right"
-        android:layout_width="20dp"
-        android:layout_height="20dp" />
+        android:layout_width="10dp"
+        android:layout_height="10dp" />
     <TextView
         android:id="@+id/AC_Text"
         android:text="Test Tile"

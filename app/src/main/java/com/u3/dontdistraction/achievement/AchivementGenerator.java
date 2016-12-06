@@ -94,7 +94,7 @@ public class AchivementGenerator {
         return list;
     }
     private void showPop(Achivement achivement){
-        AchivePop pop = new AchivePop(mContext,achivement,parentView);
+        GetAchivePop pop = new GetAchivePop(mContext,achivement,parentView);
         Log.i("pop","show");
         pop.showAtLocation(parentView, Gravity.CENTER,0,0);
     }

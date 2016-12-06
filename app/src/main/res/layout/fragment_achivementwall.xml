@@ -4,10 +4,9 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 <GridView
     android:id="@+id/wall"
-    android:numColumns="2"
-    android:layout_margin="10dp"
-    android:padding="10dp"
+    android:numColumns="3"
     android:verticalSpacing="10dp"
+    android:horizontalSpacing="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 </GridView>
