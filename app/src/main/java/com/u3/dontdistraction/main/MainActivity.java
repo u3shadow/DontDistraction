@@ -65,6 +65,16 @@ import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.LogoutAPI;*/
 
 public class MainActivity extends AppCompatActivity {
+    @Bind(R.id.iv_acwall)
+    ImageView ivAcwall;
+    @Bind(R.id.Tv_acwall)
+    TextView TvAcwall;
+    @Bind(R.id.ll_acwall)
+    LinearLayout llAcwall;
+    @Bind(R.id.iv_out)
+    ImageView ivOut;
+    @Bind(R.id.tv_out)
+    TextView tvOut;
     private Fragment aboutFragment;
     private Fragment setTimeFragment;
     private Fragment recordFragment;
@@ -167,15 +177,18 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
     }
- @Override
+
+    @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         showAchivement();
     }
-     private void showAchivement(){
-        AchivementGenerator generator = new AchivementGenerator(this.getApplicationContext(),layoutMain);
+
+    private void showAchivement() {
+        AchivementGenerator generator = new AchivementGenerator(this.getApplicationContext(), layoutMain);
         generator.showAchivement();
     }
+
     private void isLogin() {
         token = AccessTokenKeeper.readAccessToken(this);
         if (token == null || !token.isSessionValid()) {
@@ -220,12 +233,21 @@ public class MainActivity extends AppCompatActivity {
         footFragment = new FootPrintFragment();
         wallFragment = new AcWallFragment();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.Fl_content, wallFragment);
+        fragmentTransaction.replace(R.id.Fl_content, setTimeFragment);
         fragmentTransaction.commit();
     }
 
     private void setListener() {
-
+         llAcwall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.Fl_content, wallFragment);
+                fragmentTransaction.commit();
+                resetLL(llAcwall.getId());
+                toggle();
+            }
+        });
         llTimeSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -312,6 +334,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void resetLL(int id) {
+        ivAcwall.setImageResource(R.drawable.acwall0);
+        TvAcwall.setTextColor(getResources().getColor(R.color.black));
         ivAbout.setImageResource(R.drawable.about0);
         tvAbout.setTextColor(getResources().getColor(R.color.black));
         ivRecord.setImageResource(R.drawable.record0);
@@ -340,6 +364,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.ll_footprint: {
                 ivfoot.setImageResource(R.drawable.foot2);
                 tvfoot.setTextColor(getResources().getColor(R.color.sliding_button_press));
+            }
+               case R.id.ll_acwall: {
+                ivAcwall.setImageResource(R.drawable.acwall1);
+                TvAcwall.setTextColor(getResources().getColor(R.color.sliding_button_press));
             }
         }
     }

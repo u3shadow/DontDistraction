@@ -93,31 +93,34 @@
             android:textSize="14sp"
             />
     </LinearLayout>
+
+
     <LinearLayout
-        android:id="@+id/ll_refresh"
-        android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="48dp">
-        <ImageView
-            android:id="@+id/iv_refresh"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/refresh0"
-            />
-        <TextView
-            android:id="@+id/Tv_refresh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:text="@string/refreshproblems"
-            android:textColor="#000"
-            android:textSize="14sp"
-            />
-    </LinearLayout>
+  android:id="@+id/ll_acwall"
+  android:orientation="horizontal"
+  android:paddingLeft="16dp"
+  android:paddingRight="16dp"
+  android:layout_width="match_parent"
+  android:layout_height="48dp">
+  <ImageView
+      android:id="@+id/iv_acwall"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+      android:layout_gravity="center_vertical"
+      android:src="@drawable/acwall0"
+      />
+  <TextView
+      android:id="@+id/Tv_acwall"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:layout_marginLeft="30dp"
+      android:text="@string/acwall"
+      android:textColor="#000"
+      android:textSize="14sp"
+      />
+</LinearLayout>
+
     <LinearLayout
         android:id="@+id/ll_footprint"
         android:orientation="horizontal"
@@ -139,6 +142,31 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="30dp"
             android:text="@string/footprint"
+            android:textColor="#000"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+        <LinearLayout
+        android:id="@+id/ll_refresh"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <ImageView
+            android:id="@+id/iv_refresh"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/refresh0"
+            />
+        <TextView
+            android:id="@+id/Tv_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:text="@string/refreshproblems"
             android:textColor="#000"
             android:textSize="14sp"
             />

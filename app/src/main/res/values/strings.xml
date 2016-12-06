@@ -36,7 +36,7 @@
     <string name="nothingtoshow">:( 没什么可以显示的</string>
     <string name="wuraophon">WuRaoPhone</string>
     <string name="startAnswer">展开题目</string>
-    <string name="footprint">足迹</string>
+    <string name="footprint">每日足迹</string>
     <string name="onemoreexit">再按一次,退出</string>
     <string name="songle">怂了，不发</string>
     <string name="addfootprint">踩足迹</string>
@@ -48,4 +48,5 @@
     <string name="tofootprint">分钟就可以踩下足迹</string>
     <string name="hadfooted">已经踩过啦</string>
     <string name="cantfoot">请先学习</string>
+    <string name="acwall">浏览奖章</string>
 </resources>
