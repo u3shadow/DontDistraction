@@ -49,4 +49,5 @@
     <string name="tofootprint">minutes to leave a footprint</string>
     <string name="hadfooted">had leaved</string>
     <string name="cantfoot">please learn first</string>
+    <string name="acwall">View Badge</string>
 </resources>
