@@ -38,7 +38,7 @@ public class RefreshProblem {
 
         @Override
         protected Void doInBackground(Void... voids) {
-           String urlStr = "http://7xo3yv.com1.z0.glb.clouddn.com/problem.txt";
+           String urlStr = "http://7xo3yv.com1.z0.glb.clouddn.com/problem.txt"+"?"+Math.random();
             URL url= null;
             try {
                 url = new URL(urlStr);
