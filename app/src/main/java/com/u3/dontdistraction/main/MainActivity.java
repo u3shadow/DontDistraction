@@ -364,11 +364,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.ll_footprint: {
                 ivfoot.setImageResource(R.drawable.foot2);
                 tvfoot.setTextColor(getResources().getColor(R.color.sliding_button_press));
+                break;
             }
                case R.id.ll_acwall: {
                 ivAcwall.setImageResource(R.drawable.acwall1);
                 TvAcwall.setTextColor(getResources().getColor(R.color.sliding_button_press));
+                   break;
             }
+               default:break;
         }
     }
 
