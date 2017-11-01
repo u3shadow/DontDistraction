@@ -44,7 +44,7 @@ public class AchivementTest {
         String json = preferences.getString("Achivement","");
         assertTrue(!json.equals(""));
     }
-    @Test
+  /*  @Test
     public void get_ac_list_test() throws InvocationTargetException, IllegalAccessException {
           Method[] ma = AchivementGenerator.class.getDeclaredMethods();
           for(Method m :ma)
@@ -90,5 +90,5 @@ public class AchivementTest {
                   assertTrue(!s);
               }
           }
-    }
+    }*/
 }

@@ -50,16 +50,5 @@
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-
-        <service
-            android:name="com.sina.weibo.sdk.net.DownloadService"
-            android:exported="false"></service>
-
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="56efa1f567e58ed0f5000ad2" />
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="Wandoujia" />
     </application>
 </manifest>
