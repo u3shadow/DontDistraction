@@ -3,10 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DontDistraction.iml" filepath="$PROJECT_DIR$/DontDistraction.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exlibs/WeiboSDK/WeiboSDK.iml" filepath="$PROJECT_DIR$/exlibs/WeiboSDK/WeiboSDK.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exlibs/WeiboSDK/app/WeiboSDK-app.iml" filepath="$PROJECT_DIR$/exlibs/WeiboSDK/app/WeiboSDK-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exlibs/exlibs.iml" filepath="$PROJECT_DIR$/exlibs/exlibs.iml" />
     </modules>
   </component>
 </project>
