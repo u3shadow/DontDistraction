@@ -18,7 +18,6 @@ import com.u3.dontdistraction.main.MainActivity;
 import com.u3.dontdistraction.record.databasedal.RecordDal;
 import com.u3.dontdistraction.screenlock.model.Record;
 import com.u3.dontdistraction.screenlock.page.ScreenLockActivity;
-import com.u3.dontdistraction.util.MsgSender;
 import com.u3.dontdistraction.util.TimeRecoder;
 
 import java.sql.SQLException;
@@ -30,7 +29,6 @@ import java.util.Date;
 public class ResultActivity extends AppCompatActivity {
     private Button okButton;
     private Button noSendButton;
-    private MsgSender sender;
     private TextView text;
     private ImageView image;
     private RecordDal recordDal;
@@ -55,7 +53,6 @@ public class ResultActivity extends AppCompatActivity {
         super.onPause();
     }
     private void initData() {
-        sender = new MsgSender(this);
         ScreenLockActivity.isTimed = false;
         recordDal = new RecordDal(this);
         isTimeEnd = getIntent().getBooleanExtra("isTimeEnd",false);
@@ -119,7 +116,6 @@ public class ResultActivity extends AppCompatActivity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sender.sendMsg();
                 Intent mIntent = new Intent(ResultActivity.this, MainActivity.class);
                 startActivity(mIntent);
                 finish();

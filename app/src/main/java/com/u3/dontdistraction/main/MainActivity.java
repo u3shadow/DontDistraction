@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -23,14 +22,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.sina.weibo.sdk.auth.AuthInfo;
-import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.auth.sso.SsoHandler;
-import com.sina.weibo.sdk.exception.WeiboException;
-import com.sina.weibo.sdk.net.RequestListener;
-import com.sina.weibo.sdk.openapi.LogoutAPI;
-import com.sina.weibo.sdk.openapi.UsersAPI;
-import com.sina.weibo.sdk.openapi.models.User;
 import com.u3.dontdistraction.R;
 import com.u3.dontdistraction.achievement.AchivementGenerator;
 import com.u3.dontdistraction.main.fragments.AboutFragment;
@@ -38,16 +29,11 @@ import com.u3.dontdistraction.main.fragments.AcWallFragment;
 import com.u3.dontdistraction.main.fragments.FootPrintFragment;
 import com.u3.dontdistraction.main.fragments.SetTimeFragment;
 import com.u3.dontdistraction.record.page.RecordFragment;
-import com.u3.dontdistraction.util.AccessTokenKeeper;
-import com.u3.dontdistraction.util.Constants;
 import com.u3.dontdistraction.util.RefreshAchivement;
 import com.u3.dontdistraction.util.RefreshGnome;
 import com.u3.dontdistraction.util.RefreshProblem;
 import com.u3.dontdistraction.util.TimeRecoder;
-import com.u3.dontdistraction.weibocallback.AuthListener;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,14 +41,6 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/*import com.sina.weibo.sdk.auth.AuthInfo;
-import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.auth.sso.SsoHandler;
-import com.j256.ormlite.stmt.query.NeedsFutureClause;
-import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.exception.WeiboException;
-import com.sina.weibo.sdk.net.RequestListener;
-import com.sina.weibo.sdk.openapi.LogoutAPI;*/
 
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.iv_acwall)
@@ -80,8 +58,6 @@ public class MainActivity extends AppCompatActivity {
     private Fragment recordFragment;
     private Fragment footFragment;
     private Fragment wallFragment;
-    private final LogOutRequestListener mLogoutListener = new LogOutRequestListener();
-    private Oauth2AccessToken token;
     private List<LinearLayout> llList;
     private DrawerLayout drawerLayout;
     @Bind(R.id.Fl_content)
@@ -136,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         TimeRecoder.initRecord(this);
         initView();
-        isLogin();
         setEndReciver();
         initFragment();
         setListener();
@@ -164,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        isLogin();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         Boolean isfootprint = getIntent().getBooleanExtra("isFootPrint", false);
         if (!isfootprint) {
@@ -188,43 +162,6 @@ public class MainActivity extends AppCompatActivity {
         AchivementGenerator generator = new AchivementGenerator(this.getApplicationContext(), layoutMain);
         generator.showAchivement();
     }
-
-    private void isLogin() {
-        token = AccessTokenKeeper.readAccessToken(this);
-        if (token == null || !token.isSessionValid()) {
-            tvJuzi.setText("Login");
-            ivHeadpic.setImageDrawable(getResources().getDrawable(R.drawable.user));
-
-        } else {
-            UsersAPI mUserApi = new UsersAPI(this, Constants.APP_KEY, token);
-            long uid = Long.parseLong(token.getUid());
-            mUserApi.show(uid, new RequestListener() {
-                @Override
-                public void onComplete(String response) {
-                    if (!TextUtils.isEmpty(response)) {
-                        User mUser = User.parse(response);
-                        tvJuzi.setText(mUser.name);
-                        Uri uri = Uri.parse(mUser.avatar_large);
-                        ivHeadpic.setImageURI(uri);
-                    }
-                }
-
-                @Override
-                public void onWeiboException(WeiboException e) {
-
-                }
-            });
-        }
-        tvJuzi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (token == null || !token.isSessionValid()) {
-                    SSotest();
-                }
-            }
-        });
-    }
-
 
     private void initFragment() {
         aboutFragment = new AboutFragment();
@@ -308,18 +245,7 @@ public class MainActivity extends AppCompatActivity {
         logoutLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (AccessTokenKeeper.readAccessToken(MainActivity.this).isSessionValid()) {
-                    new LogoutAPI(MainActivity.this, Constants.APP_KEY,
-                            AccessTokenKeeper.readAccessToken(MainActivity.this)).logout(mLogoutListener);
-                    tvJuzi.setText("Login");
-                    ivHeadpic.setImageDrawable(getResources().getDrawable(R.drawable.user));
-                    tvJuzi.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            SSotest();
-                        }
-                    });
-                }
+
             }
         });
         llList = new ArrayList<LinearLayout>() {
@@ -375,31 +301,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    private class LogOutRequestListener implements RequestListener {
-        @Override
-        public void onComplete(String response) {
-            if (!TextUtils.isEmpty(response)) {
-                try {
-                    JSONObject obj = new JSONObject(response);
-                    String value = obj.getString("result");
-                    if ("true".equalsIgnoreCase(value)) {
-                        AccessTokenKeeper.clear(MainActivity.this);
-                        Toast.makeText(MainActivity.this, getResources().getString(R.string.logoff_success), Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }
-
-        @Override
-        public void onWeiboException(WeiboException e) {
-
-        }
-    }
-
     private long exitTime;
 
     @Override
@@ -452,9 +353,4 @@ public class MainActivity extends AppCompatActivity {
             toggle();
     }
 
-    private void SSotest() {
-        AuthInfo mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
-        SsoHandler mSsoHandler = new SsoHandler(MainActivity.this, mAuthInfo);
-        mSsoHandler.authorizeWeb(new AuthListener(this));
-    }
 }
