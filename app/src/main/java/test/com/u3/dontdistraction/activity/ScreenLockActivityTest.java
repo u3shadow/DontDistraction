@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.u3.dontdistraction.BuildConfig;
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.result.page.ResultActivity;
+import com.u3.dontdistraction.result.ResultActivity;
 import com.u3.dontdistraction.screenlock.page.ScreenLockActivity;
 
 import static org.junit.Assert.*;

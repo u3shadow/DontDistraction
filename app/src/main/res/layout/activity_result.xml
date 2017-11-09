@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data class="AuthorBinding">
+        <variable
+            name="vMode"
+            type="com.u3.dontdistraction.result.ResultViewModel"/>
+    </data>
+<RelativeLayout
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:background="@drawable/background"
@@ -11,12 +17,14 @@
         android:layout_height="200dp"
         android:layout_alignParentTop="true"
         android:layout_margin="20dp"
+        android:src="@{vMode.resultEntity.successLearn?@drawable/smile:@drawable/sad}"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/tv_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@{vMode.resultEntity.learnResultString}"
         android:textColor="#86473F"
         android:textSize="20sp"
         android:layout_below="@id/iv_resultimg"
@@ -29,6 +37,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/buttonback"
         android:layout_below="@id/tv_result"
+        android:onClick="@{vMode.okClickEvent}"
         android:layout_centerHorizontal="true"
         android:text="@string/useagain" />
     <Button
@@ -41,3 +50,4 @@
         android:text="@string/not_send"
         />
 </RelativeLayout>
+    </layout>

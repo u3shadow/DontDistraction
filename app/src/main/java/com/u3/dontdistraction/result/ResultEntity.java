@@ -1,4 +1,4 @@
-package com.u3.dontdistraction.result.entity;
+package com.u3.dontdistraction.result;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
@@ -50,11 +50,11 @@ public class ResultEntity extends BaseObservable{
         this.noButtonString = noButtonString;
     }
 
-    @Bindable
     public boolean isSuccessLearn() {
         return isSuccessLearn;
     }
 
+    @Bindable
     public void setSuccessLearn(boolean successLearn) {
         isSuccessLearn = successLearn;
     }

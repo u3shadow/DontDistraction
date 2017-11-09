@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".result.page.ResultActivity"
+            android:name=".result.ResultActivity"
             android:screenOrientation="portrait"
             android:theme="@style/mytheme" />
         <activity

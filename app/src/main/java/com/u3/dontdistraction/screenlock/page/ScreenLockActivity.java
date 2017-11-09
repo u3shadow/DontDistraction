@@ -21,7 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.u3.dontdistraction.R;
-import com.u3.dontdistraction.result.page.ResultActivity;
+import com.u3.dontdistraction.result.ResultActivity;
 import com.u3.dontdistraction.screenlock.gnome.Gnomes;
 import com.u3.dontdistraction.screenlock.problem.Problems;
 import com.u3.dontdistraction.util.MyProgressBar;
