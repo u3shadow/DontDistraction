@@ -29,6 +29,9 @@ android {
     packagingOptions {
         exclude 'LICENSE.txt'
     }
+    dataBinding{
+        enabled true
+    }
 }
 
 dependencies {
