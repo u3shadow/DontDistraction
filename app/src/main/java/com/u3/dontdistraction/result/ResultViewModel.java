@@ -35,7 +35,9 @@ public class ResultViewModel {
         this.activity = activity;
         this.binding = binding;
         this.binding.setVariable(BR.vMode,this);
-        initData();
+        isTimeEnd = activity.getIntent().getBooleanExtra("isTimeEnd",false);
+        Long startTime = activity.getIntent().getLongExtra("startTime", -1);
+        initData(isTimeEnd,startTime);
         setView();
     }
 
@@ -67,12 +69,11 @@ public class ResultViewModel {
     private void setFailEntity() {
         resultEntity.setLearnResultString(activity.getResources().getString(R.string.bad_result_msg));
     }
-  public void initData() {
+  public void initData(boolean isTimeEnd,Long start) {
         ScreenLockActivity.isTimed = false;
         RecordDal recordDal = new RecordDal(activity);
-        isTimeEnd = activity.getIntent().getBooleanExtra("isTimeEnd",false);
         Date startTime =new Date();
-        startTime.setTime(activity.getIntent().getLongExtra("startTime", -1));
+        startTime.setTime(start);
         Date now = new Date();
         Long duration = now.getTime() - startTime.getTime();
         int durationMinu = (int)(duration/(1000*60));
