@@ -28,7 +28,6 @@ public class ResultViewModel {
     private boolean isTimeEnd;
     public ResultViewModel(Activity activity,ViewDataBinding binding){
         resultEntity = new ResultEntity();
-        resultEntity.setResultPicId("R.drawable.smile");
         resultEntity.setLearnResultString(activity.getResources().getString(R.string.good_result_msg));
         resultEntity.setOkButtonString(activity.getResources().getString(R.string.useagain));
         resultEntity.setNoButtonString(activity.getResources().getString(R.string.not_send));
@@ -63,14 +62,10 @@ public class ResultViewModel {
         if (TimeRecoder.canRecord()&&TimeRecoder.hadNotRecord()) {
             resultEntity.setOkButtonString(activity.getResources().getString(R.string.addfootprint));
         }
-        else {
-            resultEntity.setOkButtonString(activity.getResources().getString(R.string.useagain));
-        }
     }
 
     private void setFailEntity() {
         resultEntity.setLearnResultString(activity.getResources().getString(R.string.bad_result_msg));
-        resultEntity.setOkButtonString(activity.getResources().getString(R.string.useagain));
     }
   public void initData() {
         ScreenLockActivity.isTimed = false;
