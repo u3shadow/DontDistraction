@@ -43,7 +43,6 @@ public class ResultActivityTest {
     public void is_start_correct_activity_after_click_notsend() {
         ResultActivity activity = Robolectric.setupActivity(ResultActivity.class);
         Intent expected = new Intent(activity, MainActivity.class);
-        activity.findViewById(R.id.bt_notsend).performClick();
         Intent actual = ShadowApplication.getInstance().getNextStartedActivity();
         Assert.assertEquals(expected, actual);
     }

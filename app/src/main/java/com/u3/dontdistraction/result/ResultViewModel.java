@@ -50,39 +50,27 @@ public class ResultViewModel {
         }
     }
     public void okClickEvent(View view){
-         Intent mIntent = new Intent(activity, MainActivity.class);
-         activity.startActivity(mIntent);
-         activity.finish();
+        Intent mIntent = new Intent(activity, MainActivity.class);
+        if (TimeRecoder.canRecord()&&TimeRecoder.hadNotRecord()) {
+            mIntent.putExtra("isFootPrint",true);
+        }
+        activity.startActivity(mIntent);
+        activity.finish();
     }
 
-    public void successNoClickEvent(View view){
-
-    }
     private void setSuccessEntity() {
         resultEntity.setLearnResultString(activity.getResources().getString(R.string.good_result_msg));
         if (TimeRecoder.canRecord()&&TimeRecoder.hadNotRecord()) {
-            resultEntity.setNoButtonString(activity.getResources().getString(R.string.addfootprint));
-            /*
-            noSendButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent mIntentfp = new Intent(ResultActivity.this,MainActivity.class);
-                    mIntentfp.putExtra("isFootPrint",true);
-                    startActivity(mIntentfp);
-                    finish();
-                }
-            });
-        }else{
-            noSendButton.setVisibility(View.GONE);
-        }*/
+            resultEntity.setOkButtonString(activity.getResources().getString(R.string.addfootprint));
         }
-        resultEntity.setOkButtonString(activity.getResources().getString(R.string.useagain));
+        else {
+            resultEntity.setOkButtonString(activity.getResources().getString(R.string.useagain));
+        }
     }
 
     private void setFailEntity() {
         resultEntity.setLearnResultString(activity.getResources().getString(R.string.bad_result_msg));
-        resultEntity.setOkButtonString(activity.getResources().getString(R.string.badresult));
-        resultEntity.setNoButtonString(activity.getResources().getString(R.string.songle));
+        resultEntity.setOkButtonString(activity.getResources().getString(R.string.useagain));
     }
   public void initData() {
         ScreenLockActivity.isTimed = false;

@@ -24,8 +24,8 @@
     <string name="begain">开始！</string>
     <string name="complete">完成！</string>
     <string name="not_send">返回</string>
-    <string name="bad_result_msg">不太顺利啊，发条微博鼓励下自己吧</string>
-    <string name="good_result_msg">治疗成功！恭喜你！再来一次吧</string>
+    <string name="bad_result_msg">看起来您的注意力还不够集中:(</string>
+    <string name="good_result_msg">恭喜您顺利完成集中目标！</string>
     <string name="input_answer">回答问题来解锁</string>
     <string name="wrong_answer">额，好像答错了哦</string>
     <string name="unlock_success">学习成功</string>
