@@ -35,9 +35,12 @@ public class ResultViewModel {
         this.activity = activity;
         this.binding = binding;
         this.binding.setVariable(BR.vMode,this);
+    }
+    public void calResult(){
         isTimeEnd = activity.getIntent().getBooleanExtra("isTimeEnd",false);
         Long startTime = activity.getIntent().getLongExtra("startTime", -1);
-        initData(isTimeEnd,startTime);
+        addTime(isTimeEnd,startTime);
+        addRecord(isTimeEnd,startTime);
         setView();
     }
 
@@ -69,9 +72,26 @@ public class ResultViewModel {
     private void setFailEntity() {
         resultEntity.setLearnResultString(activity.getResources().getString(R.string.bad_result_msg));
     }
-  public void initData(boolean isTimeEnd,Long start) {
+    public void addTime(boolean isTimeEnd, Long start){
+        Date startTime =new Date();
+        startTime.setTime(start);
+        Date now = new Date();
+        Long duration = now.getTime() - startTime.getTime();
+        int durationMinu = (int)(duration/(1000*60));
+        TimeRecoder.addTime(durationMinu);
+    }
+    public void addRecord(boolean isTimeEnd, Long start) {
         ScreenLockActivity.isTimed = false;
         RecordDal recordDal = new RecordDal(activity);
+        Record record = getRecord(isTimeEnd,start);
+
+        try {
+            recordDal.addRecord(record);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    private Record getRecord(boolean isTimeEnd,Long start){
         Date startTime =new Date();
         startTime.setTime(start);
         Date now = new Date();
@@ -80,11 +100,6 @@ public class ResultViewModel {
         int durationSec = (int)(duration - durationMinu*60000)/1000;
         Log.i("date123", durationMinu+" : "+durationSec);
         Record record = new Record(isTimeEnd,startTime,now,durationMinu,durationSec);
-        TimeRecoder.addTime(durationMinu);
-        try {
-            recordDal.addRecord(record);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        return record;
     }
 }

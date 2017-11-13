@@ -22,6 +22,7 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ViewDataBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_result);
         ResultViewModel viewModel = new ResultViewModel(this,binding);
+        viewModel.calResult();
         setEndReciver();
     }
 
